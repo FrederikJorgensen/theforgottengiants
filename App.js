@@ -29,10 +29,7 @@ const AppNavigator = createStackNavigator({
 const styles = StyleSheet.create({
   container: {
     fontFamily: "amatic-sc",
-    fontSize: 20,
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    fontSize: 20
   }
 });
 export default createAppContainer(AppNavigator);
