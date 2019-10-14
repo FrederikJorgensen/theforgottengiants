@@ -12,21 +12,19 @@ import {
 import * as Font from "expo-font";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-
-import Home from "./screens/Home";
 import AllGiants from "./screens/AllGiants";
-import { withNavigation } from "react-navigation";
+import HomeScreen from "./screens/HomeScreen";
 
-const RootStack = createStackNavigator({
-  Home: { screen: Home },
-  AllGiants: { screen: AllGiants }
-});
-
-export default class App extends React.Component {
+class App extends React.Component {
   render() {
     return <Home />;
   }
 }
+
+const AppNavigator = createStackNavigator({
+  Home: HomeScreen,
+  AllGiants: AllGiants
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -37,3 +35,4 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   }
 });
+export default createAppContainer(AppNavigator);

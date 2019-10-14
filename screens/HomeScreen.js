@@ -11,10 +11,8 @@ import {
 } from "react-native";
 import * as Font from "expo-font";
 import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
-import { withNavigation } from "react-navigation";
 
-export default class Home extends React.Component {
+export default class HomeScreen extends React.Component {
   state = {
     assetsLoaded: false
   };
@@ -95,3 +93,5 @@ const styles = StyleSheet.create({
     borderRadius: 5
   }
 });
+
+
