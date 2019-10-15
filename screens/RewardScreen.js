@@ -38,14 +38,24 @@ export default class RewardScreen extends Component {
         </Text>
         <View style={styles.container}>
           <TouchableOpacity style={styles.customBtnBG}>
-            <Text style={styles.customBtnText}>LISTEN TO TEDDY</Text>
+            <View style={styles.listenButton}>
+              <Text style={styles.customBtnText}>LISTEN TO TEDDY</Text>
+              <Image
+                style={{ marginLeft: 5 }}
+                source={require("../assets/images/sound.png")}
+              />
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.readButton}
+            onPress={() => this.props.navigation.navigate("AboutGiantScreen")}
+          >
+            <Text style={styles.customBtnText}>READ ABOUT TEDDY</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.customBtnBG}>
-            <Text style={styles.customBtnText}>READ ABOUT TEDDY</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.customBtnBG}>
-            <Text style={styles.customBtnText}>NEXT GIANT</Text>
+            <Text style={styles.customBtnText}>NEXT GIANT ></Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -54,18 +64,33 @@ export default class RewardScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+  readButton: {
+    marginTop: 20,
+    backgroundColor: "#F8C100",
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: 5
+  },
+  listenButton: {
+    marginLeft: 130,
+    flexDirection: "row",
+    alignItems: "center"
+  },
   text: {
     fontFamily: "amatic-sc",
-    fontSize: 24
+    fontSize: 24,
+    color: "#828282",
+    marginLeft: 5
   },
   locationText: {
+    marginTop: 30,
     fontFamily: "amatic-sc",
     fontSize: 40,
     textAlign: "center"
   },
   img: {
     width: "100%",
-    height: 263
+    height: 363
   },
   buttonContainer: {
     fontFamily: "Satisfy-Regular",
@@ -80,7 +105,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   customBtnBG: {
-    marginTop: 30,
+    marginTop: 20,
     backgroundColor: "#D48104",
     paddingHorizontal: 10,
     paddingVertical: 5,

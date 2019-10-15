@@ -16,6 +16,7 @@ import AllGiants from "./screens/AllGiants";
 import HomeScreen from "./screens/HomeScreen";
 import MapScreen from "./screens/MapScreen";
 import RewardScreen from "./screens/RewardScreen";
+import AboutGiantScreen from "./screens/AboutGiantScreen";
 
 class App extends React.Component {
   render() {
@@ -27,7 +28,8 @@ const AppNavigator = createStackNavigator({
   HomeScreen: HomeScreen,
   AllGiants: AllGiants,
   MapScreen: MapScreen,
-  RewardScreen: RewardScreen
+  RewardScreen: RewardScreen,
+  AboutGiantScreen: AboutGiantScreen
 });
 
 const styles = StyleSheet.create({
