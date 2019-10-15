@@ -22,12 +22,13 @@ export default class Giant extends React.Component {
           </View>
 
           <View style={{ flex: 1 }}>
-            <Text style={styles.text}>Giant Location</Text>
+            <Text style={styles.text}>{this.props.location}</Text>
           </View>
         </View>
+        {console.log("text")}
         <Image
           style={{ width: 358, height: 242, borderRadius: 15 }}
-          source={require("../assets/images/teddynew.png")}
+          source={this.props.image}
         />
       </View>
     );

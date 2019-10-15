@@ -3,14 +3,12 @@ import {
   StyleSheet,
   Text,
   View,
-  Button,
   ImageBackground,
   ActivityIndicator,
   StatusBar,
   TouchableOpacity
 } from "react-native";
 import * as Font from "expo-font";
-import { createAppContainer } from "react-navigation";
 
 export default class HomeScreen extends React.Component {
   state = {

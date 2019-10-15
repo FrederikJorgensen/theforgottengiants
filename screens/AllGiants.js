@@ -1,9 +1,7 @@
 import React from "react";
-import { View, Text, ScrollView, StyleSheet } from "react-native";
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
-import { withNavigation } from "react-navigation";
+import { Text, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
 import Giant from "../components/Giant";
+console.disableYellowBox = true;
 
 export default class AllGiants extends React.Component {
   async componentDidMount() {
@@ -17,9 +15,32 @@ export default class AllGiants extends React.Component {
   render() {
     return (
       <ScrollView style={{ backgroundColor: "#48972C" }}>
-        <Text></Text>
         <Text style={styles.container}>GO FIND A GIANT</Text>
-        <Giant />
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate("MapScreen")}
+        >
+          <Giant
+            location="HØJE TAASTRUP"
+            image={require("../assets/images/teddynew.png")}
+          />
+        </TouchableOpacity>
+        <Giant location="ISHØJ" image={require("../assets/images/Oscar.png")} />
+        <Giant
+          location="GLOSTRUP"
+          image={require("../assets/images/Louis.png")}
+        />
+        <Giant
+          location="VALLENSBÆK"
+          image={require("../assets/images/Tilde.png")}
+        />
+        <Giant
+          location="ALBERTSLUND"
+          image={require("../assets/images/Thomas.png")}
+        />
+        <Giant
+          location="AVEDØRE"
+          image={require("../assets/images/Trine.png")}
+        />
       </ScrollView>
     );
   }

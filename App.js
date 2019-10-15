@@ -14,6 +14,8 @@ import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import AllGiants from "./screens/AllGiants";
 import HomeScreen from "./screens/HomeScreen";
+import MapScreen from "./screens/MapScreen";
+import RewardScreen from "./screens/RewardScreen";
 
 class App extends React.Component {
   render() {
@@ -22,8 +24,10 @@ class App extends React.Component {
 }
 
 const AppNavigator = createStackNavigator({
-  Home: HomeScreen,
-  AllGiants: AllGiants
+  HomeScreen: HomeScreen,
+  AllGiants: AllGiants,
+  MapScreen: MapScreen,
+  RewardScreen: RewardScreen
 });
 
 const styles = StyleSheet.create({
