@@ -14,9 +14,9 @@ export default class Giant extends React.Component {
     return (
       <View style={styles.container}>
         <View style={{ flexDirection: "row" }}>
-          <View style={{ flex: 1 }}>
+          <View>
             <Image
-              style={{ width: 35, height: 35 }}
+              style={{ width: 33, height: 33, resizeMode: "contain" }}
               source={require("../assets/images/location_emoji.png")}
             />
           </View>
@@ -26,7 +26,7 @@ export default class Giant extends React.Component {
           </View>
         </View>
         <Image
-          style={{ width: 358, height: 242 }}
+          style={{ width: 358, height: 242, borderRadius: 15 }}
           source={require("../assets/images/teddynew.png")}
         />
       </View>

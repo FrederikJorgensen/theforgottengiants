@@ -38,16 +38,12 @@ export default class HomeScreen extends React.Component {
             <Text style={{ fontFamily: "amatic-sc", fontSize: 60 }}>
               The Forgotten Giants
             </Text>
-            <Button
-              title="All Giants"
-              onPress={() => this.props.navigation.navigate("AllGiants")}
-            />
-            {/*  <TouchableOpacity
+            <TouchableOpacity
               style={styles.customBtnBG}
               onPress={() => this.props.navigation.navigate("AllGiants")}
             >
               <Text style={styles.customBtnText}>Begin!</Text>
-            </TouchableOpacity> */}
+            </TouchableOpacity>
           </View>
         </ImageBackground>
       );
@@ -93,5 +89,3 @@ const styles = StyleSheet.create({
     borderRadius: 5
   }
 });
-
-
