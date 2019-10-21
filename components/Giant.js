@@ -1,5 +1,6 @@
 import React from "react";
 import { Text, View, Image, StyleSheet } from "react-native";
+import * as Font from "expo-font";
 
 export default class Giant extends React.Component {
   async componentDidMount() {

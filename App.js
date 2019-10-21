@@ -1,22 +1,11 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  ImageBackground,
-  ActivityIndicator,
-  StatusBar,
-  TouchableOpacity
-} from "react-native";
-import * as Font from "expo-font";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
-import AllGiants from "./screens/AllGiants";
-import HomeScreen from "./screens/HomeScreen";
-import MapScreen from "./screens/MapScreen";
-import RewardScreen from "./screens/RewardScreen";
-import AboutGiantScreen from "./screens/AboutGiantScreen";
+import AllGiantsScreen from "./screens/AllGiantsScreen/AllGiantsScreen";
+import HomeScreen from "./screens/HomeScreen/HomeScreen";
+import MapScreen from "./screens/MapScreen/MapScreen";
+import RewardScreen from "./screens/RewardScreen/RewardScreen";
+import AboutGiantScreen from "./screens/AboutGiantScreen/AboutGiantScreen";
 
 class App extends React.Component {
   render() {
@@ -27,7 +16,7 @@ class App extends React.Component {
 const AppNavigator = createStackNavigator(
   {
     HomeScreen: HomeScreen,
-    AllGiants: AllGiants,
+    AllGiantsScreen: AllGiantsScreen,
     MapScreen: MapScreen,
     RewardScreen: RewardScreen,
     AboutGiantScreen: AboutGiantScreen
@@ -35,10 +24,4 @@ const AppNavigator = createStackNavigator(
   { headerMode: "none" }
 );
 
-const styles = StyleSheet.create({
-  container: {
-    fontFamily: "amatic-sc",
-    fontSize: 20
-  }
-});
 export default createAppContainer(AppNavigator);

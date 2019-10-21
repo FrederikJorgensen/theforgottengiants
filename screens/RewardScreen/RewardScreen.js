@@ -7,14 +7,16 @@ import {
   TouchableOpacity,
   Button
 } from "react-native";
+import { Asset } from "expo-asset";
+import * as Font from "expo-font";
 
 export default class RewardScreen extends Component {
   async componentWillMount() {
-    await Asset.loadAsync([require("../assets/images/teddynew.png")]);
+    await Asset.loadAsync([require("../../assets/images/teddynew.png")]);
 
     await Font.loadAsync({
-      "amatic-sc": require("../assets/fonts/amatic-sc.ttf"),
-      "Satisfy-Regular": require("../assets/fonts/Satisfy-Regular.ttf")
+      "amatic-sc": require("../../assets/fonts/amatic-sc.ttf"),
+      "Satisfy-Regular": require("../../assets/fonts/Satisfy-Regular.ttf")
     });
   }
 
@@ -23,12 +25,12 @@ export default class RewardScreen extends Component {
       <View>
         <Image
           style={styles.img}
-          source={require("../assets/images/teddy-no-overlay.png")}
+          source={require("../../assets/images/teddy-no-overlay.png")}
         />
         <View style={{ flexDirection: "row", marginTop: 15, marginLeft: 15 }}>
           <Image
             style={{ marginTop: 5 }}
-            source={require("../assets/images/loc_emoji.png")}
+            source={require("../../assets/images/loc_emoji.png")}
           />
           <Text style={styles.text}>HØJE TAASTRUP</Text>
         </View>
@@ -42,7 +44,7 @@ export default class RewardScreen extends Component {
               <Text style={styles.customBtnText}>LISTEN TO TEDDY</Text>
               <Image
                 style={{ marginLeft: 5 }}
-                source={require("../assets/images/sound.png")}
+                source={require("../../assets/images/sound.png")}
               />
             </View>
           </TouchableOpacity>
@@ -69,10 +71,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#F8C100",
     paddingHorizontal: 10,
     paddingVertical: 5,
-    borderRadius: 5
+    borderRadius: 5,
+    marginLeft: 20,
+    marginRight: 20
   },
   listenButton: {
-    marginLeft: 130,
     flexDirection: "row",
     alignItems: "center"
   },
@@ -106,6 +109,8 @@ const styles = StyleSheet.create({
   },
   customBtnBG: {
     marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
     backgroundColor: "#D48104",
     paddingHorizontal: 10,
     paddingVertical: 5,

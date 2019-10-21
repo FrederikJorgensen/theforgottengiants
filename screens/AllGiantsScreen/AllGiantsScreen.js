@@ -6,14 +6,15 @@ import {
   StyleSheet,
   TouchableOpacity
 } from "react-native";
-import Giant from "../components/Giant";
+import Giant from "../../components/Giant";
 console.disableYellowBox = true;
+import * as Font from "expo-font";
 
-export default class AllGiants extends React.Component {
+export default class AllGiantsScreen extends React.Component {
   async componentDidMount() {
     await Font.loadAsync({
-      "amatic-sc": require("../assets/fonts/amatic-sc.ttf"),
-      "Satisfy-Regular": require("../assets/fonts/Satisfy-Regular.ttf")
+      "amatic-sc": require("../../assets/fonts/amatic-sc.ttf"),
+      "Satisfy-Regular": require("../../assets/fonts/Satisfy-Regular.ttf")
     });
     this.setState({ assetsLoaded: true });
   }
@@ -31,32 +32,32 @@ export default class AllGiants extends React.Component {
             <Giant
               style={styles.giant}
               location="HØJE TAASTRUP"
-              image={require("../assets/images/teddynew.png")}
+              image={require("../../assets/images/teddynew.png")}
             />
           </TouchableOpacity>
           <Giant
             location="ISHØJ"
-            image={require("../assets/images/Oscar.png")}
+            image={require("../../assets/images/Oscar.png")}
           />
           <Giant
             style={styles.giant}
             location="GLOSTRUP"
-            image={require("../assets/images/Louis.png")}
+            image={require("../../assets/images/Louis.png")}
           />
           <Giant
             style={styles.giant}
             location="VALLENSBÆK"
-            image={require("../assets/images/Tilde.png")}
+            image={require("../../assets/images/Tilde.png")}
           />
           <Giant
             style={styles.giant}
             location="ALBERTSLUND"
-            image={require("../assets/images/Thomas.png")}
+            image={require("../../assets/images/Thomas.png")}
           />
           <Giant
             style={styles.giant}
             location="AVEDØRE"
-            image={require("../assets/images/Trine.png")}
+            image={require("../../assets/images/Trine.png")}
           />
         </ScrollView>
       </View>
