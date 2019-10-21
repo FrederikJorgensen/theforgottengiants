@@ -1,5 +1,11 @@
 import React from "react";
-import { Text, ScrollView, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity
+} from "react-native";
 import Giant from "../components/Giant";
 console.disableYellowBox = true;
 
@@ -14,46 +20,60 @@ export default class AllGiants extends React.Component {
 
   render() {
     return (
-      <ScrollView style={{ backgroundColor: "#48972C" }}>
-        <Text style={styles.container}>GO FIND A GIANT</Text>
-        <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("MapScreen")}
+      <View style={styles.container}>
+        <ScrollView
+          contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
         >
+          <Text style={styles.giantText}>GO FIND A GIANT</Text>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("MapScreen")}
+          >
+            <Giant
+              style={styles.giant}
+              location="HØJE TAASTRUP"
+              image={require("../assets/images/teddynew.png")}
+            />
+          </TouchableOpacity>
           <Giant
-            location="HØJE TAASTRUP"
-            image={require("../assets/images/teddynew.png")}
+            location="ISHØJ"
+            image={require("../assets/images/Oscar.png")}
           />
-        </TouchableOpacity>
-        <Giant location="ISHØJ" image={require("../assets/images/Oscar.png")} />
-        <Giant
-          location="GLOSTRUP"
-          image={require("../assets/images/Louis.png")}
-        />
-        <Giant
-          location="VALLENSBÆK"
-          image={require("../assets/images/Tilde.png")}
-        />
-        <Giant
-          location="ALBERTSLUND"
-          image={require("../assets/images/Thomas.png")}
-        />
-        <Giant
-          location="AVEDØRE"
-          image={require("../assets/images/Trine.png")}
-        />
-      </ScrollView>
+          <Giant
+            style={styles.giant}
+            location="GLOSTRUP"
+            image={require("../assets/images/Louis.png")}
+          />
+          <Giant
+            style={styles.giant}
+            location="VALLENSBÆK"
+            image={require("../assets/images/Tilde.png")}
+          />
+          <Giant
+            style={styles.giant}
+            location="ALBERTSLUND"
+            image={require("../assets/images/Thomas.png")}
+          />
+          <Giant
+            style={styles.giant}
+            location="AVEDØRE"
+            image={require("../assets/images/Trine.png")}
+          />
+        </ScrollView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+    backgroundColor: "#48972C"
+  },
+  giantText: {
     fontFamily: "amatic-sc",
     fontSize: 60,
     color: "white",
-    marginLeft: 20,
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
-  }
+    marginTop: "15%"
+  },
+  giant: {}
 });

@@ -24,13 +24,16 @@ class App extends React.Component {
   }
 }
 
-const AppNavigator = createStackNavigator({
-  HomeScreen: HomeScreen,
-  AllGiants: AllGiants,
-  MapScreen: MapScreen,
-  RewardScreen: RewardScreen,
-  AboutGiantScreen: AboutGiantScreen
-});
+const AppNavigator = createStackNavigator(
+  {
+    HomeScreen: HomeScreen,
+    AllGiants: AllGiants,
+    MapScreen: MapScreen,
+    RewardScreen: RewardScreen,
+    AboutGiantScreen: AboutGiantScreen
+  },
+  { headerMode: "none" }
+);
 
 const styles = StyleSheet.create({
   container: {

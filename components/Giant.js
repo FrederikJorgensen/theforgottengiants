@@ -12,7 +12,7 @@ export default class Giant extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <View style={{ flexDirection: "row" }}>
           <View>
             <Image
@@ -21,29 +21,23 @@ export default class Giant extends React.Component {
             />
           </View>
 
-          <View style={{ flex: 1 }}>
+          <View>
             <Text style={styles.text}>{this.props.location}</Text>
           </View>
         </View>
-        {console.log("text")}
-        <Image
-          style={{ width: 358, height: 242, borderRadius: 15 }}
-          source={this.props.image}
-        />
+        <Image style={styles.giantImage} source={this.props.image} />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    marginTop: 30,
-    marginLeft: 30,
-    marginRight: 30
-  },
   text: {
     color: "white",
     fontFamily: "amatic-sc",
     fontSize: 35
+  },
+  giantImage: {
+    borderRadius: 15
   }
 });
