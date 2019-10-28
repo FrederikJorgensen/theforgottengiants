@@ -1,16 +1,52 @@
 import React from "react";
-import {
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity
-} from "react-native";
-import Giant from "../../components/Giant";
+import { View, Text, ScrollView, TouchableOpacity } from "react-native";
+import Giant from "../../components/Giant/Giant";
+import styles from "./AllGiantsStyles";
 console.disableYellowBox = true;
 import * as Font from "expo-font";
 
 export default class AllGiantsScreen extends React.Component {
+  state = {
+    giants: [
+      {
+        id: 1,
+        name: "Teddy",
+        location: "HØJE TAASTRUP",
+        image: require("../../assets/images/Teddy.png")
+      },
+      {
+        id: 2,
+        name: "Oscar Under The Bridge",
+        location: "Ishøj",
+        image: require("../../assets/images/Oscar.png")
+      },
+      {
+        id: 3,
+        name: "Sleeping Louis",
+        location: "Glostrup",
+        image: require("../../assets/images/Louis.png")
+      },
+      {
+        id: 4,
+        name: "Little Tilde",
+        location: "Vallensbæk",
+        image: require("../../assets/images/Tilde.png")
+      },
+      {
+        id: 5,
+        name: "Thomas on The Mountain",
+        location: "Albertslund",
+        image: require("../../assets/images/Thomas.png")
+      },
+      {
+        id: 6,
+        name: "Trine",
+        location: "Avedøre",
+        image: require("../../assets/images/Trine.png")
+      }
+    ]
+  };
+
   async componentDidMount() {
     await Font.loadAsync({
       "amatic-sc": require("../../assets/fonts/amatic-sc.ttf"),
@@ -20,61 +56,22 @@ export default class AllGiantsScreen extends React.Component {
   }
 
   render() {
+    const { giants } = this.state;
     return (
       <View style={styles.container}>
-        <ScrollView
-          contentContainerStyle={{ flexGrow: 1, justifyContent: "center" }}
-        >
+        <ScrollView>
           <Text style={styles.giantText}>GO FIND A GIANT</Text>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("MapScreen")}
-          >
+          {this.state.giants.map(giant => (
             <Giant
               style={styles.giant}
-              location="HØJE TAASTRUP"
-              image={require("../../assets/images/teddynew.png")}
+              name={giant.name}
+              location={giant.location}
+              image={giant.image}
+              key={giant.id}
             />
-          </TouchableOpacity>
-          <Giant
-            location="ISHØJ"
-            image={require("../../assets/images/Oscar.png")}
-          />
-          <Giant
-            style={styles.giant}
-            location="GLOSTRUP"
-            image={require("../../assets/images/Louis.png")}
-          />
-          <Giant
-            style={styles.giant}
-            location="VALLENSBÆK"
-            image={require("../../assets/images/Tilde.png")}
-          />
-          <Giant
-            style={styles.giant}
-            location="ALBERTSLUND"
-            image={require("../../assets/images/Thomas.png")}
-          />
-          <Giant
-            style={styles.giant}
-            location="AVEDØRE"
-            image={require("../../assets/images/Trine.png")}
-          />
+          ))}
         </ScrollView>
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#48972C"
-  },
-  giantText: {
-    fontFamily: "amatic-sc",
-    fontSize: 60,
-    color: "white",
-    marginTop: "15%"
-  },
-  giant: {}
-});

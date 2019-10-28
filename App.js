@@ -7,12 +7,6 @@ import MapScreen from "./screens/MapScreen/MapScreen";
 import RewardScreen from "./screens/RewardScreen/RewardScreen";
 import AboutGiantScreen from "./screens/AboutGiantScreen/AboutGiantScreen";
 
-class App extends React.Component {
-  render() {
-    return <Home />;
-  }
-}
-
 const AppNavigator = createStackNavigator(
   {
     HomeScreen: HomeScreen,
