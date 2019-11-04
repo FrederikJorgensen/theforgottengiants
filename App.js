@@ -6,6 +6,7 @@ import HomeScreen from "./screens/HomeScreen/HomeScreen";
 import MapScreen from "./screens/MapScreen/MapScreen";
 import RewardScreen from "./screens/RewardScreen/RewardScreen";
 import AboutGiantScreen from "./screens/AboutGiantScreen/AboutGiantScreen";
+import RewardCollectionScreen from "./screens/RewardCollection/RewardCollectionScreen";
 
 const AppNavigator = createStackNavigator(
   {
@@ -13,7 +14,8 @@ const AppNavigator = createStackNavigator(
     AllGiantsScreen: AllGiantsScreen,
     MapScreen: MapScreen,
     RewardScreen: RewardScreen,
-    AboutGiantScreen: AboutGiantScreen
+    AboutGiantScreen: AboutGiantScreen,
+    RewardCollectionScreen: RewardCollectionScreen
   },
   { headerMode: "none" }
 );

@@ -59,6 +59,10 @@ export default class AllGiantsScreen extends React.Component {
     const { giants } = this.state;
     return (
       <View style={styles.container}>
+        <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("RewardCollectionScreen")}>
+              
+            
         <ScrollView>
           <Text style={styles.giantText}>GO FIND A GIANT</Text>
           {this.state.giants.map(giant => (
@@ -71,6 +75,7 @@ export default class AllGiantsScreen extends React.Component {
             />
           ))}
         </ScrollView>
+        </TouchableOpacity>
       </View>
     );
   }
