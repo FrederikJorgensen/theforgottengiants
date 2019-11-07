@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#48972C",
-    
+
   },
   rewardTitle: {
     fontFamily: "amatic-sc",
