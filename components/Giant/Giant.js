@@ -29,5 +29,6 @@ export default class Giant extends React.Component {
         <Image style={styles.giantImage} source={this.props.image} />
       </View>
     );
+    
   }
 }
