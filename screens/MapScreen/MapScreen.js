@@ -7,6 +7,7 @@ import {
   Dimensions
 } from "react-native";
 import MapView from "react-native-maps";
+import { OrangeButton } from "../../components/Buttons/OrangeButton";
 
 export default class MapScreen extends React.Component {
   render() {
@@ -14,7 +15,11 @@ export default class MapScreen extends React.Component {
       <View style={styles.container}>
         <MapView style={styles.mapStyle} />
         <View style={styles.bottom}>
-          <Text>NEAREST TRAIN STATION: {this.props.location}</Text>
+          <Text>NEAREST TRAIN STATION: Ishøj st. </Text>
+          <OrangeButton
+            btnText='Next >'
+            onPress={() => this.props.navigation.navigate("RewardScreen")}>
+          </OrangeButton>
         </View>
       </View>
     );
@@ -29,7 +34,10 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   bottom: {
-    flex: 1
+    fontFamily: "amatic-sc",
+    fontSize: 20,
+    flex: 1,
+    marginLeft: 7
   },
   mapStyle: {
     width: Dimensions.get("window").width,

@@ -5,13 +5,21 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
-  Button
+  Button,
+  ImageBackground,
 } from "react-native";
 import { Asset } from "expo-asset";
 import * as Font from "expo-font";
 import styles from "./RewardScreenStyles";
+import { ListenToAudioButton } from "../../components/Buttons/ListenToAudioButton";
+import { YellowButton } from "../../components/Buttons/YellowButton";
+import { OrangeButton } from "../../components/Buttons/OrangeButton";
+import { BigReward } from "../../components/Reward/BigReward";
+import { Location } from "../../components/location/Location";
 
 export default class RewardScreen extends Component {
+
+
   async componentWillMount() {
     await Asset.loadAsync([require("../../assets/images/teddynew.png")]);
 
@@ -24,44 +32,35 @@ export default class RewardScreen extends Component {
   render() {
     return (
       <View>
-        <Image
+        <ImageBackground
           style={styles.img}
-          source={require("../../assets/images/teddy-no-overlay.png")}
-        />
-        <View style={{ flexDirection: "row", marginTop: 15, marginLeft: 15 }}>
-          <Image
-            style={{ marginTop: 5 }}
-            source={require("../../assets/images/loc_emoji.png")}
-          />
-          <Text style={styles.text}>HØJE TAASTRUP</Text>
-        </View>
-
-        <Text style={styles.locationText}>
-          CONGRATS! YOU FOUND TEDDY FRIENDLY!
-        </Text>
-        <View style={styles.container}>
-          <TouchableOpacity style={styles.customBtnBG}>
-            <View style={styles.listenButton}>
-              <Text style={styles.customBtnText}>LISTEN TO TEDDY</Text>
-              <Image
-                style={{ marginLeft: 5 }}
-                source={require("../../assets/images/sound.png")}
-              />
-            </View>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.readButton}
-            onPress={() => this.props.navigation.navigate("AboutGiantScreen")}
-          >
-            <Text style={styles.customBtnText}>READ ABOUT TEDDY</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.customBtnBG}>
-            <Text style={styles.customBtnText}>NEXT GIANT ></Text>
-          </TouchableOpacity>
-        </View>
+          source={require("../../assets/images/teddy-no-overlay.png")}>
+          <BigReward/>
+        </ImageBackground>
+      <View style={{ flexDirection: "row", marginTop: 15, marginLeft: 15 }}>
+        <Location/>
       </View>
+      <View>
+        <Text style={styles.locationText}>
+            CONGRATS. YOU FOUND TEDDY FRIENDLY!
+        </Text>
+          <ListenToAudioButton
+            onPress={() => this.props.navigation.navigate("HomeScreen")}>
+          </ListenToAudioButton>
+          <YellowButton
+            btnText='Read about Teddy'
+            onPress={() => this.props.navigation.navigate("AboutGiantScreen")}>
+          </YellowButton>
+          <OrangeButton
+            btnText='Go find a new giant >'
+            onPress={() => this.props.navigation.navigate("AllGiantsScreen")}>
+          </OrangeButton>
+          <YellowButton
+            btnText='Your rewards'
+            onPress={() => this.props.navigation.navigate("RewardCollection")}>
+          </YellowButton>
+      </View>
+</View>
     );
   }
-}
+};

@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     width: wp("70%"),
     resizeMode: "cover",
     borderRadius: 15,
-    
+
   }
 });
 

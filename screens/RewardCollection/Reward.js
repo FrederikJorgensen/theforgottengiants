@@ -15,12 +15,12 @@ export default class Reward extends React.Component {
     return (
       <View>
         <View style={{ flexDirection: "row" }}>
-        
+
           <View>
           <Image style={styles.rewardImage} source={this.props.image} />
 
           </View>
-          
+
 
         </View>
         <Text style={styles.text}>{this.props.name}</Text>
