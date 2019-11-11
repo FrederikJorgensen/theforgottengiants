@@ -8,62 +8,38 @@ import {
 } from "react-native";
 import MapView from "react-native-maps";
 import { OrangeButton } from "../../components/Buttons/OrangeButton";
+import { YellowButton } from "../../components/Buttons/YellowButton";
 
 export default class MapScreen extends React.Component {
   state = {
-
+    region: {
+      latitude: 55.661838,
+      longitude: 12.266058,
+      latitudeDelta: 0.0122,
+      longitudeDelta: 0.0121
+    }
   };
 
-  async getCurrentLocation() {
-    navigator.geolocation.getCurrentPosition(
-        position => {
-        let region = {
-                latitude: parseFloat(position.coords.latitude),
-                longitude: parseFloat(position.coords.longitude),
-                latitudeDelta: 0.0322,
-                longitudeDelta: 0.0221
-            };
-
-        this.setState({
-            initialRegion: region
-          });
-        },
-
-        error => console.log(error),
-        {
-            enableHighAccuracy: true,
-            timeout: 20000,
-            maximumAge: 1000
-        }
-    );
-}
-
-componentDidMount(){
- this.getCurrentLocation();
-}
-
-goToInitialLocation() {
-    let initialRegion = Object.assign({}, this.state.initialRegion);
-    initialRegion["latitudeDelta"] = 0.005;
-    initialRegion["longitudeDelta"] = 0.005;
-    this.mapView.animateToRegion(initialRegion, 2000);
-  }
 
   render() {
     return (
       <View style={styles.container}>
         <MapView
           style={styles.mapStyle}
-          region={this.state.region}
-          followUserLocation={true}
-          ref={ref => (this.mapView = ref)}
-          zoomEnabled={true}
-          showsUserLocation={true}
-          onMapReady={this.goToInitialLocation.bind(this)}
-          initialRegion={this.state.initialRegion}
-        />
+          initialRegion={this.state.region}>
+          <MapView.Circle
+            center={this.state.region}
+            radius={175}
+            strokeWidth={2}
+            strokeColor="#D48104"
+            fillColor="#48972C"
+          />
+        </MapView>
         <View style={styles.bottom}>
-          <Text style={styles.textStyle}> Public transport: Ishøj st. </Text>
+          <YellowButton
+            btnText="Practical info"
+            onPress={() => this.props.navigation.navigate("PracticalInfo")}>
+          </YellowButton>
           <OrangeButton
             btnText='Next >'
             onPress={() => this.props.navigation.navigate("RewardScreen")}>
