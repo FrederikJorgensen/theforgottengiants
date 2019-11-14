@@ -13,8 +13,8 @@ import { YellowButton } from "../../components/Buttons/YellowButton";
 export default class MapScreen extends React.Component {
   state = {
     region: {
-      latitude: 55.662811,
-      longitude: 12.562363,
+      latitude: 55.661788,
+      longitude: 12.266105,
       latitudeDelta: 0.1022,
       longitudeDelta: 0.1021
     }
