@@ -7,8 +7,8 @@ export default [
     adress: "Hakkemosevej, 2630 Taastrup",
     transport: "Høje Taastrup st., bus 167",
     region: {
-      latitude: 55.661704,
-      longitude: 12.266036,
+      latitude: 55.661788,
+      longitude: 12.266105,
       latitudeDelta: 0.1022,
       longitudeDelta: 0.1021
     }
