@@ -20,13 +20,10 @@ export default class MapScreen extends React.Component {
     }
   };
 
-
   render() {
     return (
       <View style={styles.container}>
-        <MapView
-          style={styles.mapStyle}
-          initialRegion={this.state.region}>
+        <MapView style={styles.mapStyle} initialRegion={this.state.region}>
           <MapView.Circle
             center={this.state.region}
             radius={175}
@@ -38,12 +35,12 @@ export default class MapScreen extends React.Component {
         <View style={styles.bottom}>
           <YellowButton
             btnText="Practical info"
-            onPress={() => this.props.navigation.navigate("PracticalInfo")}>
-          </YellowButton>
+            onPress={() => this.props.navigation.navigate("PracticalInfo")}
+          ></YellowButton>
           <OrangeButton
-            btnText='Next >'
-            onPress={() => this.props.navigation.navigate("RewardScreen")}>
-          </OrangeButton>
+            btnText="Next >"
+            onPress={() => this.props.navigation.navigate("RewardScreen")}
+          ></OrangeButton>
         </View>
       </View>
     );
