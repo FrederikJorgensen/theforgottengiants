@@ -32,7 +32,7 @@ export default class MapScreen extends React.Component {
             radius={175}
             strokeWidth={2}
             strokeColor="#D48104"
-            fillColor="#48972C"
+            fillColor="rgba(83, 106, 225, 0.51)"
           />
         </MapView>
         <View style={styles.bottom}>
