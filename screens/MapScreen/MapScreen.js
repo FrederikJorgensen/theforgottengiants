@@ -23,14 +23,9 @@ export default class MapScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-<<<<<<< Updated upstream
-        <MapView style={styles.mapStyle} initialRegion={this.state.region}>
-=======
-        <MapView
-          style={styles.mapStyle}
-          initialRegion={this.state.region}
-          showsUserLocation={true}>
->>>>>>> Stashed changes
+        <MapView style={styles.mapStyle} 
+        initialRegion={this.state.region}
+        showsUserLocation={true}>
           <MapView.Circle
             center={this.state.region}
             radius={175}
