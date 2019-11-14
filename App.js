@@ -17,7 +17,14 @@ const AppNavigator = createStackNavigator(
     AboutGiantScreen: AboutGiantScreen,
     RewardCollection: RewardCollection
   },
-  { headerMode: "none" }
+  {
+    defaultNavigationOptions: {
+      headerTintColor: "#D48104",
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+    },
+  }
 );
 
 export default createAppContainer(AppNavigator);
