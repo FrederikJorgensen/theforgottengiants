@@ -13,17 +13,24 @@ import { YellowButton } from "../../components/Buttons/YellowButton";
 export default class MapScreen extends React.Component {
   state = {
     region: {
-      latitude: 55.661838,
-      longitude: 12.266058,
-      latitudeDelta: 0.0122,
-      longitudeDelta: 0.0121
+      latitude: 55.662811,
+      longitude: 12.562363,
+      latitudeDelta: 0.1022,
+      longitudeDelta: 0.1021
     }
   };
 
   render() {
     return (
       <View style={styles.container}>
+<<<<<<< Updated upstream
         <MapView style={styles.mapStyle} initialRegion={this.state.region}>
+=======
+        <MapView
+          style={styles.mapStyle}
+          initialRegion={this.state.region}
+          showsUserLocation={true}>
+>>>>>>> Stashed changes
           <MapView.Circle
             center={this.state.region}
             radius={175}
