@@ -9,6 +9,27 @@ import AboutGiantScreen from "./screens/AboutGiantScreen/AboutGiantScreen";
 import RewardCollection from "./screens/RewardCollection//RewardCollectionScreen";
 import PracticalInfo from "./screens/PracticalInfo//PracticalInfo";
 
+<<<<<<< HEAD
+const AppNavigator = createStackNavigator(
+  {
+    HomeScreen: HomeScreen,
+    AllGiantsScreen: AllGiantsScreen,
+    MapScreen: MapScreen,
+    RewardScreen: RewardScreen,
+    AboutGiantScreen: AboutGiantScreen,
+    RewardCollection: RewardCollection,
+    PracticalInfo: PracticalInfo
+  },
+  {
+      defaultNavigationOptions: {
+        headerTintColor: "#D48104",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+      },
+    }
+);
+=======
 const AppNavigator = createStackNavigator({
   HomeScreen: HomeScreen,
   AllGiantsScreen: AllGiantsScreen,
@@ -18,5 +39,6 @@ const AppNavigator = createStackNavigator({
   RewardCollection: RewardCollection,
   PracticalInfo: PracticalInfo
 });
+>>>>>>> map
 
 export default createAppContainer(AppNavigator);
