@@ -32,10 +32,9 @@ export default class MapScreen extends React.Component {
           initialRegion={this.state.region}
           showsUserLocation={true}
           followUserLocation={true}
-        >
           initialRegion={navigation.getParam("region")}
           showsUserLocation={true}
-          >
+        >
           <MapView.Circle
             center={navigation.getParam("region")}
             showUserLocation={true}
@@ -45,10 +44,6 @@ export default class MapScreen extends React.Component {
             fillColor="rgba(83, 106, 225, 0.51)"
           />
         </MapView>
-        <Text style={styles.distanceText}>
-          {" "}
-          You are {this.state.distance} meters away from the Giant{" "}
-        </Text>
 
         <View style={styles.bottom}>
           <Text style={styles.distanceText}>
@@ -100,5 +95,11 @@ const styles = StyleSheet.create({
   mapStyle: {
     width: Dimensions.get("window").width,
     flex: 3
+  },
+  distanceText: {
+    fontSize: 30,
+    fontFamily: "amatic-sc",
+    marginTop: 5,
+    alignItems: "center"
   }
 });

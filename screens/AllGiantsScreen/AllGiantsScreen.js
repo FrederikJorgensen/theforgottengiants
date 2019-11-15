@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import Giant from "../../components/Giant/Giant";
 import styles from "./AllGiantsStyles";
-// console.disableYellowBox = true;
 import * as Font from "expo-font";
 import giants from "../../data/giants";
 
@@ -23,6 +22,7 @@ class AllGiantsScreen extends React.Component {
 
           {giants.map(giant => (
             <TouchableOpacity
+              key={giant.id}
               onPress={() =>
                 this.props.navigation.navigate("MapScreen", {
                   id: giant.id,
