@@ -62,10 +62,13 @@ class AllGiantsScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView>
           <Text style={styles.giantText}>GO FIND A GIANT</Text>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("MapScreen")}
-          >
-            {giants.map(giant => (
+
+          {giants.map(giant => (
+            <TouchableOpacity
+              onPress={() =>
+                this.props.navigation.navigate("MapScreen", { id: giant.id })
+              }
+            >
               <Giant
                 style={styles.giant}
                 name={giant.name}
@@ -73,9 +76,10 @@ class AllGiantsScreen extends React.Component {
                 image={giant.image}
                 key={giant.id}
               />
-            ))}
-          </TouchableOpacity>
+            </TouchableOpacity>
+          ))}
         </ScrollView>
+        {giant.name}
       </View>
     );
   }
