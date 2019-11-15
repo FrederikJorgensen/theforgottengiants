@@ -48,6 +48,10 @@ export default class MapScreen extends React.Component {
             fillColor="rgba(83, 106, 225, 0.51)"
           />
         </MapView>
+        <Text style={styles.distanceText}>
+          {" "}
+          You are {this.state.distance} meters away from the Giant{" "}
+        </Text>
 
         <View style={styles.bottom}>
           <OrangeButton
@@ -60,18 +64,10 @@ export default class MapScreen extends React.Component {
             }
           ></OrangeButton>
 
-          <Text style={styles.distanceText}>
-            {" "}
-            You are {this.state.distance} meters away from the Giant{" "}
-          </Text>
           <YellowButton
             btnText="Practical info"
             onPress={() => this.props.navigation.navigate("PracticalInfo")}
           ></YellowButton>
-          <OrangeButton
-            btnText="Next >"
-            onPress={() => this.props.navigation.navigate("RewardScreen")}
-          ></OrangeButton>
         </View>
       </View>
     );
@@ -99,5 +95,11 @@ const styles = StyleSheet.create({
   mapStyle: {
     width: Dimensions.get("window").width,
     flex: 3
+  },
+  distanceText: {
+    fontSize: 30,
+    fontFamily: "amatic-sc",
+    marginTop: 5,
+    alignItems: "center"
   }
 });
