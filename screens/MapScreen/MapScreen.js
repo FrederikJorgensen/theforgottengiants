@@ -9,6 +9,7 @@ import {
 import MapView from "react-native-maps";
 import { OrangeButton } from "../../components/Buttons/OrangeButton";
 import { YellowButton } from "../../components/Buttons/YellowButton";
+import giants from "../../data/giants";
 
 export default class MapScreen extends React.Component {
   state = {
@@ -28,12 +29,14 @@ export default class MapScreen extends React.Component {
         showsUserLocation={true}>
           <MapView.Circle
             center={this.state.region}
+            showUserLocation={true}
             radius={175}
             strokeWidth={2}
             strokeColor="#D48104"
             fillColor="rgba(83, 106, 225, 0.51)"
           />
         </MapView>
+        <Text>{id}</Text>
         <View style={styles.bottom}>
           <YellowButton
             btnText="Practical info"
