@@ -22,21 +22,24 @@ export default class MapScreen extends React.Component {
   };
 
   render() {
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
-        <MapView style={styles.mapStyle} 
-        initialRegion={this.state.region}
-        showsUserLocation={true}>
+        <MapView
+          style={styles.mapStyle}
+          initialRegion={navigation.getParam("region")}
+          showsUserLocation={true}
+        >
           <MapView.Circle
-            center={this.state.region}
+            center={navigation.getParam("region")}
             showUserLocation={true}
-            radius={175}
-            strokeWidth={2}
+            radius={275}
+            strokeWidth={4}
             strokeColor="#D48104"
             fillColor="rgba(83, 106, 225, 0.51)"
           />
         </MapView>
-        <Text>{id}</Text>
+
         <View style={styles.bottom}>
           <YellowButton
             btnText="Practical info"

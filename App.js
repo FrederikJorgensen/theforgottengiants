@@ -9,18 +9,14 @@ import AboutGiantScreen from "./screens/AboutGiantScreen/AboutGiantScreen";
 import RewardCollection from "./screens/RewardCollection//RewardCollectionScreen";
 import PracticalInfo from "./screens/PracticalInfo//PracticalInfo";
 
-const AppNavigator = createStackNavigator(
-  {
-    HomeScreen: HomeScreen,
-    AllGiantsScreen: AllGiantsScreen,
-    MapScreen: MapScreen,
-    RewardScreen: RewardScreen,
-    AboutGiantScreen: AboutGiantScreen,
-    RewardCollection: RewardCollection,
-    PracticalInfo: PracticalInfo
-  },
-  
-  { headerMode: "none" }
-);
+const AppNavigator = createStackNavigator({
+  HomeScreen: HomeScreen,
+  AllGiantsScreen: AllGiantsScreen,
+  MapScreen: MapScreen,
+  RewardScreen: RewardScreen,
+  AboutGiantScreen: AboutGiantScreen,
+  RewardCollection: RewardCollection,
+  PracticalInfo: PracticalInfo
+});
 
 export default createAppContainer(AppNavigator);
