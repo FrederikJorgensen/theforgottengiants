@@ -16,21 +16,17 @@ export default class PracticalInfo extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <Text style={styles.h1}> Public transport </Text>
+        <Text style={styles.h1}> Public transport </Text>
         <Text style={styles.text}>
-            Høje Taastrup St. - 10 minutes walk {"\n"}
-              - S-tog B {"\n"}
-              - Bus 150
+          Høje Taastrup St. - 10 minutes walk {"\n"}- S-tog B {"\n"}- Bus 150
         </Text>
         <Text style={styles.h1}> Parking nearby </Text>
-          <Text style={styles.text}>
-              Giantvej 100
-          </Text>
+        <Text style={styles.text}>Giantvej 100</Text>
         <View>
           <OrangeButton
-            btnText='Back'
-            onPress={() => this.props.navigation.navigate("MapScreen")}>
-          </OrangeButton>
+            btnText="Back"
+            onPress={() => this.props.navigation.navigate("MapScreen")}
+          ></OrangeButton>
         </View>
       </View>
     );
@@ -38,9 +34,9 @@ export default class PracticalInfo extends Component {
 }
 
 const styles = StyleSheet.create({
-  h1:{
+  h1: {
     fontSize: 50,
-    fontFamily: 'amatic-sc'
+    fontFamily: "amatic-sc"
   },
   text: {
     fontSize: 35,

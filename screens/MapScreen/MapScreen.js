@@ -1,43 +1,8 @@
 import React from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  TouchableOpacity,
-  Dimensions,
-  ProgressBarAndroid
-} from "react-native";
+import { StyleSheet, View, Text, Dimensions } from "react-native";
 import MapView from "react-native-maps";
 import { OrangeButton } from "../../components/Buttons/OrangeButton";
 import { YellowButton } from "../../components/Buttons/YellowButton";
-<<<<<<< HEAD
-import { getDistance } from 'geolib';
-
-export default class MapScreen extends React.Component {
-  state = {
-    distance: 0,
-    region: {
-      latitude: 55.662811,
-      longitude: 12.562363,
-      latitudeDelta: 0.1022,
-      longitudeDelta: 0.1021
-    }
-  };
-
-  getDistanceFromUserToGiant = () => {
-     var dis = getDistance(
-       { latitude: 55.662811, longitude: 12.562363 },
-       { latitude: 55.670382, longitude: 12.524393 }
-     );
-     this.setState({distance: dis})
-   };
-
-     componentWillMount(){
-       this.getDistanceFromUserToGiant()
-     }
-
-=======
-import giants from "../../data/giants";
 import { getDistance } from "geolib";
 
 export default class MapScreen extends React.Component {
@@ -56,7 +21,6 @@ export default class MapScreen extends React.Component {
   componentWillMount() {
     this.getDistanceFromUserToGiant();
   }
->>>>>>> map
 
   render() {
     const { navigation } = this.props;
@@ -65,15 +29,13 @@ export default class MapScreen extends React.Component {
       <View style={styles.container}>
         <MapView
           style={styles.mapStyle}
-<<<<<<< HEAD
           initialRegion={this.state.region}
           showsUserLocation={true}
-          followUserLocation={true}>
-=======
+          followUserLocation={true}
+        >
           initialRegion={navigation.getParam("region")}
           showsUserLocation={true}
-        >
->>>>>>> map
+          >
           <MapView.Circle
             center={navigation.getParam("region")}
             showUserLocation={true}
@@ -89,13 +51,14 @@ export default class MapScreen extends React.Component {
         </Text>
 
         <View style={styles.bottom}>
-<<<<<<< HEAD
-          <Text style={styles.distanceText}> You are {this.state.distance} meters away from the Giant </Text>
+          <Text style={styles.distanceText}>
+            {" "}
+            You are {this.state.distance} meters away from the Giant{" "}
+          </Text>
           <YellowButton
             btnText="How to get there?"
-            onPress={() => this.props.navigation.navigate("PracticalInfo")}>
-          </YellowButton>
-=======
+            onPress={() => this.props.navigation.navigate("PracticalInfo")}
+          ></YellowButton>
           <OrangeButton
             btnText={"Click if you found " + name}
             onPress={() =>
