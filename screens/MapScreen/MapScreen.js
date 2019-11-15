@@ -10,19 +10,28 @@ import MapView from "react-native-maps";
 import { OrangeButton } from "../../components/Buttons/OrangeButton";
 import { YellowButton } from "../../components/Buttons/YellowButton";
 import giants from "../../data/giants";
+import { getDistance } from "geolib";
 
 export default class MapScreen extends React.Component {
   state = {
-    region: {
-      latitude: 55.661788,
-      longitude: 12.266105,
-      latitudeDelta: 0.1022,
-      longitudeDelta: 0.1021
-    }
+    distance: 0
   };
+
+  getDistanceFromUserToGiant = () => {
+    var dis = getDistance(
+      { latitude: 55.661788, longitude: 12.266105 },
+      { latitude: 55.670382, longitude: 12.524393 }
+    );
+    this.setState({ distance: dis });
+  };
+
+  componentWillMount() {
+    this.getDistanceFromUserToGiant();
+  }
 
   render() {
     const { navigation } = this.props;
+    const name = navigation.getParam("name");
     return (
       <View style={styles.container}>
         <MapView
@@ -41,6 +50,20 @@ export default class MapScreen extends React.Component {
         </MapView>
 
         <View style={styles.bottom}>
+          <OrangeButton
+            btnText={"Click if you found " + name}
+            onPress={() =>
+              this.props.navigation.navigate("RewardScreen", {
+                name: navigation.getParam("name"),
+                desc: navigation.getParam("desc")
+              })
+            }
+          ></OrangeButton>
+
+          <Text style={styles.distanceText}>
+            {" "}
+            You are {this.state.distance} meters away from the Giant{" "}
+          </Text>
           <YellowButton
             btnText="Practical info"
             onPress={() => this.props.navigation.navigate("PracticalInfo")}

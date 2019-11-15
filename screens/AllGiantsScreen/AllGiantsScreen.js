@@ -26,7 +26,7 @@ class AllGiantsScreen extends React.Component {
               onPress={() =>
                 this.props.navigation.navigate("MapScreen", {
                   id: giant.id,
-                  name: giant.id,
+                  name: giant.name,
                   location: giant.location,
                   image: giant.image,
                   desc: giant.desc,
