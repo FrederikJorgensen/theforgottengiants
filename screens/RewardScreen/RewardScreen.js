@@ -6,7 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   Button,
-  ImageBackground,
+  ImageBackground
 } from "react-native";
 import { Asset } from "expo-asset";
 import * as Font from "expo-font";
@@ -18,8 +18,6 @@ import { BigReward } from "../../components/Reward/BigReward";
 import { Location } from "../../components/location/Location";
 
 export default class RewardScreen extends Component {
-
-
   async componentWillMount() {
     await Asset.loadAsync([require("../../assets/images/teddynew.png")]);
 
@@ -30,37 +28,43 @@ export default class RewardScreen extends Component {
   }
 
   render() {
+    const { navigation } = this.props;
     return (
       <View>
         <ImageBackground
           style={styles.img}
-          source={require("../../assets/images/teddy-no-overlay.png")}>
-          <BigReward/>
+          source={require("../../assets/images/teddy-no-overlay.png")}
+        >
+          <BigReward />
         </ImageBackground>
-      <View style={{ flexDirection: "row", marginTop: 15, marginLeft: 15 }}>
-        <Location/>
-      </View>
-      <View>
-        <Text style={styles.locationText}>
-            CONGRATS. YOU FOUND TEDDY FRIENDLY!
-        </Text>
+        <View style={{ flexDirection: "row", marginTop: 15, marginLeft: 15 }}>
+          <Location />
+        </View>
+        <View>
+          <Text style={styles.locationText}>
+            CONGRATS. YOU FOUND {navigation.getParam("name")}
+          </Text>
           <ListenToAudioButton
-            onPress={() => this.props.navigation.navigate("HomeScreen")}>
-          </ListenToAudioButton>
+            onPress={() => this.props.navigation.navigate("HomeScreen")}
+          ></ListenToAudioButton>
           <YellowButton
-            btnText='Read about Teddy'
-            onPress={() => this.props.navigation.navigate("AboutGiantScreen")}>
-          </YellowButton>
+            btnText={"Read about " + navigation.getParam("name")}
+            onPress={() =>
+              this.props.navigation.navigate("AboutGiantScreen", {
+                desc: navigation.getParam("desc")
+              })
+            }
+          ></YellowButton>
           <OrangeButton
-            btnText='Go find a new giant >'
-            onPress={() => this.props.navigation.navigate("AllGiantsScreen")}>
-          </OrangeButton>
+            btnText="Go find a new giant >"
+            onPress={() => this.props.navigation.navigate("AllGiantsScreen")}
+          ></OrangeButton>
           <YellowButton
-            btnText='Your rewards'
-            onPress={() => this.props.navigation.navigate("RewardCollection")}>
-          </YellowButton>
+            btnText="Your rewards"
+            onPress={() => this.props.navigation.navigate("RewardCollection")}
+          ></YellowButton>
+        </View>
       </View>
-</View>
     );
   }
-};
+}
