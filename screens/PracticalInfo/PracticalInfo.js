@@ -18,11 +18,11 @@ export default class PracticalInfo extends Component {
       <View style={styles.container}>
       <Text style={styles.h1}> Public transport </Text>
         <Text style={styles.text}>
-            Høje Taastrup St. {"\n"}
+            Høje Taastrup St. - 10 minutes walk {"\n"}
               - S-tog B {"\n"}
               - Bus 150
         </Text>
-        <Text style={styles.h1}> Parking </Text>
+        <Text style={styles.h1}> Parking nearby </Text>
           <Text style={styles.text}>
               Giantvej 100
           </Text>

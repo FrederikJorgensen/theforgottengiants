@@ -4,21 +4,36 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Dimensions
+  Dimensions,
+  ProgressBarAndroid
 } from "react-native";
 import MapView from "react-native-maps";
 import { OrangeButton } from "../../components/Buttons/OrangeButton";
 import { YellowButton } from "../../components/Buttons/YellowButton";
+import { getDistance } from 'geolib';
 
 export default class MapScreen extends React.Component {
   state = {
+    distance: 0,
     region: {
-      latitude: 55.661838,
-      longitude: 12.266058,
-      latitudeDelta: 0.0122,
-      longitudeDelta: 0.0121
+      latitude: 55.662811,
+      longitude: 12.562363,
+      latitudeDelta: 0.1022,
+      longitudeDelta: 0.1021
     }
   };
+
+  getDistanceFromUserToGiant = () => {
+     var dis = getDistance(
+       { latitude: 55.662811, longitude: 12.562363 },
+       { latitude: 55.670382, longitude: 12.524393 }
+     );
+     this.setState({distance: dis})
+   };
+
+     componentWillMount(){
+       this.getDistanceFromUserToGiant()
+     }
 
 
   render() {
@@ -26,7 +41,9 @@ export default class MapScreen extends React.Component {
       <View style={styles.container}>
         <MapView
           style={styles.mapStyle}
-          initialRegion={this.state.region}>
+          initialRegion={this.state.region}
+          showsUserLocation={true}
+          followUserLocation={true}>
           <MapView.Circle
             center={this.state.region}
             radius={175}
@@ -36,8 +53,9 @@ export default class MapScreen extends React.Component {
           />
         </MapView>
         <View style={styles.bottom}>
+          <Text style={styles.distanceText}> You are {this.state.distance} meters away from the Giant </Text>
           <YellowButton
-            btnText="Practical info"
+            btnText="How to get there?"
             onPress={() => this.props.navigation.navigate("PracticalInfo")}>
           </YellowButton>
           <OrangeButton
@@ -71,5 +89,13 @@ const styles = StyleSheet.create({
   mapStyle: {
     width: Dimensions.get("window").width,
     flex: 3
+  },
+  distanceText: {
+    fontSize: 30,
+    fontFamily: "amatic-sc",
+    marginTop: 5,
+    alignItems: 'center'
+
+
   }
 });
