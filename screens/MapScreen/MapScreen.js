@@ -6,6 +6,16 @@ import { YellowButton } from "../../components/Buttons/YellowButton";
 import { getDistance } from "geolib";
 
 export default class MapScreen extends React.Component {
+  static navigationOptions = ({ navigation, navigationOptions }) => {
+    const { params } = navigation.state;
+
+    return {
+      headerStyle: {
+        backgroundColor: "#48972C",
+      }
+    };
+  };
+
   state = {
     distance: 0
   };
