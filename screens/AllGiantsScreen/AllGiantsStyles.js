@@ -1,6 +1,11 @@
 import { StyleSheet } from "react-native";
+import { RFPercentage } from "react-native-responsive-fontsize";
+
 
 const styles = StyleSheet.create({
+  containerScroll: {
+    flexDirection: "column"
+  },
   container: {
     flex: 1,
     alignItems: "center",
@@ -8,10 +13,10 @@ const styles = StyleSheet.create({
   },
   giantText: {
     fontFamily: "amatic-sc",
-    fontSize: 60,
+    fontSize: RFPercentage(8),
     color: "white",
     marginTop: "15%",
-    marginBottom: 40
+    marginBottom: "15%"
   }
 });
 

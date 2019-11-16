@@ -1,6 +1,10 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  containerScroll: {
+    paddingBottom: 20,
+    flexDirection: "column"
+  },
   text: {
     fontFamily: "amatic-sc",
     fontSize: 24,

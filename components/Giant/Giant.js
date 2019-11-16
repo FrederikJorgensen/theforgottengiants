@@ -17,7 +17,7 @@ export default class Giant extends React.Component {
         <View style={{ flexDirection: "row" }}>
           <View>
             <Image
-              style={{ width: 33, height: 33, resizeMode: "contain" }}
+              style={{ width: 40, height: 33, resizeMode: "contain" }}
               source={require("../../assets/images/location_emoji.png")}
             />
           </View>

@@ -8,22 +8,24 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   customBtnBG: {
-    marginTop: 20,
+    marginTop: 10,
     marginLeft: 20,
     marginRight: 20,
+    marginBottom: 10,
     backgroundColor: "#D48104",
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 5
   },
   readButton: {
-    marginTop: 20,
+    marginTop: 10,
+    marginLeft: 20,
+    marginRight: 20,
+    marginBottom: 10,
     backgroundColor: "#F8C100",
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 5,
-    marginLeft: 20,
-    marginRight: 20
   },
   back: {
     fontSize: 100,

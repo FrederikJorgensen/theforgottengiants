@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { RFPercentage } from "react-native-responsive-fontsize";
 
 const styles = StyleSheet.create({
   container: {
@@ -12,16 +13,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "amatic-sc",
-    fontSize: 60
-  },
-  buttonContainer: {
-    fontFamily: "Satisfy-Regular",
-    backgroundColor: "#D48104",
-    borderRadius: 5,
-    padding: 5
+    fontSize: RFPercentage(11),
+    textAlign: "center"
   },
   customBtnText: {
-    fontSize: 35,
+    fontSize: RFPercentage(5),
     fontWeight: "200",
     color: "white",
     fontFamily: "Satisfy-Regular"

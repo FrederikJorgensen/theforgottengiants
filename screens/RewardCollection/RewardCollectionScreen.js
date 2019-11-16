@@ -66,8 +66,8 @@ async componentDidMount() {
 render() {
   const { rewards } = this.state;
   return (
+    <ScrollView>
     <View style={styles.container}>
-      <ScrollView>
         <Text style={styles.rewardTitle}>Your Rewards</Text>
         {this.state.rewards.map(reward => (
           <Reward
@@ -78,8 +78,8 @@ render() {
             key={reward.id}
           />
         ))}
-      </ScrollView>
     </View>
+    </ScrollView>
   );
 }
 }

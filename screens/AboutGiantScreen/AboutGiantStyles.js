@@ -2,7 +2,6 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    marginBottom: 45,
     flexDirection: "column"
   },
   img: {
@@ -28,7 +27,8 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   customBtnBG: {
-    marginTop: 20,
+    marginTop: 10,
+    marginBottom: 10,
     backgroundColor: "#D48104",
     paddingHorizontal: 10,
     paddingVertical: 5,
