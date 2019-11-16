@@ -14,72 +14,82 @@ const now = new Date().getDate() + " OF " + monthNames[new Date().getMonth()] +
 " "+ new Date().getHours()+":" + new Date().getMinutes()
 
 export default class RewardCollectionScreen extends React.Component {
-state = {
-  rewards: [
-    {
-      id: 1,
-      name: "Teddy Friendly",
-      date: now,
-      image: require("../../assets/images/reward.png")
-    },
-    {
-      id: 2,
-      name: "Oscar Under The Bridge",
-      date: now,
-      image: require("../../assets/images/reward.png")
-    },
-    {
-      id: 3,
-      name: "Sleeping Louis",
-      date: now,
-      image: require("../../assets/images/reward.png")
-    },
-    {
-      id: 4,
-      name: "Little Tilde",
-      date: now,
-      image: require("../../assets/images/reward.png")
-    },
-    {
-      id: 5,
-      name: "Thomas on The Mountain",
-      date: now,
-      image: require("../../assets/images/reward.png")
-    },
-    {
-      id: 6,
-      name: "Trine",
-      date: now,
-      image: require("../../assets/images/reward.png")
-    }
-  ]
-};
+  static navigationOptions = ({ navigation, navigationOptions }) => {
+    const { params } = navigation.state;
 
-async componentDidMount() {
-  await Font.loadAsync({
-    "amatic-sc": require("../../assets/fonts/amatic-sc.ttf"),
-    "Satisfy-Regular": require("../../assets/fonts/Satisfy-Regular.ttf")
-  });
-  this.setState({ assetsLoaded: true });
-}
+    return {
+      headerStyle: {
+        backgroundColor: "#48972C",
+      }
+    };
+  };
 
-render() {
-  const { rewards } = this.state;
-  return (
-    <View style={styles.container}>
-      <ScrollView>
-        <Text style={styles.rewardTitle}>Your Rewards</Text>
-        {this.state.rewards.map(reward => (
-          <Reward
-            style={styles.reward}
-            name={reward.name}
-            date={reward.date}
-            image={reward.image}
-            key={reward.id}
-          />
-        ))}
-      </ScrollView>
-    </View>
-  );
-}
+  state = {
+    rewards: [
+      {
+        id: 1,
+        name: "Teddy Friendly",
+        date: now,
+        image: require("../../assets/images/reward.png")
+      },
+      {
+        id: 2,
+        name: "Oscar Under The Bridge",
+        date: now,
+        image: require("../../assets/images/reward.png")
+      },
+      {
+        id: 3,
+        name: "Sleeping Louis",
+        date: now,
+        image: require("../../assets/images/reward.png")
+      },
+      {
+        id: 4,
+        name: "Little Tilde",
+        date: now,
+        image: require("../../assets/images/reward.png")
+      },
+      {
+        id: 5,
+        name: "Thomas on The Mountain",
+        date: now,
+        image: require("../../assets/images/reward.png")
+      },
+      {
+        id: 6,
+        name: "Trine",
+        date: now,
+        image: require("../../assets/images/reward.png")
+      }
+    ]
+  };
+
+  async componentDidMount() {
+    await Font.loadAsync({
+      "amatic-sc": require("../../assets/fonts/amatic-sc.ttf"),
+      "Satisfy-Regular": require("../../assets/fonts/Satisfy-Regular.ttf")
+    });
+    this.setState({ assetsLoaded: true });
+  }
+
+  render() {
+    const { rewards } = this.state;
+    return (
+      <View style={styles.container}>
+        <ScrollView>
+          <Text style={styles.rewardTitle}>Your Rewards</Text>
+          {this.state.rewards.map(reward => (
+            <Reward
+              style={styles.reward}
+              name={reward.name}
+              date={reward.date}
+              image={reward.image}
+              key={reward.id}
+            />
+          ))}
+        </ScrollView>
+      </View>
+    );
+  }
 }

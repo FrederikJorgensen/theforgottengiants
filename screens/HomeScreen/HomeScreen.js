@@ -11,6 +11,11 @@ import { Asset } from "expo-asset";
 import styles from "./HomeScreenStyles";
 
 export default class HomeScreen extends React.Component {
+  static navigationOptions = {
+    headerMode: 'none',
+    header: null
+  };
+
   state = {
     assetsLoaded: false
   };

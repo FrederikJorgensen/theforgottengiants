@@ -20,8 +20,12 @@ const AppNavigator = createStackNavigator(
     PracticalInfo: PracticalInfo
   },
   {
+    initialRouteName: 'HomeScreen',
     defaultNavigationOptions: {
-      headerTintColor: "#D48104",
+      headerStyle: {
+        backgroundColor: '#fff',
+      },
+      headerTintColor: "#000",
       headerTitleStyle: {
         fontWeight: "bold"
       }

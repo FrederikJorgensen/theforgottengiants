@@ -13,6 +13,16 @@ import * as Font from "expo-font";
 import { OrangeButton } from "../../components/Buttons/OrangeButton";
 
 export default class PracticalInfo extends Component {
+  static navigationOptions = ({ navigation, navigationOptions }) => {
+    const { params } = navigation.state;
+
+    return {
+      headerStyle: {
+        backgroundColor: "#48972C",
+      }
+    };
+  };
+  
   render() {
     return (
       <View style={styles.container}>

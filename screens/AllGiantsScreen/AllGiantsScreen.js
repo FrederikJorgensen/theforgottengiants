@@ -6,6 +6,11 @@ import * as Font from "expo-font";
 import giants from "../../data/giants";
 
 class AllGiantsScreen extends React.Component {
+  static navigationOptions = {
+    headerMode: 'none',
+    header: null
+  };
+
   async componentDidMount() {
     await Font.loadAsync({
       "amatic-sc": require("../../assets/fonts/amatic-sc.ttf"),
