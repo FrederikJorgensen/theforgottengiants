@@ -21,8 +21,9 @@ class AllGiantsScreen extends React.Component {
 
   render() {
     return (
+      <ScrollView style={styles.containerScroll}>
+
       <View style={styles.container}>
-        <ScrollView>
           <Text style={styles.giantText}>GO FIND A GIANT</Text>
 
           {giants.map(giant => (
@@ -50,8 +51,9 @@ class AllGiantsScreen extends React.Component {
               />
             </TouchableOpacity>
           ))}
-        </ScrollView>
+        
       </View>
+      </ScrollView>
     );
   }
 }

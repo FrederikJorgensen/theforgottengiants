@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Text, Dimensions } from "react-native";
+import { StyleSheet, View, Text, Dimensions, ScrollView } from "react-native";
 import MapView from "react-native-maps";
 import { OrangeButton } from "../../components/Buttons/OrangeButton";
 import { YellowButton } from "../../components/Buttons/YellowButton";
@@ -54,8 +54,8 @@ export default class MapScreen extends React.Component {
             fillColor="rgba(83, 106, 225, 0.51)"
           />
         </MapView>
-
         <View style={styles.bottom}>
+          <ScrollView style={styles.containerScroll}>
           <Text style={styles.distanceText}>
             {" "}
             You are {this.state.distance} meters away from the Giant{" "}
@@ -78,8 +78,10 @@ export default class MapScreen extends React.Component {
             btnText="Practical info"
             onPress={() => this.props.navigation.navigate("PracticalInfo")}
           ></YellowButton>
+          </ScrollView>
         </View>
       </View>
+      
     );
   }
 }
@@ -90,6 +92,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#48972C",
     alignItems: "center",
     justifyContent: "center"
+  },
+  containerScroll:{
+    flexDirection: "column"
   },
   bottom: {
     fontFamily: "amatic-sc",
@@ -104,7 +109,7 @@ const styles = StyleSheet.create({
   },
   mapStyle: {
     width: Dimensions.get("window").width,
-    flex: 3
+    flex: 1
   },
   distanceText: {
     fontSize: 30,

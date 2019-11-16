@@ -76,8 +76,8 @@ export default class RewardCollectionScreen extends React.Component {
   render() {
     const { rewards } = this.state;
     return (
+      <ScrollView>
       <View style={styles.container}>
-        <ScrollView>
           <Text style={styles.rewardTitle}>Your Rewards</Text>
           {this.state.rewards.map(reward => (
             <Reward
@@ -88,8 +88,8 @@ export default class RewardCollectionScreen extends React.Component {
               key={reward.id}
             />
           ))}
-        </ScrollView>
       </View>
+     </ScrollView>
     );
   }
 }

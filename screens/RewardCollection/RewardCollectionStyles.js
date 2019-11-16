@@ -1,6 +1,10 @@
 import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
+  containerScroll:{
+    marginBottom: 45,
+    flexDirection: "column"
+  },
   container: {
     flex: 1,
     alignItems: "center",

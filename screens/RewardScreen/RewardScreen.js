@@ -6,7 +6,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   Button,
-  ImageBackground
+  ImageBackground,
+  ScrollView
 } from "react-native";
 import { Asset } from "expo-asset";
 import * as Font from "expo-font";
@@ -30,6 +31,7 @@ export default class RewardScreen extends Component {
   render() {
     const { navigation } = this.props;
     return (
+      <ScrollView style={styles.containerScroll}>
       <View>
         <ImageBackground
           style={styles.img}
@@ -65,6 +67,7 @@ export default class RewardScreen extends Component {
           ></YellowButton>
         </View>
       </View>
+      </ScrollView>
     );
   }
 }

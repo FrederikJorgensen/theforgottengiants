@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: 20,
     marginRight: 20,
+    marginBottom: 20,
     backgroundColor: "#D48104",
     paddingHorizontal: 10,
     paddingVertical: 5,
@@ -23,7 +24,8 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     borderRadius: 5,
     marginLeft: 20,
-    marginRight: 20
+    marginRight: 20,
+    marginBottom: 20
   },
   back: {
     fontSize: 100,
