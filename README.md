@@ -16,7 +16,15 @@ Geolib
 npm install geolib
 ```
 
-Navigate to the folder in which the project is saved (change directory) and write: “npm start”. A new tap-window will automatically open in your browser in which you can run the simulators.
+Navigate to the folder in which the project is saved (change directory) 
+```bash
+cd "PATH-FOR-PROJECT"
+```
+
+Start the project
+```bash
+npm start
+```
 
 # Simulators
 
