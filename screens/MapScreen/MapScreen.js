@@ -73,12 +73,11 @@ export default class MapScreen extends React.Component {
                 name: navigation.getParam("name"),
                 desc: navigation.getParam("desc")
               })
-            }
+            }></DefaultButton>
           <DefaultButton
             btnText="Test of color"
             onPress={() => {}} color={Colors.yellow}
           ></DefaultButton>
-            ></DefaultButton>
           </ScrollView>
         </View>
       </View>
