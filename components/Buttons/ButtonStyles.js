@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         color: Colors.black,
         fontFamily: "amatic-sc",
         textAlign: "center"
-      },
+    },
     buttonStyle: {
         marginTop: 10,
         marginLeft: 20,

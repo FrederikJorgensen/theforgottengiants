@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import Giant from "../../components/Giant/Giant";
 import styles from "./AllGiantsStyles";
-import * as Font from "expo-font";
 import giants from "../../data/giants";
 
 class AllGiantsScreen extends React.Component {
@@ -11,19 +10,11 @@ class AllGiantsScreen extends React.Component {
     header: null
   };
 
-  async componentDidMount() {
-    await Font.loadAsync({
-      "amatic-sc": require("../../assets/fonts/amatic-sc.ttf"),
-      "Satisfy-Regular": require("../../assets/fonts/Satisfy-Regular.ttf")
-    });
-    this.setState({ assetsLoaded: true });
-  }
-
   render() {
     return (
       <ScrollView style={styles.containerScroll}>
 
-      <View style={styles.container}>
+        <View style={styles.container}>
           <Text style={styles.giantText}>GO FIND A GIANT</Text>
 
           {giants.map(giant => (
@@ -51,8 +42,7 @@ class AllGiantsScreen extends React.Component {
               />
             </TouchableOpacity>
           ))}
-        
-      </View>
+        </View>
       </ScrollView>
     );
   }
