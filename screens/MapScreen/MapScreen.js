@@ -61,54 +61,47 @@ export default class MapScreen extends React.Component {
   }
 
   earnedReward() {
-    if (
-      // this.state.userLatitude === this.state.giantLatitude &&
-      // this.state.userLongitude === this.state.giantLongitude
-      true
-    ) {
-      const date = new Date().getDate();
-      const month = new Date().getMonth() + 1;
-      const hours = new Date().getHours();
-      const minutes = new Date().getMinutes();
-      const months = [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ];
+    const date = new Date().getDate();
+    const month = new Date().getMonth() + 1;
+    const hours = new Date().getHours();
+    const minutes = new Date().getMinutes();
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ];
 
-      function getOrdinalNum(n) {
-        return (
-          n +
-          (n > 0
-            ? ["th", "st", "nd", "rd"][
-                (n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10
-              ]
-            : "")
-        );
-      }
-
-      alert(
-        "YOU FOUND " +
-          this.state.giantName +
-          " on the " +
-          getOrdinalNum(date) +
-          " of " +
-          months[month] +
-          " at " +
-          hours +
-          ":" +
-          minutes
+    function getOrdinalNum(n) {
+      return (
+        n +
+        (n > 0
+          ? ["th", "st", "nd", "rd"][
+              (n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10
+            ]
+          : "")
       );
     }
+    alert(
+      "YOU FOUND " +
+        this.state.giantName +
+        " on the " +
+        getOrdinalNum(date) +
+        " of " +
+        months[month] +
+        " at " +
+        hours +
+        ":" +
+        minutes
+    );
   }
 
   render() {
@@ -149,7 +142,11 @@ export default class MapScreen extends React.Component {
             </Text>
             <DefaultButton
               btnText="rewards"
-              onPress={() => this.props.navigation.navigate("RewardCollection")}
+              onPress={() =>
+                this.props.navigation.navigate("RewardCollection", {
+                  id: this.props.navigation.getParam("id")
+                })
+              }
             ></DefaultButton>
             <YellowButton
               btnText="How to get there?"
@@ -164,16 +161,6 @@ export default class MapScreen extends React.Component {
               //     desc: navigation.getParam("desc")
               //   })
               // }
-            ></DefaultButton>
-            <DefaultButton
-              btnText="TEST OF COLOR"
-              onPress={() => {}}
-              color={Colors.yellow}
-            ></DefaultButton>
-            <DefaultButton
-              btnText="GO TO REWARD COLLECTION"
-              onPress={() => this.props.navigation.navigate("RewardCollection")}
-              color={Colors.yellow}
             ></DefaultButton>
           </ScrollView>
         </View>

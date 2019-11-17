@@ -7,8 +7,6 @@ import Colors from "../../constants/colors";
 
 import rewards from "./RewardData";
 
-
-
 export default class RewardCollectionScreen extends React.Component {
   static navigationOptions = () => {
     return {
