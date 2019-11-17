@@ -17,12 +17,6 @@ const styles = StyleSheet.create({
     fontFamily: "amatic-sc",
     fontSize: RFPercentage(5)
   },
-  borderRadius: {
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
-    borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15
-  },
   giantImage: {
     marginTop: 30,
     marginBottom: 30,
@@ -44,8 +38,8 @@ const styles = StyleSheet.create({
     justifyContent: "center", 
     alignItems: "center",
     backgroundColor: "rgba(255,255,255,0.5)",
-    borderBottomLeftRadius: 21,
-    borderBottomRightRadius: 21
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20
   }
 });
 

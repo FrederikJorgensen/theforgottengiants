@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: Colors.green
+    backgroundColor: Colors.green,
   },
   giantText: {
     fontFamily: "amatic-sc",
