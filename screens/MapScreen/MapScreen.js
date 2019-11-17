@@ -11,7 +11,7 @@ export default class MapScreen extends React.Component {
   static navigationOptions = () => {
     return {
       headerStyle: {
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.green
       }
     };
   };
@@ -25,56 +25,44 @@ export default class MapScreen extends React.Component {
       userLatitude: 0,
       userLongitude: 0,
       giantLatitude: region.latitude,
-      giantLongitude: region.longitude,
-      initialLatitude: "unknown",
-      initialLongitude: "unknown",
-      lastPosition: "unknown"
+      giantLongitude: region.longitude
     };
   }
 
   componentDidMount() {
     this.getUserPosition();
-    // setInterval(this.getUserPosition(), 500);
+    setInterval(() => this.getUserPosition(), 3000);
   }
 
   getUserPosition() {
     navigator.geolocation.getCurrentPosition(
       position => {
-        const initialLatitude = JSON.stringify(position.coords.latitude);
-        const initialLongitude = JSON.stringify(position.coords.longitude);
-        this.setState({ initialLatitude, initialLongitude });
+        const userLatitude = position.coords.latitude;
+        const userLongitude = position.coords.longitude;
+        this.setState({ userLatitude, userLongitude });
       },
       error => alert(error.message),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
     );
-    this.watchID = navigator.geolocation.watchPosition(position => {
-      const lastPosition = JSON.stringify(position);
-      this.setState({ lastPosition });
-    });
+
+    let dis = getDistance(
+      {
+        latitude: this.state.giantLatitude,
+        longitude: this.state.giantLongitude
+      },
+      {
+        latitude: this.state.userLatitude,
+        longitude: this.state.userLongitude
+      }
+    );
+    this.setState({ distance: dis });
   }
-
-  // getDistanceFromUserToGiant = () => {
-  //   let dis = getDistance(
-  //     {
-  //       latitude: this.state.giantLatitude,
-  //       longitude: this.state.giantLongitude
-  //     },
-  //     {
-  //       latitude: this.state.userLatitude,
-  //       longitude: this.state.userLongitude
-  //     }
-  //   );
-  //   this.setState({ distance: dis });
-  // };
-
-  // componentWillMount() {
-  //   this.getDistanceFromUserToGiant();
-  // }
 
   render() {
     const { navigation } = this.props;
     const { distance } = this.state;
     const name = navigation.getParam("name");
+    const km = distance / 1000;
     return (
       <View style={styles.container}>
         <MapView
@@ -95,18 +83,16 @@ export default class MapScreen extends React.Component {
           />
           <MapView.Marker
             coordinate={{
-              latitude: this.state.initialLatitude,
-              longitude: this.state.initialLongitude
+              latitude: this.state.userLatitude,
+              longitude: this.state.userLongitude
             }}
           />
         </MapView>
         <View style={styles.bottom}>
           <ScrollView style={styles.containerScroll}>
             <Text style={styles.distanceText}>
-              {" "}
-              You are {distance} meters away from the {name}{" "}
-              {"Your current latitude: " + this.state.initialLatitude}{" "}
-              {"Your current longitude " + this.state.initialLongitude}
+              You are {distance > 1000 ? km.toFixed(1) + "km" : distance} away
+              from {name}
             </Text>
             <YellowButton
               btnText="How to get there?"
@@ -119,10 +105,12 @@ export default class MapScreen extends React.Component {
                   name: navigation.getParam("name"),
                   desc: navigation.getParam("desc")
                 })
-              }></DefaultButton>
+              }
+            ></DefaultButton>
             <DefaultButton
               btnText="TEST OF COLOR"
-              onPress={() => { }} color={Colors.yellow}
+              onPress={() => {}}
+              color={Colors.yellow}
             ></DefaultButton>
           </ScrollView>
         </View>
