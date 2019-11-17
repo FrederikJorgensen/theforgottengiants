@@ -20,12 +20,14 @@ export default class MapScreen extends React.Component {
     super(props);
     const region = this.props.navigation.getParam("region");
     this.getUserPosition = this.getUserPosition.bind(this);
+    this.earnedReward = this.earnedReward.bind(this);
     this.state = {
       distance: 0,
       userLatitude: 0,
       userLongitude: 0,
       giantLatitude: region.latitude,
-      giantLongitude: region.longitude
+      giantLongitude: region.longitude,
+      giantName: this.props.navigation.getParam("name")
     };
   }
 
@@ -56,6 +58,57 @@ export default class MapScreen extends React.Component {
       }
     );
     this.setState({ distance: dis });
+  }
+
+  earnedReward() {
+    if (
+      // this.state.userLatitude === this.state.giantLatitude &&
+      // this.state.userLongitude === this.state.giantLongitude
+      true
+    ) {
+      const date = new Date().getDate();
+      const month = new Date().getMonth() + 1;
+      const hours = new Date().getHours();
+      const minutes = new Date().getMinutes();
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ];
+
+      function getOrdinalNum(n) {
+        return (
+          n +
+          (n > 0
+            ? ["th", "st", "nd", "rd"][
+                (n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10
+              ]
+            : "")
+        );
+      }
+
+      alert(
+        "YOU FOUND " +
+          this.state.giantName +
+          " on the " +
+          getOrdinalNum(date) +
+          " of " +
+          months[month] +
+          " at " +
+          hours +
+          ":" +
+          minutes
+      );
+    }
   }
 
   render() {
@@ -91,7 +144,7 @@ export default class MapScreen extends React.Component {
         <View style={styles.bottom}>
           <ScrollView style={styles.containerScroll}>
             <Text style={styles.distanceText}>
-              You are {distance > 1000 ? km.toFixed(1) + "km" : distance} away
+              You are {distance > 1000 ? km.toFixed(1) + " km " : distance}away
               from {name}
             </Text>
             <DefaultButton
@@ -104,16 +157,22 @@ export default class MapScreen extends React.Component {
             ></YellowButton>
             <DefaultButton
               btnText={"Click if you found " + name}
-              onPress={() =>
-                this.props.navigation.navigate("RewardScreen", {
-                  name: navigation.getParam("name"),
-                  desc: navigation.getParam("desc")
-                })
-              }
+              onPress={() => this.earnedReward()}
+              // onPress={() =>
+              //   this.props.navigation.navigate("RewardScreen", {
+              //     name: navigation.getParam("name"),
+              //     desc: navigation.getParam("desc")
+              //   })
+              // }
             ></DefaultButton>
             <DefaultButton
               btnText="TEST OF COLOR"
               onPress={() => {}}
+              color={Colors.yellow}
+            ></DefaultButton>
+            <DefaultButton
+              btnText="GO TO REWARD COLLECTION"
+              onPress={() => this.props.navigation.navigate("RewardCollection")}
               color={Colors.yellow}
             ></DefaultButton>
           </ScrollView>

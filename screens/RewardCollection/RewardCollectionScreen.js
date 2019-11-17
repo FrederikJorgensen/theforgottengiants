@@ -4,7 +4,10 @@ import Reward from "./Reward";
 import styles from "./RewardCollectionStyles";
 console.disableYellowBox = true;
 import Colors from "../../constants/colors";
+
 import rewards from "./RewardData";
+
+
 
 export default class RewardCollectionScreen extends React.Component {
   static navigationOptions = () => {
