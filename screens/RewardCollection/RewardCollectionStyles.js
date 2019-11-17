@@ -14,12 +14,13 @@ const styles = StyleSheet.create({
   },
   rewardTitle: {
     fontFamily: "amatic-sc",
-    fontSize: 60,
+    fontSize: 50,
     color: "black",
-    marginTop: "15%",
-    marginBottom: 40,
+    marginTop: "5%",
+    marginBottom: 20,
     textAlign: "center"
   }
 });
 
 export default styles;
+

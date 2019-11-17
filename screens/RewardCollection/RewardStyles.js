@@ -13,17 +13,16 @@ const styles = StyleSheet.create({
   text: {
     color: "black",
     fontFamily: "amatic-sc",
-    fontSize: 40,
+    fontSize: 25,
     textAlign: "center"
   },
   rewardImage: {
-    marginTop: 30,
+    marginTop: 45,
     marginBottom: 5,
-    height: hp("30%"),
-    width: wp("70%"),
+    height: hp("25%"),
+    width: wp("60%"),
     resizeMode: "cover",
-    borderRadius: 15,
-
+    borderRadius: 20,
   }
 });
 
