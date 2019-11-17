@@ -3,15 +3,15 @@ import { StyleSheet, View, Text, Dimensions, ScrollView } from "react-native";
 import MapView from "react-native-maps";
 import { OrangeButton } from "../../components/Buttons/OrangeButton";
 import { YellowButton } from "../../components/Buttons/YellowButton";
+import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { getDistance } from "geolib";
+import Colors from "../../constants/colors";
 
 export default class MapScreen extends React.Component {
-  static navigationOptions = ({ navigation, navigationOptions }) => {
-    const { params } = navigation.state;
-
+  static navigationOptions = () => {
     return {
       headerStyle: {
-        backgroundColor: "#48972C",
+        backgroundColor: Colors.green,
       }
     };
   };
@@ -64,7 +64,7 @@ export default class MapScreen extends React.Component {
             btnText="How to get there?"
             onPress={() => this.props.navigation.navigate("PracticalInfo")}
           ></YellowButton>
-          <OrangeButton
+          <DefaultButton
             btnText={"Click if you found " + name}
             onPress={() =>
               this.props.navigation.navigate("RewardScreen", {
@@ -72,12 +72,18 @@ export default class MapScreen extends React.Component {
                 desc: navigation.getParam("desc")
               })
             }
-          ></OrangeButton>
-
+            ></DefaultButton>
           <YellowButton
             btnText="Practical info"
             onPress={() => this.props.navigation.navigate("PracticalInfo")}
           ></YellowButton>
+
+          <DefaultButton
+            btnText="Test of color"
+            onPress={() => {}} color={Colors.yellow}
+          ></DefaultButton>
+
+
           </ScrollView>
         </View>
       </View>

@@ -5,6 +5,7 @@ import Reward from "./Reward";
 import styles from "./RewardCollectionStyles";
 console.disableYellowBox = true;
 import * as Font from "expo-font";
+import Colors from "../../constants/colors";
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
 "July", "August", "September", "October", "November", "December"
@@ -14,12 +15,10 @@ const now = new Date().getDate() + " OF " + monthNames[new Date().getMonth()] +
 " "+ new Date().getHours()+":" + new Date().getMinutes()
 
 export default class RewardCollectionScreen extends React.Component {
-  static navigationOptions = ({ navigation, navigationOptions }) => {
-    const { params } = navigation.state;
-
+  static navigationOptions = () => {
     return {
       headerStyle: {
-        backgroundColor: "#48972C",
+        backgroundColor: Colors.green,
       }
     };
   };
