@@ -3,16 +3,16 @@ import { View, Text, ScrollView } from "react-native";
 import MapView from "react-native-maps";
 import { OrangeButton } from "../../components/Buttons/OrangeButton";
 import { YellowButton } from "../../components/Buttons/YellowButton";
+import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { getDistance } from "geolib";
 import styles from "./MapScreenStyles";
+import Colors from "../../constants/colors";
 
 export default class MapScreen extends React.Component {
-  static navigationOptions = ({ navigation, navigationOptions }) => {
-    const { params } = navigation.state;
-
+  static navigationOptions = () => {
     return {
       headerStyle: {
-        backgroundColor: "#48972C"
+        backgroundColor: Colors.green,
       }
     };
   };
@@ -58,23 +58,26 @@ export default class MapScreen extends React.Component {
         </MapView>
         <View style={styles.bottom}>
           <ScrollView style={styles.containerScroll}>
-            <Text style={styles.distanceText}>
-              {" "}
-              You are {distance} meters away from the Giant{" "}
-            </Text>
-            <YellowButton
-              btnText="How to get there?"
-              onPress={() => navigation.navigate("PracticalInfo")}
-            ></YellowButton>
-            <OrangeButton
-              btnText={"Click if you found " + name}
-              onPress={() =>
-                navigation.navigate("RewardScreen", {
-                  name: navigation.getParam("name"),
-                  desc: navigation.getParam("desc")
-                })
-              }
-            ></OrangeButton>
+          <Text style={styles.distanceText}>
+            {" "}
+            You are {this.state.distance} meters away from the Giant{" "}
+          </Text>
+          <YellowButton
+            btnText="How to get there?"
+            onPress={() => this.props.navigation.navigate("PracticalInfo")}
+          ></YellowButton>
+          <DefaultButton
+            btnText={"Click if you found " + name}
+            onPress={() =>
+              this.props.navigation.navigate("RewardScreen", {
+                name: navigation.getParam("name"),
+                desc: navigation.getParam("desc")
+              })
+            }></DefaultButton>
+          <DefaultButton
+            btnText="Test of color"
+            onPress={() => {}} color={Colors.yellow}
+          ></DefaultButton>
           </ScrollView>
         </View>
       </View>
