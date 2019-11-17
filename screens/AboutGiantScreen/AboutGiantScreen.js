@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
+import { Text, View, Image, ScrollView } from "react-native";
 import * as Font from "expo-font";
 import styles from "./AboutGiantStyles.js";
 
@@ -28,12 +21,6 @@ export default class AboutGiantScreen extends Component {
         />
         <View style={styles.textContainer}>
           <Text style={styles.text}>{navigation.getParam("desc")}</Text>
-          <TouchableOpacity
-            style={styles.customBtnBG}
-            onPress={() => this.props.navigation.navigate("MapScreen")}
-          >
-            <Text style={styles.customBtnText}>BACK</Text>
-          </TouchableOpacity>
         </View>
       </ScrollView>
     );

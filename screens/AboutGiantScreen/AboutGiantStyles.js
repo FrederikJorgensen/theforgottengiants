@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     marginTop: 25,
     marginLeft: 20,
     marginRight: 20,
+    marginBottom: 25,
     lineHeight: 25
   },
   customBtnText: {
