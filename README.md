@@ -2,7 +2,7 @@
 This app is centered around the The Forgotten Giants and will provide you with a map to find the giants and information about the giants.
 
 # Installation
-For our app we have used [Expo](https://expo.io/learn). To set up the expo environment and libraries that allows you to run the code on a simulator:
+For our app we have used [Expo](https://expo.io/learn). To set up the Expo environment and libraries that allows you to run the code on a simulator, do as follows:
 
 Download [NodeJS](https://nodejs.org/en/) - the latest version
 
@@ -16,7 +16,15 @@ Geolib
 npm install geolib
 ```
 
-Navigate to the folder in which the project is saved (change directory) and write: “npm start”. A new tap-window will automatically open in your browser in which you can run the simulators.
+Navigate to the folder in which the project is saved (change directory) 
+```bash
+cd "PATH-FOR-PROJECT"
+```
+
+Start the project
+```bash
+npm start
+```
 
 # Simulators
 
