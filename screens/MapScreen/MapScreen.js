@@ -1,9 +1,10 @@
 import React from "react";
-import { StyleSheet, View, Text, Dimensions, ScrollView } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import MapView from "react-native-maps";
 import { OrangeButton } from "../../components/Buttons/OrangeButton";
 import { YellowButton } from "../../components/Buttons/YellowButton";
 import { getDistance } from "geolib";
+import styles from "./MapScreenStyles";
 
 export default class MapScreen extends React.Component {
   static navigationOptions = ({ navigation, navigationOptions }) => {
@@ -11,7 +12,7 @@ export default class MapScreen extends React.Component {
 
     return {
       headerStyle: {
-        backgroundColor: "#48972C",
+        backgroundColor: "#48972C"
       }
     };
   };
@@ -56,65 +57,31 @@ export default class MapScreen extends React.Component {
         </MapView>
         <View style={styles.bottom}>
           <ScrollView style={styles.containerScroll}>
-          <Text style={styles.distanceText}>
-            {" "}
-            You are {this.state.distance} meters away from the Giant{" "}
-          </Text>
-          <YellowButton
-            btnText="How to get there?"
-            onPress={() => this.props.navigation.navigate("PracticalInfo")}
-          ></YellowButton>
-          <OrangeButton
-            btnText={"Click if you found " + name}
-            onPress={() =>
-              this.props.navigation.navigate("RewardScreen", {
-                name: navigation.getParam("name"),
-                desc: navigation.getParam("desc")
-              })
-            }
-          ></OrangeButton>
+            <Text style={styles.distanceText}>
+              {" "}
+              You are {this.state.distance} meters away from the Giant{" "}
+            </Text>
+            <YellowButton
+              btnText="How to get there?"
+              onPress={() => this.props.navigation.navigate("PracticalInfo")}
+            ></YellowButton>
+            <OrangeButton
+              btnText={"Click if you found " + name}
+              onPress={() =>
+                this.props.navigation.navigate("RewardScreen", {
+                  name: navigation.getParam("name"),
+                  desc: navigation.getParam("desc")
+                })
+              }
+            ></OrangeButton>
 
-          <YellowButton
-            btnText="Practical info"
-            onPress={() => this.props.navigation.navigate("PracticalInfo")}
-          ></YellowButton>
+            <YellowButton
+              btnText="Practical info"
+              onPress={() => this.props.navigation.navigate("PracticalInfo")}
+            ></YellowButton>
           </ScrollView>
         </View>
       </View>
-      
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#48972C",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  containerScroll:{
-    flexDirection: "column"
-  },
-  bottom: {
-    fontFamily: "amatic-sc",
-    fontSize: 20,
-    flex: 1,
-    marginLeft: 7
-  },
-  textStyle: {
-    fontFamily: "amatic-sc",
-    fontSize: 35,
-    marginTop: 5
-  },
-  mapStyle: {
-    width: Dimensions.get("window").width,
-    flex: 1
-  },
-  distanceText: {
-    fontSize: 30,
-    fontFamily: "amatic-sc",
-    marginTop: 5,
-    alignItems: "center"
-  }
-});
