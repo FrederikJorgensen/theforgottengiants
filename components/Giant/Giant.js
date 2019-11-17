@@ -1,16 +1,8 @@
 import React from "react";
 import { Text, View, Image, ImageBackground } from "react-native";
-import * as Font from "expo-font";
 import styles from "./GiantStyles.js";
 
 export default class Giant extends React.Component {
-  async componentDidMount() {
-    await Font.loadAsync({
-      "amatic-sc": require("../../assets/fonts/amatic-sc.ttf")
-    });
-    this.setState({ assetsLoaded: true });
-  }
-
   render() {
     return (
       <View style={styles.borderRadius}>
