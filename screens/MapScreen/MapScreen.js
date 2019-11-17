@@ -94,6 +94,10 @@ export default class MapScreen extends React.Component {
               You are {distance > 1000 ? km.toFixed(1) + "km" : distance} away
               from {name}
             </Text>
+            <DefaultButton
+              btnText="rewards"
+              onPress={() => this.props.navigation.navigate("RewardCollection")}
+            ></DefaultButton>
             <YellowButton
               btnText="How to get there?"
               onPress={() => this.props.navigation.navigate("PracticalInfo")}
