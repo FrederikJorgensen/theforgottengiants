@@ -1,10 +1,11 @@
 import React from "react";
-import { StyleSheet, View, Text, Dimensions, ScrollView } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import MapView from "react-native-maps";
 import { OrangeButton } from "../../components/Buttons/OrangeButton";
 import { YellowButton } from "../../components/Buttons/YellowButton";
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { getDistance } from "geolib";
+import styles from "./MapScreenStyles";
 import Colors from "../../constants/colors";
 
 export default class MapScreen extends React.Component {
@@ -34,6 +35,7 @@ export default class MapScreen extends React.Component {
 
   render() {
     const { navigation } = this.props;
+    const { distance } = this.state;
     const name = navigation.getParam("name");
     return (
       <View style={styles.container}>
@@ -72,55 +74,14 @@ export default class MapScreen extends React.Component {
                 desc: navigation.getParam("desc")
               })
             }
-            ></DefaultButton>
-          <YellowButton
-            btnText="Practical info"
-            onPress={() => this.props.navigation.navigate("PracticalInfo")}
-          ></YellowButton>
-
           <DefaultButton
             btnText="Test of color"
             onPress={() => {}} color={Colors.yellow}
           ></DefaultButton>
-
-
+            ></DefaultButton>
           </ScrollView>
         </View>
       </View>
-      
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#48972C",
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  containerScroll:{
-    flexDirection: "column"
-  },
-  bottom: {
-    fontFamily: "amatic-sc",
-    fontSize: 20,
-    flex: 1,
-    marginLeft: 7
-  },
-  textStyle: {
-    fontFamily: "amatic-sc",
-    fontSize: 35,
-    marginTop: 5
-  },
-  mapStyle: {
-    width: Dimensions.get("window").width,
-    flex: 1
-  },
-  distanceText: {
-    fontSize: 30,
-    fontFamily: "amatic-sc",
-    marginTop: 5,
-    alignItems: "center"
-  }
-});
