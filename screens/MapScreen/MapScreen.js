@@ -35,6 +35,7 @@ export default class MapScreen extends React.Component {
 
   render() {
     const { navigation } = this.props;
+    const { distance } = this.state;
     const name = navigation.getParam("name");
     return (
       <View style={styles.container}>
@@ -59,26 +60,21 @@ export default class MapScreen extends React.Component {
           <ScrollView style={styles.containerScroll}>
             <Text style={styles.distanceText}>
               {" "}
-              You are {this.state.distance} meters away from the Giant{" "}
+              You are {distance} meters away from the Giant{" "}
             </Text>
             <YellowButton
               btnText="How to get there?"
-              onPress={() => this.props.navigation.navigate("PracticalInfo")}
+              onPress={() => navigation.navigate("PracticalInfo")}
             ></YellowButton>
             <OrangeButton
               btnText={"Click if you found " + name}
               onPress={() =>
-                this.props.navigation.navigate("RewardScreen", {
+                navigation.navigate("RewardScreen", {
                   name: navigation.getParam("name"),
                   desc: navigation.getParam("desc")
                 })
               }
             ></OrangeButton>
-
-            <YellowButton
-              btnText="Practical info"
-              onPress={() => this.props.navigation.navigate("PracticalInfo")}
-            ></YellowButton>
           </ScrollView>
         </View>
       </View>
