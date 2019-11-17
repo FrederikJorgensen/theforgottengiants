@@ -4,22 +4,20 @@ import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import Reward from "./Reward";
 import styles from "./RewardCollectionStyles";
 console.disableYellowBox = true;
-import * as Font from "expo-font";
+import Colors from "../../constants/colors";
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
-"July", "August", "September", "October", "November", "December"
+  "July", "August", "September", "October", "November", "December"
 ];
 
 const now = new Date().getDate() + " OF " + monthNames[new Date().getMonth()] +
-" "+ new Date().getHours()+":" + new Date().getMinutes()
+  " " + new Date().getHours() + ":" + new Date().getMinutes()
 
 export default class RewardCollectionScreen extends React.Component {
-  static navigationOptions = ({ navigation, navigationOptions }) => {
-    const { params } = navigation.state;
-
+  static navigationOptions = () => {
     return {
       headerStyle: {
-        backgroundColor: "#48972C",
+        backgroundColor: Colors.green,
       }
     };
   };
@@ -65,19 +63,11 @@ export default class RewardCollectionScreen extends React.Component {
     ]
   };
 
-  async componentDidMount() {
-    await Font.loadAsync({
-      "amatic-sc": require("../../assets/fonts/amatic-sc.ttf"),
-      "Satisfy-Regular": require("../../assets/fonts/Satisfy-Regular.ttf")
-    });
-    this.setState({ assetsLoaded: true });
-  }
-
   render() {
     const { rewards } = this.state;
     return (
       <ScrollView>
-      <View style={styles.container}>
+        <View style={styles.container}>
           <Text style={styles.rewardTitle}>Your Rewards</Text>
           {this.state.rewards.map(reward => (
             <Reward
@@ -88,8 +78,8 @@ export default class RewardCollectionScreen extends React.Component {
               key={reward.id}
             />
           ))}
-      </View>
-     </ScrollView>
+        </View>
+      </ScrollView>
     );
   }
 }

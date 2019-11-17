@@ -7,10 +7,21 @@ import { RFPercentage } from "react-native-responsive-fontsize";
 
 
 const styles = StyleSheet.create({
-  text: {
+  locationEmoji: {
+    width: 40,
+    height: 33,
+    resizeMode: "contain" 
+  },
+  locationText: {
     color: "white",
     fontFamily: "amatic-sc",
     fontSize: RFPercentage(5)
+  },
+  borderRadius: {
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15
   },
   giantImage: {
     marginTop: 30,
@@ -18,7 +29,23 @@ const styles = StyleSheet.create({
     height: hp("30%"),
     width: wp("90%"),
     resizeMode: "cover",
-    borderRadius: 15
+  },
+  imageText: {
+    margin: 10,
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#000',
+    fontFamily: "amatic-sc",
+  },
+  ImageTextPlacement: {
+    position: "absolute",
+    width: "100%",
+    bottom: 0,
+    justifyContent: "center", 
+    alignItems: "center",
+    backgroundColor: "rgba(255,255,255,0.5)",
+    borderBottomLeftRadius: 21,
+    borderBottomRightRadius: 21
   }
 });
 

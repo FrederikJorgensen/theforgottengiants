@@ -10,19 +10,19 @@ import {
   ListView
 } from "react-native";
 import * as Font from "expo-font";
-import { OrangeButton } from "../../components/Buttons/OrangeButton";
+import { DefaultButton } from "../../components/Buttons/DefaultButton";
+import styles from "./styles";
+import Colors from "../../constants/colors";
 
 export default class PracticalInfo extends Component {
-  static navigationOptions = ({ navigation, navigationOptions }) => {
-    const { params } = navigation.state;
-
+  static navigationOptions = () => {
     return {
       headerStyle: {
-        backgroundColor: "#48972C",
+        backgroundColor: Colors.green,
       }
     };
   };
-  
+
   render() {
     return (
       <View style={styles.container}>
@@ -33,31 +33,12 @@ export default class PracticalInfo extends Component {
         <Text style={styles.h1}> Parking nearby </Text>
         <Text style={styles.text}>Giantvej 100</Text>
         <View>
-          <OrangeButton
+          <DefaultButton
             btnText="Back"
             onPress={() => this.props.navigation.navigate("MapScreen")}
-          ></OrangeButton>
+          ></DefaultButton>
         </View>
       </View>
     );
   }
-}
-
-const styles = StyleSheet.create({
-  h1: {
-    fontSize: 50,
-    fontFamily: "amatic-sc"
-  },
-  text: {
-    fontSize: 35,
-    marginTop: 15,
-    textAlign: "justify",
-    fontFamily: "amatic-sc"
-  },
-  container: {
-    flex: 1,
-    backgroundColor: "#48972C",
-    alignItems: "center",
-    justifyContent: "center"
-  }
-});
+};

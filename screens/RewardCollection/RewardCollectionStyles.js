@@ -1,7 +1,8 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../constants/colors";
 
 const styles = StyleSheet.create({
-  containerScroll:{
+  containerScroll: {
     marginBottom: 45,
     flexDirection: "column"
   },
@@ -9,15 +10,15 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#48972C",
+    backgroundColor: Colors.green,
 
   },
   rewardTitle: {
     fontFamily: "amatic-sc",
-    fontSize: 60,
-    color: "black",
-    marginTop: "15%",
-    marginBottom: 40,
+    fontSize: 50,
+    color: Colors.black,
+    marginTop: "5%",
+    marginBottom: 20,
     textAlign: "center"
   }
 });
