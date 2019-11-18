@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { Text, View, ImageBackground, ScrollView } from "react-native";
-import { Asset } from "expo-asset";
 import styles from "./RewardScreenStyles";
 import { ListenToAudioButton } from "../../components/Buttons/ListenToAudioButton";
 import { YellowButton } from "../../components/Buttons/YellowButton";
 import { OrangeButton } from "../../components/Buttons/OrangeButton";
 import { BigReward } from "../../components/Reward/BigReward";
-import { Location } from "../../components/location/Location";
 
 export default class RewardScreen extends Component {
   render() {
@@ -32,7 +30,8 @@ export default class RewardScreen extends Component {
               btnText={"Read about " + navigation.getParam("name")}
               onPress={() =>
                 this.props.navigation.navigate("AboutGiantScreen", {
-                  desc: navigation.getParam("desc")
+                  desc: navigation.getParam("desc"),
+                  image: navigation.getParam("image")
                 })
               }
             ></YellowButton>
