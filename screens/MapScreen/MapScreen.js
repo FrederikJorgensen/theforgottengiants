@@ -33,6 +33,8 @@ export default class MapScreen extends React.Component {
       giantName: this.props.navigation.getParam("name"),
       giantDesc: this.props.navigation.getParam("desc"),
       giantId: this.props.navigation.getParam("id"),
+      transport: this.props.navigation.getParam("transport"),
+      image: this.props.navigation.getParam("image"),
       date: ""
     };
   }
@@ -65,13 +67,14 @@ export default class MapScreen extends React.Component {
     );
     this.setState({ distance: dis });
 
-    if (this.state.distance < 200 && this.state.distance !== 0) {
+    if (this.state.distance < 20000000000 && this.state.distance !== 0) {
       this.getTime();
       this.props.navigation.navigate("RewardScreen", {
         name: this.state.giantName,
         desc: this.state.giantDesc,
         giantId: this.state.giantId,
-        date: this.state.date
+        date: this.state.date,
+        image: this.state.image
       });
       clearInterval(interval);
     }
@@ -133,7 +136,11 @@ export default class MapScreen extends React.Component {
             </Text>
             <YellowButton
               btnText="How to get there?"
-              onPress={() => this.props.navigation.navigate("PracticalInfo")}
+              onPress={() =>
+                this.props.navigation.navigate("PracticalInfo", {
+                  transport: this.state.transport
+                })
+              }
             ></YellowButton>
           </ScrollView>
         </View>

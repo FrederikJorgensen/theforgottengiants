@@ -9,10 +9,6 @@ import { BigReward } from "../../components/Reward/BigReward";
 import { Location } from "../../components/location/Location";
 
 export default class RewardScreen extends Component {
-  async componentWillMount() {
-    await Asset.loadAsync([require("../../assets/images/teddynew.png")]);
-  }
-
   render() {
     const { navigation } = this.props;
     return (
@@ -20,7 +16,7 @@ export default class RewardScreen extends Component {
         <View>
           <ImageBackground
             style={styles.img}
-            source={require("../../assets/images/teddy-no-overlay.png")}
+            source={this.props.navigation.getParam("image")}
           >
             <BigReward />
           </ImageBackground>
