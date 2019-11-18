@@ -48,7 +48,12 @@ export default class RewardScreen extends Component {
             ></OrangeButton>
             <YellowButton
               btnText="Your rewards"
-              onPress={() => this.props.navigation.navigate("RewardCollection")}
+              onPress={() =>
+                this.props.navigation.navigate("RewardCollection", {
+                  giantId: this.props.navigation.getParam("giantId"),
+                  date: this.props.navigation.getParam("date")
+                })
+              }
             ></YellowButton>
           </View>
         </View>

@@ -9,8 +9,10 @@ export default [
     address: "Hakkemosevej, 2630 Taastrup",
     transport: "Høje Taastrup st., bus 167",
     region: {
-      latitude: 55.661788,
-      longitude: 12.266105,
+      // latitude: 55.661788,
+      latitude: 55.66052,
+      // longitude: 12.266105,
+      longitude: 12.591499,
       latitudeDelta: 0.01022,
       longitudeDelta: 0.01021
     }
@@ -25,8 +27,10 @@ export default [
     address: "Jægersø, 2635 Ishøj",
     transport: "Ishøj st., bus 128",
     region: {
-      latitude: 55.601398,
-      longitude: 12.372434,
+      // latitude: 55.601398,
+      // longitude: 12.372434,
+      latitude: 55.658467,
+      longitude: 12.590195,
       latitudeDelta: 0.01022,
       longitudeDelta: 0.01021
     }

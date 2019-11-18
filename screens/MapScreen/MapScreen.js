@@ -18,22 +18,27 @@ export default class MapScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    const interval = null;
     const region = this.props.navigation.getParam("region");
     this.getUserPosition = this.getUserPosition.bind(this);
-    this.earnedReward = this.earnedReward.bind(this);
+    this.getTime = this.getTime.bind(this);
+    this.getOrdinalNum = this.getOrdinalNum.bind(this);
     this.state = {
       distance: 0,
       userLatitude: 0,
       userLongitude: 0,
       giantLatitude: region.latitude,
       giantLongitude: region.longitude,
-      giantName: this.props.navigation.getParam("name")
+      giantName: this.props.navigation.getParam("name"),
+      giantDesc: this.props.navigation.getParam("desc"),
+      giantId: this.props.navigation.getParam("id"),
+      date: ""
     };
   }
 
   componentDidMount() {
     this.getUserPosition();
-    setInterval(() => this.getUserPosition(), 3000);
+    interval = setInterval(() => this.getUserPosition(), 3000);
   }
 
   getUserPosition() {
@@ -58,14 +63,21 @@ export default class MapScreen extends React.Component {
       }
     );
     this.setState({ distance: dis });
+
+    if (this.state.distance < 200000000000 && this.state.distance !== 0) {
+      this.getTime();
+      this.props.navigation.navigate("RewardScreen", {
+        name: this.state.giantName,
+        desc: this.state.giantDesc,
+        giantId: this.state.giantId,
+        date: this.state.date
+      });
+      clearInterval(interval);
+    }
   }
 
-  earnedReward() {
-    const date = new Date().getDate();
-    const month = new Date().getMonth() + 1;
-    const hours = new Date().getHours();
-    const minutes = new Date().getMinutes();
-    const months = [
+  getTime() {
+    const monthNames = [
       "January",
       "February",
       "March",
@@ -79,31 +91,28 @@ export default class MapScreen extends React.Component {
       "November",
       "December"
     ];
+    const now =
+      this.getOrdinalNum(new Date().getDate()) +
+      " OF " +
+      monthNames[new Date().getMonth()] +
+      " at " +
+      new Date().getHours() +
+      ":" +
+      new Date().getMinutes();
 
-    function getOrdinalNum(n) {
-      return (
-        n +
-        (n > 0
-          ? ["th", "st", "nd", "rd"][
-              (n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10
-            ]
-          : "")
-      );
-    }
-    alert(
-      "YOU FOUND " +
-        this.state.giantName +
-        " on the " +
-        getOrdinalNum(date) +
-        " of " +
-        months[month] +
-        " at " +
-        hours +
-        ":" +
-        minutes
-    );
+    this.setState({
+      date: now
+    });
   }
 
+  getOrdinalNum(n) {
+    return (
+      n +
+      (n > 0
+        ? ["th", "st", "nd", "rd"][(n > 3 && n < 21) || n % 10 > 3 ? 0 : n % 10]
+        : "")
+    );
+  }
   render() {
     const { navigation } = this.props;
     const { distance } = this.state;
@@ -127,23 +136,18 @@ export default class MapScreen extends React.Component {
             strokeColor={Colors.strokeColorCircle}
             fillColor={Colors.fillColorCircle}
           />
-          <MapView.Marker
-            coordinate={{
-              latitude: this.state.userLatitude,
-              longitude: this.state.userLongitude
-            }}
-          />
         </MapView>
         <View style={styles.bottom}>
           <ScrollView style={styles.containerScroll}>
             <Text style={styles.distanceText}>
-              You are {distance > 1000 ? km.toFixed(1) + " km " : distance}away
+              You are{" "}
+              {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
               from {name}
             </Text>
             <DefaultButton
               btnText="rewards"
               onPress={() =>
-                this.props.navigation.navigate("RewardCollection", {
+                this.props.navigation.navigate("RewardScreen", {
                   id: this.props.navigation.getParam("id")
                 })
               }

@@ -16,18 +16,30 @@ export default class RewardCollectionScreen extends React.Component {
     };
   };
 
+  componentWillMount() {
+    rewards.map(reward => {
+      if (this.props.navigation.getParam("giantId") === reward.id)
+        reward.found = true;
+      reward.date = this.props.navigation.getParam("date");
+    });
+  }
+
   render() {
+    const foundRewards = rewards.filter(reward => reward.found === true);
+    console.log(this.props.navigation.getParam("date"));
+
     return (
       <ScrollView>
         <View style={styles.container}>
           <Text style={styles.rewardTitle}>Your Rewards</Text>
-          {rewards.map(reward => (
+          {foundRewards.map(reward => (
             <Reward
               style={styles.reward}
               name={reward.name}
               date={reward.date}
               image={reward.image}
               key={reward.id}
+              found={this.props.navigation.getParam("found")}
             />
           ))}
         </View>
