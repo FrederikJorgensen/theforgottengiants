@@ -9,7 +9,7 @@ export default class AboutGiantScreen extends Component {
       <ScrollView style={styles.container}>
         <Image
           style={styles.img}
-          source={require("../../assets/images/teddy-no-overlay.png")}
+          source={this.props.navigation.getParam("image")}
         />
         <View style={styles.textContainer}>
           <Text style={styles.text}>{navigation.getParam("desc")}</Text>

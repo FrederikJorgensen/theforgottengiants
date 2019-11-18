@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
   },
   img: {
     width: "100%",
-    flex: 1.8
+    height: 363
   },
   text: {
     textAlign: "justify",
