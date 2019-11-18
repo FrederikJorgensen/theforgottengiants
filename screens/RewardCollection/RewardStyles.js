@@ -9,8 +9,9 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     justifyContent: "center",
+    flex: 1,
+    backgroundColor: Colors.green
   },
-
   text: {
     color: Colors.black,
     fontFamily: "amatic-sc",
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   directionRow: {
-    flexDirection: "row"
+    flexDirection: "row",
   }
 });
 

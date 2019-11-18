@@ -4,7 +4,6 @@ import Reward from "./Reward";
 import styles from "./RewardCollectionStyles";
 console.disableYellowBox = true;
 import Colors from "../../constants/colors";
-
 import rewards from "./RewardData";
 
 export default class RewardCollectionScreen extends React.Component {
@@ -29,8 +28,9 @@ export default class RewardCollectionScreen extends React.Component {
     console.log(this.props.navigation.getParam("date"));
 
     return (
-      <ScrollView>
-        <View style={styles.container}>
+      <View style={styles.container}>
+        <ScrollView>
+        <View>
           <Text style={styles.rewardTitle}>Your Rewards</Text>
           {foundRewards.map(reward => (
             <Reward
@@ -44,6 +44,8 @@ export default class RewardCollectionScreen extends React.Component {
           ))}
         </View>
       </ScrollView>
+      </View>
+      
     );
   }
 }
