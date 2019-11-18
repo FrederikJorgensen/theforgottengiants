@@ -24,12 +24,13 @@ export default styles = StyleSheet.create({
   },
   mapStyle: {
     width: Dimensions.get("window").width,
-    flex: 1
+    flex: 3.2
   },
   distanceText: {
     fontSize: 30,
     fontFamily: "amatic-sc",
-    marginTop: 5,
+    marginTop: 15,
+    marginBottom: 15,
     alignItems: "center"
   }
 });

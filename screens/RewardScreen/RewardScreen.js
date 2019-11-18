@@ -24,9 +24,7 @@ export default class RewardScreen extends Component {
           >
             <BigReward />
           </ImageBackground>
-          <View style={styles.directionRow}>
-            <Location />
-          </View>
+
           <View>
             <Text style={styles.locationText}>
               CONGRATS. YOU FOUND {navigation.getParam("name")}

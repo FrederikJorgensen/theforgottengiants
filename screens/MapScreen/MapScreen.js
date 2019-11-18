@@ -65,7 +65,7 @@ export default class MapScreen extends React.Component {
     );
     this.setState({ distance: dis });
 
-    if (this.state.distance < 200000000000 && this.state.distance !== 0) {
+    if (this.state.distance < 200 && this.state.distance !== 0) {
       this.getTime();
       this.props.navigation.navigate("RewardScreen", {
         name: this.state.giantName,
@@ -131,28 +131,10 @@ export default class MapScreen extends React.Component {
               {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
               from {name}
             </Text>
-            <DefaultButton
-              btnText="rewards"
-              onPress={() =>
-                this.props.navigation.navigate("RewardScreen", {
-                  id: this.props.navigation.getParam("id")
-                })
-              }
-            ></DefaultButton>
             <YellowButton
               btnText="How to get there?"
               onPress={() => this.props.navigation.navigate("PracticalInfo")}
             ></YellowButton>
-            <DefaultButton
-              btnText={"Click if you found " + name}
-              onPress={() => this.earnedReward()}
-              // onPress={() =>
-              //   this.props.navigation.navigate("RewardScreen", {
-              //     name: navigation.getParam("name"),
-              //     desc: navigation.getParam("desc")
-              //   })
-              // }
-            ></DefaultButton>
           </ScrollView>
         </View>
       </View>

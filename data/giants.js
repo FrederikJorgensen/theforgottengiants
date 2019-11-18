@@ -13,8 +13,8 @@ export default [
       latitude: 55.66052,
       // longitude: 12.266105,
       longitude: 12.591499,
-      latitudeDelta: 0.01022,
-      longitudeDelta: 0.01021
+      latitudeDelta: 0.01122,
+      longitudeDelta: 0.10121
     }
   },
   {
@@ -31,8 +31,8 @@ export default [
       // longitude: 12.372434,
       latitude: 55.658467,
       longitude: 12.590195,
-      latitudeDelta: 0.01022,
-      longitudeDelta: 0.01021
+      latitudeDelta: 0.01122,
+      longitudeDelta: 0.10121
     }
   },
   {
@@ -47,8 +47,8 @@ export default [
     region: {
       latitude: 55.674023,
       longitude: 12.431133,
-      latitudeDelta: 0.01022,
-      longitudeDelta: 0.01021
+      latitudeDelta: 0.01122,
+      longitudeDelta: 0.10121
     }
   },
   {
@@ -63,8 +63,8 @@ export default [
     region: {
       latitude: 55.643548,
       longitude: 12.345511,
-      latitudeDelta: 0.01022,
-      longitudeDelta: 0.01021
+      latitudeDelta: 0.01122,
+      longitudeDelta: 0.10121
     }
   },
   {
@@ -79,8 +79,8 @@ export default [
     region: {
       latitude: 55.647515,
       longitude: 12.342947,
-      latitudeDelta: 0.01022,
-      longitudeDelta: 0.01021
+      latitudeDelta: 0.01122,
+      longitudeDelta: 0.10121
     }
   },
   {
@@ -95,8 +95,8 @@ export default [
     region: {
       latitude: 55.633884,
       longitude: 12.441283,
-      latitudeDelta: 0.01022,
-      longitudeDelta: 0.01021
+      latitudeDelta: 0.01122,
+      longitudeDelta: 0.10121
     }
   }
 ];
