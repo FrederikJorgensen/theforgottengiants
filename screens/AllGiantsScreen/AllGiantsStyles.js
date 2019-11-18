@@ -4,7 +4,8 @@ import Colors from "../../constants/colors";
 
 const styles = StyleSheet.create({
   containerScroll: {
-    flexDirection: "column"
+    flexDirection: "column",
+    backgroundColor: Colors.green
   },
   container: {
     flex: 1,

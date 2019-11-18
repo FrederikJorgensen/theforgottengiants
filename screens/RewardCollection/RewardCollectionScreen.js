@@ -28,7 +28,7 @@ export default class RewardCollectionScreen extends React.Component {
     console.log(this.props.navigation.getParam("date"));
 
     return (
-      <ScrollView style={{ backgroundColor: Colors.green }}>
+      <ScrollView style={styles.containerScroll}>
         <View style={styles.container}>
           <Text style={styles.rewardTitle}>Your Rewards</Text>
           <View style={styles.containerReward}>
