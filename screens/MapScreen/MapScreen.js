@@ -6,6 +6,7 @@ import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { getDistance } from "geolib";
 import styles from "./MapScreenStyles";
 import Colors from "../../constants/colors";
+import monthNames from "../../constants/monthNames";
 
 export default class MapScreen extends React.Component {
   static navigationOptions = () => {
@@ -77,20 +78,6 @@ export default class MapScreen extends React.Component {
   }
 
   getTime() {
-    const monthNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December"
-    ];
     const now =
       this.getOrdinalNum(new Date().getDate()) +
       " OF " +
