@@ -11,7 +11,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: Colors.green,
-
+  },
+  containerReward: {
+    marginBottom: 15
   },
   rewardTitle: {
     fontFamily: "amatic-sc",

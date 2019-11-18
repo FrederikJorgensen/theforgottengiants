@@ -28,24 +28,23 @@ export default class RewardCollectionScreen extends React.Component {
     console.log(this.props.navigation.getParam("date"));
 
     return (
-      <View style={styles.container}>
-        <ScrollView>
-        <View>
+      <ScrollView style={{ backgroundColor: Colors.green }}>
+        <View style={styles.container}>
           <Text style={styles.rewardTitle}>Your Rewards</Text>
-          {foundRewards.map(reward => (
-            <Reward
-              style={styles.reward}
-              name={reward.name}
-              date={reward.date}
-              image={reward.image}
-              key={reward.id}
-              found={this.props.navigation.getParam("found")}
-            />
-          ))}
+          <View style={styles.containerReward}>
+            {foundRewards.map(reward => (
+              <Reward
+                style={styles.reward}
+                name={reward.name}
+                date={reward.date}
+                image={reward.image}
+                key={reward.id}
+                found={this.props.navigation.getParam("found")}
+              />
+            ))}
+          </View>
         </View>
       </ScrollView>
-      </View>
-      
     );
   }
 }
