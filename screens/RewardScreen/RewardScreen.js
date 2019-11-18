@@ -9,10 +9,6 @@ import { BigReward } from "../../components/Reward/BigReward";
 import { Location } from "../../components/location/Location";
 
 export default class RewardScreen extends Component {
-  async componentWillMount() {
-    await Asset.loadAsync([require("../../assets/images/teddynew.png")]);
-  }
-
   render() {
     const { navigation } = this.props;
     return (
@@ -20,13 +16,11 @@ export default class RewardScreen extends Component {
         <View>
           <ImageBackground
             style={styles.img}
-            source={require("../../assets/images/teddy-no-overlay.png")}
+            source={this.props.navigation.getParam("image")}
           >
             <BigReward />
           </ImageBackground>
-          <View style={styles.directionRow}>
-            <Location />
-          </View>
+
           <View>
             <Text style={styles.locationText}>
               CONGRATS. YOU FOUND {navigation.getParam("name")}
@@ -48,7 +42,12 @@ export default class RewardScreen extends Component {
             ></OrangeButton>
             <YellowButton
               btnText="Your rewards"
-              onPress={() => this.props.navigation.navigate("RewardCollection")}
+              onPress={() =>
+                this.props.navigation.navigate("RewardCollection", {
+                  giantId: this.props.navigation.getParam("giantId"),
+                  date: this.props.navigation.getParam("date")
+                })
+              }
             ></YellowButton>
           </View>
         </View>

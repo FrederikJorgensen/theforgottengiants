@@ -5,47 +5,40 @@ import {
 } from "react-native-responsive-screen";
 import { RFPercentage } from "react-native-responsive-fontsize";
 
-
 const styles = StyleSheet.create({
   locationEmoji: {
     width: 40,
     height: 33,
-    resizeMode: "contain" 
+    resizeMode: "contain"
   },
   locationText: {
     color: "white",
     fontFamily: "amatic-sc",
     fontSize: RFPercentage(5)
   },
-  borderRadius: {
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
-    borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15
-  },
   giantImage: {
     marginTop: 30,
     marginBottom: 30,
     height: hp("30%"),
     width: wp("90%"),
-    resizeMode: "cover",
+    resizeMode: "cover"
   },
   imageText: {
     margin: 10,
     fontSize: 30,
-    fontWeight: 'bold',
-    color: '#000',
-    fontFamily: "amatic-sc",
+    fontWeight: "bold",
+    color: "#000",
+    fontFamily: "amatic-sc"
   },
   ImageTextPlacement: {
     position: "absolute",
     width: "100%",
     bottom: 0,
-    justifyContent: "center", 
+    justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(255,255,255,0.5)",
-    borderBottomLeftRadius: 21,
-    borderBottomRightRadius: 21
+    backgroundColor: "rgba(255,255,255,0.8)",
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20
   }
 });
 

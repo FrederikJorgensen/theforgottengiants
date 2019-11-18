@@ -1,15 +1,5 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-  Button,
-  ListView
-} from "react-native";
-import * as Font from "expo-font";
+import { Text, View } from "react-native";
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import styles from "./styles";
 import Colors from "../../constants/colors";
@@ -18,20 +8,23 @@ export default class PracticalInfo extends Component {
   static navigationOptions = () => {
     return {
       headerStyle: {
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.green
       }
     };
   };
 
   render() {
+    const { navigation } = this.props;
+    const transport = navigation.getParam("transport");
     return (
       <View style={styles.container}>
         <Text style={styles.h1}> Public transport </Text>
         <Text style={styles.text}>
-          Høje Taastrup St. - 10 minutes walk {"\n"}- S-tog B {"\n"}- Bus 150
+          {transport.station} {"\n"}- S-tog: {transport.stog} {"\n"}- Bus:{" "}
+          {transport.bus}
         </Text>
         <Text style={styles.h1}> Parking nearby </Text>
-        <Text style={styles.text}>Giantvej 100</Text>
+        <Text style={styles.text}>{transport.parking}</Text>
         <View>
           <DefaultButton
             btnText="Back"
@@ -41,4 +34,4 @@ export default class PracticalInfo extends Component {
       </View>
     );
   }
-};
+}

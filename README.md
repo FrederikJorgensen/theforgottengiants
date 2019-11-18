@@ -11,6 +11,7 @@ Expo
 npm install expo-cli --global
 ```
 
+
 npm
 ```bash
 npm install
@@ -32,7 +33,9 @@ npm start
 If you want to run the code on iPhone simulator, we recommend that you install Xcode from App Store.
 
 ## Android
+
 If you want to run the code on Android simulator, we recommend that you install Android Studio. When opening the program; click on “Configure”, “AVD Manager” and “Create Virtual Device”.
 
 ## Own mobile device
+
 If you want to the code run on your own mobile device, go to app store and download “Expo-client”. Then open your camera and scan the QR code that is displayed at the tap-window in your browser.
