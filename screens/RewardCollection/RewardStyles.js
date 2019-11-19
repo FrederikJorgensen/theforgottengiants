@@ -4,6 +4,8 @@ import {
   heightPercentageToDP as hp
 } from "react-native-responsive-screen";
 import Colors from "../../constants/colors";
+import { RFPercentage } from "react-native-responsive-fontsize";
+
 
 const styles = StyleSheet.create({
   container: {
@@ -15,11 +17,11 @@ const styles = StyleSheet.create({
   text: {
     color: Colors.black,
     fontFamily: "amatic-sc",
-    fontSize: 25,
+    fontSize: RFPercentage(5),
     textAlign: "center"
   },
   rewardImage: {
-    marginTop: 45,
+    marginTop: 35,
     marginBottom: 5,
     height: hp("25%"),
     width: wp("60%"),

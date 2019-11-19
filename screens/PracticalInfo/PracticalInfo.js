@@ -26,12 +26,6 @@ export default class PracticalInfo extends Component {
         </Text>
         <Text style={styles.h1}> Parking nearby </Text>
         <Text style={styles.text}>{transport.parking}</Text>
-        <View>
-          <DefaultButton
-            btnText="Back"
-            onPress={() => this.props.navigation.navigate("MapScreen")}>
-          </DefaultButton>
-        </View>
       </View>
     </ScrollView>
     );

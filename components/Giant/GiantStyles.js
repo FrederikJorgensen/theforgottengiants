@@ -17,15 +17,15 @@ const styles = StyleSheet.create({
     fontSize: RFPercentage(5)
   },
   giantImage: {
-    marginTop: 30,
-    marginBottom: 30,
-    height: hp("30%"),
+    marginTop: 10,
+    marginBottom: 40,
+    height: hp("35%"),
     width: wp("90%"),
     resizeMode: "cover"
   },
   imageText: {
     margin: 10,
-    fontSize: 30,
+    fontSize: RFPercentage(5),
     fontWeight: "bold",
     color: "#000",
     fontFamily: "amatic-sc"
@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "rgba(255,255,255,0.8)",
+    backgroundColor: "rgba(255,255,255,0.85)",
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20
   }

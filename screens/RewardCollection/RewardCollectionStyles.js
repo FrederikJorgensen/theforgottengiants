@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../constants/colors";
+import { RFPercentage } from "react-native-responsive-fontsize";
+
 
 const styles = StyleSheet.create({
   containerScroll: {
@@ -17,10 +19,10 @@ const styles = StyleSheet.create({
   },
   rewardTitle: {
     fontFamily: "amatic-sc",
-    fontSize: 50,
+    fontSize: RFPercentage(8.5),
     color: Colors.black,
     marginTop: "5%",
-    marginBottom: 20,
+    marginBottom: 10,
     textAlign: "center"
   }
 });

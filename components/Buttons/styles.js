@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../constants/colors";
+import { RFPercentage } from "react-native-responsive-fontsize";
 
 
 const styles = StyleSheet.create({
   customBtnText: {
-    fontSize: 30,
+    fontSize: RFPercentage(4.5),
     color: "black",
     fontFamily: "amatic-sc",
     textAlign: "center"

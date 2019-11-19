@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import { RFPercentage } from "react-native-responsive-fontsize";
+
 
 const styles = StyleSheet.create({
   container: {
@@ -10,31 +12,15 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "justify",
-    fontSize: 18
+    fontSize: RFPercentage(2.5),
   },
   textContainer: {
-    flex: 2,
     marginTop: 25,
     marginLeft: 20,
     marginRight: 20,
     marginBottom: 25,
     lineHeight: 25
   },
-  customBtnText: {
-    fontSize: 35,
-    fontWeight: "200",
-    fontFamily: "amatic-sc",
-    color: "black",
-    textAlign: "center"
-  },
-  customBtnBG: {
-    marginTop: 10,
-    marginBottom: 10,
-    backgroundColor: "#D48104",
-    paddingHorizontal: 10,
-    paddingVertical: 5,
-    borderRadius: 5
-  }
 });
 
 export default styles;

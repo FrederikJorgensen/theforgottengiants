@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from "react-native";
 import Colors from "../../constants/colors";
+import { RFPercentage } from "react-native-responsive-fontsize";
 
 export default styles = StyleSheet.create({
   container: {
@@ -12,25 +13,18 @@ export default styles = StyleSheet.create({
     flexDirection: "column"
   },
   bottom: {
-    fontFamily: "amatic-sc",
-    fontSize: 20,
     flex: 1,
-    marginLeft: 7
-  },
-  textStyle: {
-    fontFamily: "amatic-sc",
-    fontSize: 35,
-    marginTop: 5
   },
   mapStyle: {
     width: Dimensions.get("window").width,
-    flex: 3.2
+    flex: 2.8
   },
   distanceText: {
-    fontSize: 30,
+    fontSize: RFPercentage(4),
     fontFamily: "amatic-sc",
-    marginTop: 15,
-    marginBottom: 15,
-    alignItems: "center"
+    marginTop: 12,
+    marginBottom: 12,
+    fontWeight: "bold",
+    alignItems: "center",
   }
 });

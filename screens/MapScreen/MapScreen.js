@@ -131,9 +131,8 @@ export default class MapScreen extends React.Component {
         <View style={styles.bottom}>
           <ScrollView style={styles.containerScroll}>
             <Text style={styles.distanceText}>
-              You are{" "}
+              {name}{" "}is{" "}
               {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
-              from {name}
             </Text>
             <YellowButton
               btnText="How to get there?"

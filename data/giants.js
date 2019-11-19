@@ -2,6 +2,7 @@ export default [
   {
     id: 1,
     name: "Teddy Friendly",
+    firstname: "Teddy",
     location: "Høje Taastrup",
     image: require("../assets/images/Teddy.png"),
     desc:
@@ -22,6 +23,7 @@ export default [
   {
     id: 2,
     name: "Oscar Under The Bridge",
+    firstname: "Oscar",
     location: "Ishøj",
     image: require("../assets/images/Oscar.png"),
     desc:
@@ -42,6 +44,7 @@ export default [
   {
     id: 3,
     name: "Sleeping Louis",
+    firstname: "Louis",
     location: "Rødovre",
     image: require("../assets/images/Louis.png"),
     desc:
@@ -62,6 +65,7 @@ export default [
   {
     id: 4,
     name: "Little Tilde",
+    firstname: "Tilde",
     location: "Vallensbæk",
     image: require("../assets/images/Tilde.png"),
     desc:
@@ -82,6 +86,7 @@ export default [
   {
     id: 5,
     name: "Thomas On The Mountain",
+    firstname: "Thomas",
     location: "Albertslund",
     image: require("../assets/images/Thomas.png"),
     desc:
@@ -102,6 +107,7 @@ export default [
   {
     id: 6,
     name: "Hill Top Trine",
+    firstname: "Trine",
     location: "Avedøre",
     image: require("../assets/images/Trine.png"),
     desc:

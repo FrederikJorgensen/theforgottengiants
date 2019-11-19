@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
   },
   giantText: {
     fontFamily: "amatic-sc",
-    fontSize: RFPercentage(8),
+    fontSize: RFPercentage(7),
     color: Colors.white,
-    marginTop: "15%",
-    marginBottom: "15%"
+    marginTop: "10%",
+    marginBottom: "10%"
   }
 });
 

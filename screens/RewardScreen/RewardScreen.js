@@ -19,9 +19,9 @@ export default class RewardScreen extends Component {
             <BigReward />
           </ImageBackground>
 
-          <View>
-            <Text style={styles.locationText}>
-              CONGRATS. YOU FOUND {navigation.getParam("name")}
+          <View style={styles.bottomContainer}>
+            <Text style={styles.text}>
+              Congrats. You found {navigation.getParam("name")}
             </Text>
             <ListenToAudioButton
               onPress={() => this.props.navigation.navigate("HomeScreen")}

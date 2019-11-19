@@ -15,7 +15,9 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: "amatic-sc",
     fontSize: RFPercentage(11),
-    textAlign: "center"
+    textAlign: "center",
+    margin: 10,
+
   },
   customBtnText: {
     fontSize: RFPercentage(5),

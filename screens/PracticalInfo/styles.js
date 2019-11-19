@@ -1,10 +1,11 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../constants/colors";
+import { RFPercentage } from "react-native-responsive-fontsize";
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 35,
-    marginTop: 5,
+    fontSize: RFPercentage(5),
+    marginBottom: "7%",
     textAlign: "justify",
     fontFamily: "amatic-sc"
   },
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
   backgroundColor: Colors.green
 },
   h1: {
-    fontSize: 50,
+    fontSize: RFPercentage(8),
     fontFamily: "amatic-sc"
   }
 });
