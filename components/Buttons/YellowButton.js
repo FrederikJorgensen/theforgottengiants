@@ -9,7 +9,7 @@ import styles from "./styles";
 
 export const YellowButton = ({btnText, onPress}) => (
     <TouchableOpacity
-        style={styles.readButton}
+        style={styles.yellowButton}
         onPress={onPress}>
         <Text style={styles.customBtnText}> {btnText} </Text>
     </TouchableOpacity>

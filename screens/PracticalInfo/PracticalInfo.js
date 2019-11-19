@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, ScrollView } from "react-native";
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import styles from "./styles";
 import Colors from "../../constants/colors";
@@ -17,6 +17,7 @@ export default class PracticalInfo extends Component {
     const { navigation } = this.props;
     const transport = navigation.getParam("transport");
     return (
+      <ScrollView style={styles.containerScroll}>
       <View style={styles.container}>
         <Text style={styles.h1}> Public transport </Text>
         <Text style={styles.text}>
@@ -28,10 +29,11 @@ export default class PracticalInfo extends Component {
         <View>
           <DefaultButton
             btnText="Back"
-            onPress={() => this.props.navigation.navigate("MapScreen")}
-          ></DefaultButton>
+            onPress={() => this.props.navigation.navigate("MapScreen")}>
+          </DefaultButton>
         </View>
       </View>
+    </ScrollView>
     );
   }
 }

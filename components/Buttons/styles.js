@@ -1,4 +1,6 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../constants/colors";
+
 
 const styles = StyleSheet.create({
   customBtnText: {
@@ -7,22 +9,22 @@ const styles = StyleSheet.create({
     fontFamily: "amatic-sc",
     textAlign: "center"
   },
-  customBtnBG: {
+  orangeButton: {
     marginTop: 10,
     marginLeft: 20,
     marginRight: 20,
     marginBottom: 10,
-    backgroundColor: "#D48104",
+    backgroundColor: Colors.orange,
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 5
   },
-  readButton: {
+  yellowButton: {
     marginTop: 10,
     marginLeft: 20,
     marginRight: 20,
     marginBottom: 10,
-    backgroundColor: "#F8C100",
+    backgroundColor: Colors.yellow,
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 5,

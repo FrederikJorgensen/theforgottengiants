@@ -42,6 +42,7 @@ export default class MapScreen extends React.Component {
   componentDidMount() {
     this.getUserPosition();
     interval = setInterval(() => this.getUserPosition(), 3000);
+
   }
 
   getUserPosition() {

@@ -4,16 +4,19 @@ import Colors from "../../constants/colors";
 const styles = StyleSheet.create({
   text: {
     fontSize: 35,
-    marginTop: 15,
+    marginTop: 5,
     textAlign: "justify",
     fontFamily: "amatic-sc"
   },
   container: {
-    flex: 1,
     backgroundColor: Colors.green,
     alignItems: "center",
     justifyContent: "center"
   },
+  containerScroll: {
+  flexDirection: "column",
+  backgroundColor: Colors.green
+},
   h1: {
     fontSize: 50,
     fontFamily: "amatic-sc"

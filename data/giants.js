@@ -10,7 +10,7 @@ export default [
       latitude: 55.661788,
       longitude: 12.266105,
       latitudeDelta: 0.01022,
-      longitudeDelta: 0.01021
+      longitudeDelta: 0.011021
     },
     transport: {
       station: "Høje Taastrup Station",
