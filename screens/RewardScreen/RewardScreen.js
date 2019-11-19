@@ -4,8 +4,18 @@ import styles from "./RewardScreenStyles";
 import { YellowButton } from "../../components/Buttons/YellowButton";
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { BigReward } from "../../components/Reward/BigReward";
+import rewards from "../RewardCollection/RewardData";
 
 export default class RewardScreen extends Component {
+
+  componentWillMount() {
+    rewards.map(reward => {
+      if (this.props.navigation.getParam("giantId") === reward.id)
+        reward.found = true;
+      reward.date = this.props.navigation.getParam("date");
+    });
+  }
+
   render() {
     const { navigation } = this.props;
     return (
@@ -44,7 +54,8 @@ export default class RewardScreen extends Component {
               onPress={() =>
                 this.props.navigation.navigate("RewardCollection", {
                   giantId: this.props.navigation.getParam("giantId"),
-                  date: this.props.navigation.getParam("date")
+                  date: this.props.navigation.getParam("date"),
+                  found: this.props.navigation.getParam("found")
                 })
               }
             ></YellowButton>
