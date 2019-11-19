@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import MapView from "react-native-maps";
 import { YellowButton } from "../../components/Buttons/YellowButton";
-import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { getDistance } from "geolib";
 import styles from "./MapScreenStyles";
 import Colors from "../../constants/colors";
@@ -19,7 +18,6 @@ export default class MapScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    const interval = null;
     const region = this.props.navigation.getParam("region");
     this.getUserPosition = this.getUserPosition.bind(this);
     this.getTime = this.getTime.bind(this);
@@ -106,7 +104,7 @@ export default class MapScreen extends React.Component {
   }
   render() {
     const { navigation } = this.props;
-    const { distance, isLoaded } = this.state;
+    const { distance } = this.state;
     const name = navigation.getParam("name");
     const km = distance / 1000;
     return (

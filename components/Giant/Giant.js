@@ -17,10 +17,10 @@ export default class Giant extends React.Component {
             <Text style={styles.locationText}>{this.props.location}</Text>
           </View>
         </View>
-        <ImageBackground 
+        <ImageBackground
           source={this.props.image}
-          style={styles.giantImage} 
-          imageStyle={{borderRadius: 20}}>
+          style={styles.giantImage}
+          imageStyle={{ borderRadius: 20 }}>
           <View style={styles.ImageTextPlacement}>
             <Text style={styles.imageText}>{this.props.name}</Text>
           </View>

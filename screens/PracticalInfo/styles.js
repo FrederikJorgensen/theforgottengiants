@@ -15,9 +15,9 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   containerScroll: {
-  flexDirection: "column",
-  backgroundColor: Colors.green
-},
+    flexDirection: "column",
+    backgroundColor: Colors.green
+  },
   h1: {
     fontSize: RFPercentage(8),
     fontFamily: "amatic-sc"

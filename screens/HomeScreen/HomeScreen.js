@@ -5,7 +5,7 @@ import { Asset } from "expo-asset";
 import styles from "./HomeScreenStyles";
 import Colors from "../../constants/colors";
 
-export default class HomeScreen extends React. Component {
+export default class HomeScreen extends React.Component {
   static navigationOptions = {
     headerMode: 'none',
     header: null

@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import Reward from "./Reward";
 import styles from "./RewardCollectionStyles";
-console.disableYellowBox = true;
 import Colors from "../../constants/colors";
 import rewards from "./RewardData";
 
@@ -25,7 +24,6 @@ export default class RewardCollectionScreen extends React.Component {
 
   render() {
     const foundRewards = rewards.filter(reward => reward.found === true);
-    console.log(this.props.navigation.getParam("date"));
 
     return (
       <ScrollView style={styles.containerScroll}>

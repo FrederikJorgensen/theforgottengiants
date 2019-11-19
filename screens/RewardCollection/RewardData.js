@@ -37,7 +37,7 @@ export default rewards = [
   },
   {
     id: 6,
-    name: "Trine",
+    name: "Hill Top Trine",
     date: "",
     image: image,
     found: false
