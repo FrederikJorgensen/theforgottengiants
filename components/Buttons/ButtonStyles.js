@@ -17,6 +17,16 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: 5,
         borderRadius: 5
+    },
+    yellowButton: {
+      marginTop: 10,
+      marginLeft: 20,
+      marginRight: 20,
+      marginBottom: 10,
+      backgroundColor: Colors.yellow,
+      paddingHorizontal: 10,
+      paddingVertical: 5,
+      borderRadius: 5,
     }
 });
 

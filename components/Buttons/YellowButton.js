@@ -4,14 +4,14 @@ import {
     TouchableOpacity
 } from 'react-native';
 import React from 'react';
-import styles from "./styles";
+import styles from "./ButtonStyles";
 
 
 export const YellowButton = ({btnText, onPress}) => (
     <TouchableOpacity
         style={styles.yellowButton}
         onPress={onPress}>
-        <Text style={styles.customBtnText}> {btnText} </Text>
+        <Text style={styles.buttonText}> {btnText} </Text>
     </TouchableOpacity>
 
 );

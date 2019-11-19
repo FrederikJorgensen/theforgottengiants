@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import { Text, View, ImageBackground, ScrollView } from "react-native";
 import styles from "./RewardScreenStyles";
-import { ListenToAudioButton } from "../../components/Buttons/ListenToAudioButton";
 import { YellowButton } from "../../components/Buttons/YellowButton";
-import { OrangeButton } from "../../components/Buttons/OrangeButton";
+import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { BigReward } from "../../components/Reward/BigReward";
 
 export default class RewardScreen extends Component {
@@ -23,9 +22,10 @@ export default class RewardScreen extends Component {
             <Text style={styles.text}>
               Congrats. You found {navigation.getParam("name")}
             </Text>
-            <ListenToAudioButton
+            <DefaultButton
+              btnText={"Listen to " + navigation.getParam("name")}
               onPress={() => this.props.navigation.navigate("HomeScreen")}
-            ></ListenToAudioButton>
+            ></DefaultButton>
             <YellowButton
               btnText={"Read about " + navigation.getParam("name")}
               onPress={() =>
@@ -35,10 +35,10 @@ export default class RewardScreen extends Component {
                 })
               }
             ></YellowButton>
-            <OrangeButton
+            <DefaultButton
               btnText="Go find a new giant >"
               onPress={() => this.props.navigation.navigate("AllGiantsScreen")}
-            ></OrangeButton>
+            ></DefaultButton>
             <YellowButton
               btnText="Your rewards"
               onPress={() =>
