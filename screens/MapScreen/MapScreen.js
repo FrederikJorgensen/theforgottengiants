@@ -42,7 +42,6 @@ export default class MapScreen extends React.Component {
   componentDidMount() {
     this.getUserPosition();
     interval = setInterval(() => this.getUserPosition(), 3000);
-
   }
 
   getUserPosition() {
@@ -68,7 +67,7 @@ export default class MapScreen extends React.Component {
     );
     this.setState({ distance: dis });
 
-    if (this.state.distance < 20000000000 && this.state.distance !== 0) {
+    if (this.state.distance < 10 && this.state.distance !== 0) {
       this.getTime();
       this.props.navigation.navigate("RewardScreen", {
         name: this.state.giantName,
@@ -79,6 +78,7 @@ export default class MapScreen extends React.Component {
       });
       clearInterval(interval);
     }
+    this.setState({ isLoaded: true });
   }
 
   getTime() {
@@ -106,7 +106,7 @@ export default class MapScreen extends React.Component {
   }
   render() {
     const { navigation } = this.props;
-    const { distance } = this.state;
+    const { distance, isLoaded } = this.state;
     const name = navigation.getParam("name");
     const km = distance / 1000;
     return (
@@ -131,7 +131,7 @@ export default class MapScreen extends React.Component {
         <View style={styles.bottom}>
           <ScrollView style={styles.containerScroll}>
             <Text style={styles.distanceText}>
-              {name}{" "}is{" "}
+              {name} is{" "}
               {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
             </Text>
             <YellowButton
