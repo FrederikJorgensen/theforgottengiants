@@ -67,7 +67,7 @@ export default class MapScreen extends React.Component {
     );
     this.setState({ distance: dis });
 
-    if (this.state.distance < 10 && this.state.distance !== 0) {
+    if (this.state.distance < 20000000 && this.state.distance !== 0) {
       this.getTime();
       this.props.navigation.navigate("RewardScreen", {
         name: this.state.giantName,
