@@ -1,17 +1,11 @@
-import {
-    View,
-    Text,
-    TouchableOpacity
-} from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 import React from 'react';
-import styles from "./styles";
+import styles from "./ButtonStyles";
 
-
-export const YellowButton = ({btnText, onPress}) => (
+export const YellowButton = ({ btnText, onPress }) => (
     <TouchableOpacity
-        style={styles.readButton}
+        style={styles.yellowButton}
         onPress={onPress}>
-        <Text style={styles.customBtnText}> {btnText} </Text>
+        <Text style={styles.buttonText}> {btnText} </Text>
     </TouchableOpacity>
-
 );

@@ -1,32 +1,30 @@
 import React from "react";
-import { Text, View, Image } from "react-native";
-import * as Font from "expo-font";
+import { Text, View, Image, ImageBackground } from "react-native";
 import styles from "./GiantStyles.js";
 
 export default class Giant extends React.Component {
-  async componentDidMount() {
-    await Font.loadAsync({
-      "amatic-sc": require("../../assets/fonts/amatic-sc.ttf")
-    });
-    this.setState({ assetsLoaded: true });
-  }
-
   render() {
     return (
       <View>
         <View style={{ flexDirection: "row" }}>
           <View>
             <Image
-              style={{ width: 33, height: 33, resizeMode: "contain" }}
+              style={styles.locationEmoji}
               source={require("../../assets/images/location_emoji.png")}
             />
           </View>
-
           <View>
-            <Text style={styles.text}>{this.props.location}</Text>
+            <Text style={styles.locationText}>{this.props.location}</Text>
           </View>
         </View>
-        <Image style={styles.giantImage} source={this.props.image} />
+        <ImageBackground
+          source={this.props.image}
+          style={styles.giantImage}
+          imageStyle={{ borderRadius: 20 }}>
+          <View style={styles.ImageTextPlacement}>
+            <Text style={styles.imageText}>{this.props.name}</Text>
+          </View>
+        </ImageBackground>
       </View>
     );
   }

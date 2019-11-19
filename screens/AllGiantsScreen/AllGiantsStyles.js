@@ -1,17 +1,23 @@
 import { StyleSheet } from "react-native";
+import { RFPercentage } from "react-native-responsive-fontsize";
+import Colors from "../../constants/colors";
 
 const styles = StyleSheet.create({
+  containerScroll: {
+    flexDirection: "column",
+    backgroundColor: Colors.green
+  },
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#48972C"
+    backgroundColor: Colors.green,
   },
   giantText: {
     fontFamily: "amatic-sc",
-    fontSize: 60,
-    color: "white",
-    marginTop: "15%",
-    marginBottom: 40
+    fontSize: RFPercentage(7),
+    color: Colors.white,
+    marginTop: "10%",
+    marginBottom: "10%"
   }
 });
 

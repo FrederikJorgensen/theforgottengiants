@@ -1,16 +1,16 @@
 import React from "react";
-import {
-  Text,
-  View,
-  ImageBackground,
-  ActivityIndicator,
-  TouchableOpacity
-} from "react-native";
+import { Text, View, ImageBackground, ActivityIndicator, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
 import styles from "./HomeScreenStyles";
+import Colors from "../../constants/colors";
 
 export default class HomeScreen extends React.Component {
+  static navigationOptions = {
+    headerMode: 'none',
+    header: null
+  };
+
   state = {
     assetsLoaded: false
   };
@@ -48,7 +48,7 @@ export default class HomeScreen extends React.Component {
     } else {
       return (
         <View style={styles.container}>
-          <ActivityIndicator size="large" color="#D48104" />
+          <ActivityIndicator size="large" color={Colors.orange} />
         </View>
       );
     }
