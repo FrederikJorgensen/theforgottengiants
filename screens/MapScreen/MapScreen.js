@@ -22,6 +22,7 @@ export default class MapScreen extends React.Component {
     this.getUserPosition = this.getUserPosition.bind(this);
     this.getTime = this.getTime.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
+    this.minutesWithLeadingZeros = this.minutesWithLeadingZeros.bind(this);
     this.state = {
       distance: 0,
       userLatitude: 0,
@@ -87,7 +88,7 @@ export default class MapScreen extends React.Component {
       " at " +
       new Date().getHours() +
       ":" +
-      new Date().getMinutes();
+      this.minutesWithLeadingZeros(new Date().getMinutes());
 
     this.setState({
       date: now
@@ -102,6 +103,14 @@ export default class MapScreen extends React.Component {
         : "")
     );
   }
+
+  minutesWithLeadingZeros(m) {
+    m = new Date();
+    return (
+      (m.getMinutes() < 10 ? '0' : '') + m.getMinutes()
+    );
+  }
+
   render() {
     const { navigation } = this.props;
     const { distance } = this.state;
