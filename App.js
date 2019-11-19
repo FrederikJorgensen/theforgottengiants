@@ -7,6 +7,7 @@ import RewardScreen from "./screens/RewardScreen/RewardScreen";
 import AboutGiantScreen from "./screens/AboutGiantScreen/AboutGiantScreen";
 import RewardCollection from "./screens/RewardCollection//RewardCollectionScreen";
 import PracticalInfo from "./screens/PracticalInfo//PracticalInfo";
+import Colors from "./constants/colors";
 
 const AppNavigator = createStackNavigator(
   {
@@ -22,9 +23,9 @@ const AppNavigator = createStackNavigator(
     initialRouteName: 'HomeScreen',
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: '#fff',
+        backgroundColor: Colors.white,
       },
-      headerTintColor: "#000",
+      headerTintColor: Colors.black,
       headerTitleStyle: {
         fontWeight: "bold"
       }
