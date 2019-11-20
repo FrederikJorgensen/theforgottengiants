@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import Giant from "../../components/Giant/Giant";
-import styles from "./AllGiantsStyles";
+import Styles from "./AllGiantsStyles";
 import giants from "../../data/giants";
 
 class AllGiantsScreen extends React.Component {
@@ -12,10 +12,10 @@ class AllGiantsScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.containerScroll}>
+      <ScrollView style={Styles.containerScroll}>
 
-        <View style={styles.container}>
-          <Text style={styles.giantText}>GO FIND A GIANT</Text>
+        <View style={Styles.container}>
+          <Text style={Styles.giantText}>GO FIND A GIANT</Text>
 
           {giants.map(giant => (
             <TouchableOpacity
@@ -34,7 +34,7 @@ class AllGiantsScreen extends React.Component {
               }
             >
               <Giant
-                style={styles.giant}
+                style={Styles.giant}
                 name={giant.name}
                 location={giant.location}
                 image={giant.image}

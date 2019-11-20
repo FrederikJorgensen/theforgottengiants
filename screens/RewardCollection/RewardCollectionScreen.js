@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import Reward from "./Reward";
-import styles from "./RewardCollectionStyles";
+import Styles from "./RewardCollectionStyles";
 import Colors from "../../constants/colors";
 import rewards from "./RewardData";
 
@@ -18,13 +18,13 @@ export default class RewardCollectionScreen extends React.Component {
     const foundRewards = rewards.filter(reward => reward.found === true);
 
     return (
-      <ScrollView style={styles.containerScroll}>
-        <View style={styles.container}>
-          <Text style={styles.rewardTitle}>Your Rewards</Text>
-          <View style={styles.containerReward}>
+      <ScrollView style={Styles.containerScroll}>
+        <View style={Styles.container}>
+          <Text style={Styles.rewardTitle}>Your Rewards</Text>
+          <View style={Styles.containerReward}>
             {foundRewards.map(reward => (
               <Reward
-                style={styles.reward}
+                style={Styles.reward}
                 name={reward.name}
                 date={reward.date}
                 image={reward.image}

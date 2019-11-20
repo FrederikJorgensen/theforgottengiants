@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, ImageBackground, ScrollView } from "react-native";
-import styles from "./RewardScreenStyles";
+import Styles from "./RewardScreenStyles";
 import { YellowButton } from "../../components/Buttons/YellowButton";
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { BigReward } from "../../components/Reward/BigReward";
@@ -19,17 +19,17 @@ export default class RewardScreen extends Component {
   render() {
     const { navigation } = this.props;
     return (
-      <ScrollView style={styles.containerScroll}>
+      <ScrollView style={Styles.containerScroll}>
         <View>
           <ImageBackground
-            style={styles.img}
+            style={Styles.img}
             source={this.props.navigation.getParam("image")}
           >
             <BigReward />
           </ImageBackground>
 
-          <View style={styles.bottomContainer}>
-            <Text style={styles.text}>
+          <View style={Styles.bottomContainer}>
+            <Text style={Styles.text}>
               Congrats. You found {navigation.getParam("name")}
             </Text>
             <DefaultButton

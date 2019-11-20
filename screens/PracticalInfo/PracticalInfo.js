@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, ScrollView } from "react-native";
-import styles from "./styles";
+import Styles from "./styles";
 import Colors from "../../constants/colors";
 
 export default class PracticalInfo extends Component {
@@ -16,15 +16,15 @@ export default class PracticalInfo extends Component {
     const { navigation } = this.props;
     const transport = navigation.getParam("transport");
     return (
-      <ScrollView style={styles.containerScroll}>
-        <View style={styles.container}>
-          <Text style={styles.h1}> Public transport </Text>
-          <Text style={styles.text}>
+      <ScrollView style={Styles.containerScroll}>
+        <View style={Styles.container}>
+          <Text style={Styles.h1}> Public transport </Text>
+          <Text style={Styles.text}>
             {transport.station} {"\n"}- S-tog: {transport.stog} {"\n"}- Bus:{" "}
             {transport.bus}
           </Text>
-          <Text style={styles.h1}> Parking nearby </Text>
-          <Text style={styles.text}>{transport.parking}</Text>
+          <Text style={Styles.h1}> Parking nearby </Text>
+          <Text style={Styles.text}>{transport.parking}</Text>
         </View>
       </ScrollView>
     );

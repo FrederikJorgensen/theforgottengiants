@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from "react-native";
 import MapView from "react-native-maps";
 import { YellowButton } from "../../components/Buttons/YellowButton";
 import { getDistance } from "geolib";
-import styles from "./MapScreenStyles";
+import Styles from "./MapScreenStyles";
 import Colors from "../../constants/colors";
 import monthNames from "../../constants/monthNames";
 
@@ -117,9 +117,9 @@ export default class MapScreen extends React.Component {
     const name = navigation.getParam("name");
     const km = distance / 1000;
     return (
-      <View style={styles.container}>
+      <View style={Styles.container}>
         <MapView
-          style={styles.mapStyle}
+          style={Styles.mapStyle}
           initialRegion={this.state.region}
           showsUserLocation={true}
           followUserLocation={true}
@@ -135,9 +135,9 @@ export default class MapScreen extends React.Component {
             fillColor={Colors.fillColorCircle}
           />
         </MapView>
-        <View style={styles.bottom}>
-          <ScrollView style={styles.containerScroll}>
-            <Text style={styles.distanceText}>
+        <View style={Styles.bottom}>
+          <ScrollView style={Styles.containerScroll}>
+            <Text style={Styles.distanceText}>
               {name} is{" "}
               {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
             </Text>
