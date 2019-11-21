@@ -34,7 +34,13 @@ export default class MapScreen extends React.Component {
       giantId: this.props.navigation.getParam("id"),
       transport: this.props.navigation.getParam("transport"),
       image: this.props.navigation.getParam("image"),
-      date: ""
+      date: "",
+      region: {
+        latitude: region.latitude,
+        longitude: region.longitude,
+        latitudeDelta: region.latitudeDelta,
+        longitudeDelta: region.longitudeDelta
+      }
     };
   }
 
@@ -65,8 +71,9 @@ export default class MapScreen extends React.Component {
       }
     );
     this.setState({ distance: dis });
+    this.autoZoom();
 
-    if (this.state.distance < 20000000 && this.state.distance !== 0) {
+    if (this.state.distance < 10 && this.state.distance !== 0) {
       this.getTime();
       this.props.navigation.navigate("RewardScreen", {
         name: this.state.giantName,
@@ -104,6 +111,17 @@ export default class MapScreen extends React.Component {
     );
   }
 
+  autoZoom() {
+    if (this.state.distance < 700 && this.state.distance !== 0) {
+      this.setState({
+        region: {
+          latitude: this.state.giantLatitude,
+          longitude: this.state.giantLongitude,
+          latitudeDelta: 0.01121,
+          longitudeDelta: 0.01121
+        }
+      });
+    }
   minutesWithLeadingZeros(m) {
     m = new Date();
     return (
@@ -123,7 +141,7 @@ export default class MapScreen extends React.Component {
           initialRegion={this.state.region}
           showsUserLocation={true}
           followUserLocation={true}
-          initialRegion={navigation.getParam("region")}
+          initialRegion={this.state.region}
           showsUserLocation={true}
         >
           <MapView.Circle
