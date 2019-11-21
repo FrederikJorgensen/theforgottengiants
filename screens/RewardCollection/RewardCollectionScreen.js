@@ -21,17 +21,17 @@ export default class RewardCollectionScreen extends React.Component {
       <ScrollView style={Styles.containerScroll}>
         <View style={Styles.container}>
           <Text style={Styles.rewardTitle}>Your Rewards</Text>
-          <View style={Styles.containerReward}>
-            {foundRewards.map(reward => (
-              <Reward
-                style={Styles.reward}
-                name={reward.name}
-                date={reward.date}
-                image={reward.image}
-                key={reward.id}
-              />
-            ))}
-          </View>
+        </View>
+        <View style={Styles.containerReward}>
+          {foundRewards.map(rewardFound => (
+            <Reward
+              style={Styles.reward}
+              key={rewardFound.id}
+              image={rewardFound.image}
+              name={rewardFound.name}
+              date={rewardFound.date}
+            />
+          ))}
         </View>
       </ScrollView>
     );

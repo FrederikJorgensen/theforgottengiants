@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
     borderRadius: 20,
   },
-  directionRow: {
-    flexDirection: "row",
+  directionColumn: {
+    flexDirection: "column",
   }
 });
 
