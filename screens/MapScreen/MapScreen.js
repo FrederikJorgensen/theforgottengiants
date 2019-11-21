@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from "react-native";
 import MapView from "react-native-maps";
 import { YellowButton } from "../../components/Buttons/YellowButton";
 import { getDistance } from "geolib";
-import Styles from "./MapScreenStyles";
+import Styles from "./MapStyles";
 import Colors from "../../constants/colors";
 import monthNames from "../../constants/monthNames";
 
@@ -68,7 +68,7 @@ export default class MapScreen extends React.Component {
     this.setState({ distance: dis });
     this.autoZoom();
 
-    if (this.state.distance < 2000000 && this.state.distance !== 0) {
+    if (this.state.distance < 2000000000 && this.state.distance !== 0) {
       this.getTime();
       this.props.navigation.navigate("RewardScreen", {
         name: this.state.giantName,

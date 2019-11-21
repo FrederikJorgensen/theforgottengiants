@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import Giant from "../../components/Giant/Giant";
 import Styles from "./AllGiantsStyles";
-import giants from "../../data/giants";
+import GiantsData from "../../data/GiantsData";
 
 class AllGiantsScreen extends React.Component {
   static navigationOptions = {
@@ -16,7 +16,7 @@ class AllGiantsScreen extends React.Component {
         <View style={Styles.container}>
           <Text style={Styles.giantText}>GO FIND A GIANT</Text>
 
-          {giants.map(giant => (
+          {GiantsData.map(giant => (
             <TouchableOpacity
               key={giant.id}
               onPress={() =>

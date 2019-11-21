@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, ImageBackground, ActivityIndicator, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
-import Styles from "./HomeScreenStyles";
+import Styles from "./HomeStyles";
 import Colors from "../../constants/colors";
 
 export default class HomeScreen extends React.Component {
