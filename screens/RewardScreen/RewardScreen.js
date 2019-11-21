@@ -32,10 +32,6 @@ export default class RewardScreen extends Component {
               Congrats. You found {navigation.getParam("name")}
             </Text>
             <DefaultButton
-              btnText={"Listen to " + navigation.getParam("name")}
-              onPress={() => this.props.navigation.navigate("HomeScreen")}
-            ></DefaultButton>
-            <YellowButton
               btnText={"Read about " + navigation.getParam("firstname")}
               onPress={() =>
                 this.props.navigation.navigate("AboutGiantScreen", {
@@ -43,10 +39,6 @@ export default class RewardScreen extends Component {
                   image: navigation.getParam("image")
                 })
               }
-            ></YellowButton>
-            <DefaultButton
-              btnText="Go find a new giant >"
-              onPress={() => this.props.navigation.navigate("AllGiantsScreen")}
             ></DefaultButton>
             <YellowButton
               btnText="Your rewards"
@@ -58,6 +50,10 @@ export default class RewardScreen extends Component {
                 })
               }
             ></YellowButton>
+            <DefaultButton
+              btnText="Go find a new giant >"
+              onPress={() => this.props.navigation.navigate("AllGiantsScreen")}
+            ></DefaultButton>
           </View>
         </View>
       </ScrollView>
