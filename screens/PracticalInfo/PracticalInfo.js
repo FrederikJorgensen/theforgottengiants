@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Text, View, ScrollView } from "react-native";
-import Styles from "./styles";
+import Styles from "./PracticalInfoStyles";
 import Colors from "../../constants/colors";
 
 export default class PracticalInfo extends Component {

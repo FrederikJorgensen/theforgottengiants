@@ -1,6 +1,6 @@
 import { Image } from 'react-native';
 import React from 'react';
-import Styles from "./styles";
+import Styles from "./RewardStyles";
 
 export const SmallReward = () => (
   <Image

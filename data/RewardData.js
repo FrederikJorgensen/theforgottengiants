@@ -1,4 +1,4 @@
-const image = require("../../assets/images/reward.png");
+const image = require("../assets/images/reward.png");
 export default rewards = [
   {
     id: 1,

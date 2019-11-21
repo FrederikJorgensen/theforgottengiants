@@ -1,9 +1,9 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
-import Reward from "./Reward";
+import Reward from "../../components/Reward/Reward";
+import RewardData from "../../data/RewardData";
 import Styles from "./RewardCollectionStyles";
 import Colors from "../../constants/colors";
-import rewards from "./RewardData";
 
 export default class RewardCollectionScreen extends React.Component {
   static navigationOptions = () => {
@@ -15,7 +15,7 @@ export default class RewardCollectionScreen extends React.Component {
   };
 
   render() {
-    const foundRewards = rewards.filter(reward => reward.found === true);
+    const foundRewards = RewardData.filter(reward => reward.found === true);
 
     return (
       <ScrollView style={Styles.containerScroll}>
