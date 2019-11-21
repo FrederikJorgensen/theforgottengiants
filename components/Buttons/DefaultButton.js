@@ -1,11 +1,20 @@
 import React from 'react';
 import { Text, TouchableOpacity } from 'react-native';
-import styles from "./ButtonStyles";
+import Styles from "./ButtonStyles";
 
-export const DefaultButton = ({ btnText, onPress }) => (
+export const DefaultButton = ({ backgroundColor, btnText, onPress }) => (
   <TouchableOpacity
-    style={styles.buttonStyle}
+    style={{
+      marginTop: 10,
+      marginLeft: 20,
+      marginRight: 20,
+      marginBottom: 10,
+      paddingHorizontal: 10,
+      paddingVertical: 5,
+      borderRadius: 5,
+      backgroundColor: backgroundColor
+    }}
     onPress={onPress}>
-    <Text style={styles.buttonText}> {btnText} </Text>
+    <Text style={Styles.buttonText}> {btnText} </Text>
   </TouchableOpacity>
 );
