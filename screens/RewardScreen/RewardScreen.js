@@ -1,25 +1,35 @@
 import React, { Component } from "react";
 import { Text, View, ImageBackground, ScrollView } from "react-native";
-import styles from "./RewardScreenStyles";
+import Styles from "./RewardScreenStyles";
 import { YellowButton } from "../../components/Buttons/YellowButton";
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { BigReward } from "../../components/Reward/BigReward";
+import rewards from "../RewardCollection/RewardData";
 
 export default class RewardScreen extends Component {
+
+  componentWillMount() {
+    rewards.map(reward => {
+      if (this.props.navigation.getParam("giantId") === reward.id)
+        reward.found = true;
+      reward.date = this.props.navigation.getParam("date");
+    });
+  }
+
   render() {
     const { navigation } = this.props;
     return (
-      <ScrollView style={styles.containerScroll}>
+      <ScrollView style={Styles.containerScroll}>
         <View>
           <ImageBackground
-            style={styles.img}
+            style={Styles.img}
             source={this.props.navigation.getParam("image")}
           >
             <BigReward />
           </ImageBackground>
 
-          <View style={styles.bottomContainer}>
-            <Text style={styles.text}>
+          <View style={Styles.bottomContainer}>
+            <Text style={Styles.text}>
               Congrats. You found {navigation.getParam("name")}
             </Text>
             <DefaultButton
@@ -44,7 +54,8 @@ export default class RewardScreen extends Component {
               onPress={() =>
                 this.props.navigation.navigate("RewardCollection", {
                   giantId: this.props.navigation.getParam("giantId"),
-                  date: this.props.navigation.getParam("date")
+                  date: this.props.navigation.getParam("date"),
+                  found: this.props.navigation.getParam("found")
                 })
               }
             ></YellowButton>

@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { RFPercentage } from "react-native-responsive-fontsize";
+import Colors from "../../constants/colors";
 
 const styles = StyleSheet.create({
   locationEmoji: {
@@ -23,11 +24,10 @@ const styles = StyleSheet.create({
   imageText: {
     margin: 10,
     fontSize: RFPercentage(5),
-    fontWeight: "bold",
-    color: "#000",
+    color: Colors.black,
     fontFamily: "amatic-sc"
   },
-  ImageTextPlacement: {
+  imageTextPlacement: {
     position: "absolute",
     width: "100%",
     bottom: 0,

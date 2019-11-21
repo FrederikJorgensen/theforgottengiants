@@ -3,7 +3,7 @@ import { View, Text, ScrollView } from "react-native";
 import MapView from "react-native-maps";
 import { YellowButton } from "../../components/Buttons/YellowButton";
 import { getDistance } from "geolib";
-import styles from "./MapScreenStyles";
+import Styles from "./MapScreenStyles";
 import Colors from "../../constants/colors";
 import monthNames from "../../constants/monthNames";
 
@@ -22,6 +22,7 @@ export default class MapScreen extends React.Component {
     this.getUserPosition = this.getUserPosition.bind(this);
     this.getTime = this.getTime.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
+    this.minutesWithLeadingZeros = this.minutesWithLeadingZeros.bind(this);
     this.state = {
       distance: 0,
       userLatitude: 0,
@@ -94,7 +95,7 @@ export default class MapScreen extends React.Component {
       " at " +
       new Date().getHours() +
       ":" +
-      new Date().getMinutes();
+      this.minutesWithLeadingZeros(new Date().getMinutes());
 
     this.setState({
       date: now
@@ -121,6 +122,11 @@ export default class MapScreen extends React.Component {
         }
       });
     }
+  minutesWithLeadingZeros(m) {
+    m = new Date();
+    return (
+      (m.getMinutes() < 10 ? '0' : '') + m.getMinutes()
+    );
   }
 
   render() {
@@ -129,9 +135,10 @@ export default class MapScreen extends React.Component {
     const name = navigation.getParam("name");
     const km = distance / 1000;
     return (
-      <View style={styles.container}>
+      <View style={Styles.container}>
         <MapView
-          style={styles.mapStyle}
+          style={Styles.mapStyle}
+          initialRegion={this.state.region}
           showsUserLocation={true}
           followUserLocation={true}
           initialRegion={this.state.region}
@@ -146,9 +153,9 @@ export default class MapScreen extends React.Component {
             fillColor={Colors.fillColorCircle}
           />
         </MapView>
-        <View style={styles.bottom}>
-          <ScrollView style={styles.containerScroll}>
-            <Text style={styles.distanceText}>
+        <View style={Styles.bottom}>
+          <ScrollView style={Styles.containerScroll}>
+            <Text style={Styles.distanceText}>
               {name} is{" "}
               {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
             </Text>
