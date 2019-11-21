@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import Colors from "../../constants/colors";
+import Fonts from "../../constants/fonts";
 
 const styles = StyleSheet.create({
   containerScroll: {
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.green,
   },
   giantText: {
-    fontFamily: "amatic-sc",
+    fontFamily: Fonts.primary,
     fontSize: RFPercentage(7),
     color: Colors.white,
     marginTop: "10%",

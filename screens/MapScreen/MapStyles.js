@@ -1,6 +1,7 @@
 import { StyleSheet, Dimensions } from "react-native";
-import Colors from "../../constants/colors";
 import { RFPercentage } from "react-native-responsive-fontsize";
+import Colors from "../../constants/colors";
+import Fonts from "../../constants/fonts";
 
 export default styles = StyleSheet.create({
   container: {
@@ -21,7 +22,7 @@ export default styles = StyleSheet.create({
   },
   distanceText: {
     fontSize: RFPercentage(4),
-    fontFamily: "amatic-sc",
+    fontFamily: Fonts.primary,
     marginTop: 12,
     marginBottom: 12,
     alignItems: "center",
