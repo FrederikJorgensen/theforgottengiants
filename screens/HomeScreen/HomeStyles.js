@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import Colors from "../../constants/colors";
+import Fonts from "../../constants/fonts";
 
 const styles = StyleSheet.create({
   container: {
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
     height: "100%"
   },
   title: {
-    fontFamily: "amatic-sc",
+    fontFamily: Fonts.primary,
     fontSize: RFPercentage(11),
     textAlign: "center",
     margin: 10,
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
     fontSize: RFPercentage(5),
     fontWeight: "200",
     color: Colors.white,
-    fontFamily: "Satisfy-Regular"
+    fontFamily: Fonts.homeScreenButton
   },
   customBtnBG: {
     marginTop: 30,

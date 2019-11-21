@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import Colors from "../../constants/colors";
+import Fonts from "../../constants/fonts";
 
 const styles = StyleSheet.create({
   locationEmoji: {
@@ -10,8 +11,8 @@ const styles = StyleSheet.create({
     resizeMode: "contain"
   },
   locationText: {
-    color: "white",
-    fontFamily: "amatic-sc",
+    color: Colors.white,
+    fontFamily: Fonts.primary,
     fontSize: RFPercentage(5)
   },
   giantImage: {
@@ -25,7 +26,7 @@ const styles = StyleSheet.create({
     margin: 10,
     fontSize: RFPercentage(5),
     color: Colors.black,
-    fontFamily: "amatic-sc"
+    fontFamily: Fonts.primary
   },
   imageTextPlacement: {
     position: "absolute",

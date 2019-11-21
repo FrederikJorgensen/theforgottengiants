@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
-
+import Fonts from "../../constants/fonts";
 
 const styles = StyleSheet.create({
   containerScroll: {
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     margin: 10,
-    fontFamily: "amatic-sc",
+    fontFamily: Fonts.primary,
     fontSize: RFPercentage(5.5),
     textAlign: "center",
   },

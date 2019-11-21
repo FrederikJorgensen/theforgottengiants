@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
+import Fonts from "../../constants/fonts";
 
 const styles = StyleSheet.create({
   container: {
@@ -12,6 +13,7 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "justify",
     fontSize: RFPercentage(2.5),
+    fontFamily: Fonts.bodyText
   },
   textContainer: {
     marginTop: 25,

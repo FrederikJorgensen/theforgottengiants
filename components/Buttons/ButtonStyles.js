@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../constants/colors";
+import Fonts from "../../constants/fonts";
 
 const styles = StyleSheet.create({
     buttonText: {
         fontSize: 30,
         color: Colors.black,
-        fontFamily: "amatic-sc",
+        fontFamily: Fonts.primary,
         textAlign: "center"
     },
     buttonStyle: {
