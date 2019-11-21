@@ -23,6 +23,7 @@ class AllGiantsScreen extends React.Component {
                 this.props.navigation.navigate("MapScreen", {
                   id: giant.id,
                   name: giant.name,
+                  firstname: giant.firstname,
                   location: giant.location,
                   image: giant.image,
                   desc: giant.desc,
@@ -35,6 +36,7 @@ class AllGiantsScreen extends React.Component {
               <Giant
                 style={Styles.giant}
                 name={giant.name}
+                firstname={giant.firstname}
                 location={giant.location}
                 image={giant.image}
                 key={giant.id}
