@@ -6,14 +6,13 @@ import giants from "../../data/giants";
 
 class AllGiantsScreen extends React.Component {
   static navigationOptions = {
-    headerMode: 'none',
+    headerMode: "none",
     header: null
   };
 
   render() {
     return (
       <ScrollView style={Styles.containerScroll}>
-
         <View style={Styles.container}>
           <Text style={Styles.giantText}>GO FIND A GIANT</Text>
 

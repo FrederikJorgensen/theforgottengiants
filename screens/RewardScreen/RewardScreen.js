@@ -7,7 +7,6 @@ import { BigReward } from "../../components/Reward/BigReward";
 import rewards from "../RewardCollection/RewardData";
 
 export default class RewardScreen extends Component {
-
   componentWillMount() {
     rewards.map(reward => {
       if (this.props.navigation.getParam("giantId") === reward.id)
