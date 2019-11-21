@@ -24,7 +24,6 @@ export default styles = StyleSheet.create({
     fontFamily: "amatic-sc",
     marginTop: 12,
     marginBottom: 12,
-    fontWeight: "bold",
     alignItems: "center",
   }
 });

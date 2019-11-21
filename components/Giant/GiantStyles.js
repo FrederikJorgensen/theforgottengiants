@@ -24,7 +24,6 @@ const styles = StyleSheet.create({
   imageText: {
     margin: 10,
     fontSize: RFPercentage(5),
-    fontWeight: "bold",
     color: Colors.black,
     fontFamily: "amatic-sc"
   },
