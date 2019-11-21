@@ -36,7 +36,7 @@ export default class RewardScreen extends Component {
               onPress={() => this.props.navigation.navigate("HomeScreen")}
             ></DefaultButton>
             <YellowButton
-              btnText={"Read about " + navigation.getParam("name")}
+              btnText={"Read about " + navigation.getParam("firstname")}
               onPress={() =>
                 this.props.navigation.navigate("AboutGiantScreen", {
                   desc: navigation.getParam("desc"),

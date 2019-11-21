@@ -30,6 +30,7 @@ export default class MapScreen extends React.Component {
       giantLatitude: region.latitude,
       giantLongitude: region.longitude,
       giantName: this.props.navigation.getParam("name"),
+      giantFirstname: this.props.navigation.getParam("firstname"),
       giantDesc: this.props.navigation.getParam("desc"),
       giantId: this.props.navigation.getParam("id"),
       transport: this.props.navigation.getParam("transport"),
@@ -71,6 +72,7 @@ export default class MapScreen extends React.Component {
       this.getTime();
       this.props.navigation.navigate("RewardScreen", {
         name: this.state.giantName,
+        firstname: this.state.giantFirstname,
         desc: this.state.giantDesc,
         giantId: this.state.giantId,
         date: this.state.date,
@@ -125,7 +127,7 @@ export default class MapScreen extends React.Component {
   render() {
     const { navigation } = this.props;
     const { distance } = this.state;
-    const name = navigation.getParam("name");
+    const firstname = navigation.getParam("firstname");
     const km = distance / 1000;
     return (
       <View style={Styles.container}>
@@ -149,7 +151,7 @@ export default class MapScreen extends React.Component {
         <View style={Styles.bottom}>
           <ScrollView style={Styles.containerScroll}>
             <Text style={Styles.distanceText}>
-              {name} is{" "}
+              {firstname} is{" "}
               {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
             </Text>
             <YellowButton
