@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, ImageBackground, ActivityIndicator, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
+import ImageData from "../../data/ImageData";
 import Styles from "./HomeStyles";
 import Colors from "../../constants/colors";
 
@@ -16,7 +17,7 @@ export default class HomeScreen extends React.Component {
   };
 
   async componentDidMount() {
-    await Asset.loadAsync([require("../../assets/images/bg.png")]);
+    await Asset.loadAsync([ImageData.homeScreenImage]);
 
     await Font.loadAsync({
       "amatic-sc": require("../../assets/fonts/amatic-sc.ttf"),
@@ -32,7 +33,7 @@ export default class HomeScreen extends React.Component {
     if (assetsLoaded) {
       return (
         <ImageBackground
-          source={require("../../assets/images/bg.png")}
+          source={ImageData.homeScreenImage}
           style={Styles.imageBackground}
         >
           <View style={Styles.container}>

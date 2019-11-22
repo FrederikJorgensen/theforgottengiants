@@ -1,6 +1,7 @@
 import React from "react";
 import { Text, View, Image, ImageBackground } from "react-native";
 import Styles from "./GiantStyles.js";
+import ImageData from "../../data/ImageData";
 
 export default class Giant extends React.Component {
   render() {
@@ -10,7 +11,7 @@ export default class Giant extends React.Component {
           <View>
             <Image
               style={Styles.locationEmoji}
-              source={require("../../assets/images/location_emoji.png")}
+              source={ImageData.locationIcon}
             />
           </View>
           <View>
