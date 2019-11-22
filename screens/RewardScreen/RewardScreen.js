@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Text, View, ImageBackground, ScrollView } from "react-native";
-import { YellowButton } from "../../components/Buttons/YellowButton";
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { BigReward } from "../../components/Reward/BigReward";
 import RewardData from "../../data/RewardData";
 import Styles from "./RewardStyles";
+import Colors from "../../constants/colors";
 
 export default class RewardScreen extends Component {
   componentWillMount() {
@@ -32,6 +32,7 @@ export default class RewardScreen extends Component {
               Congrats. You found {navigation.getParam("name")}
             </Text>
             <DefaultButton
+              backgroundColor={Colors.orange}
               btnText={"Read about " + navigation.getParam("firstname")}
               onPress={() =>
                 this.props.navigation.navigate("AboutGiantScreen", {
@@ -40,7 +41,8 @@ export default class RewardScreen extends Component {
                 })
               }
             ></DefaultButton>
-            <YellowButton
+            <DefaultButton
+              backgroundColor={Colors.yellow}
               btnText="Your rewards"
               onPress={() =>
                 this.props.navigation.navigate("RewardCollection", {
@@ -49,8 +51,9 @@ export default class RewardScreen extends Component {
                   found: this.props.navigation.getParam("found")
                 })
               }
-            ></YellowButton>
+            ></DefaultButton>
             <DefaultButton
+              backgroundColor={Colors.orange}
               btnText="Go find a new giant >"
               onPress={() => this.props.navigation.navigate("AllGiantsScreen")}
             ></DefaultButton>

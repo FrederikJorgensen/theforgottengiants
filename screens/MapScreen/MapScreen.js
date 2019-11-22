@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, ScrollView } from "react-native";
 import MapView from "react-native-maps";
-import { YellowButton } from "../../components/Buttons/YellowButton";
+import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { getDistance } from "geolib";
 import Styles from "./MapStyles";
 import Colors from "../../constants/colors";
@@ -154,14 +154,15 @@ export default class MapScreen extends React.Component {
               {firstname} is{" "}
               {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
             </Text>
-            <YellowButton
+            <DefaultButton
+              backgroundColor={Colors.yellow}
               btnText="How to get there?"
               onPress={() =>
                 this.props.navigation.navigate("PracticalInfo", {
                   transport: this.state.transport
                 })
               }
-            ></YellowButton>
+            ></DefaultButton>
           </ScrollView>
         </View>
       </View>
