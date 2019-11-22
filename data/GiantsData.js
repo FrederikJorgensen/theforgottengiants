@@ -125,4 +125,4 @@ export default [
         parking: "Filmbyen 34, 2650 Hvidovre"
       }
     }
-  ];  
+  ];

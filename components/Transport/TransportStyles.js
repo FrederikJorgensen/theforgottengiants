@@ -1,29 +1,26 @@
 import { StyleSheet } from "react-native";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import Colors from "../../constants/colors";
 import Fonts from "../../constants/fonts";
 
 const styles = StyleSheet.create({
+  img: {
+    width: 70,
+    height: 70
+  },
   text: {
-    fontSize: RFPercentage(5),
-    marginBottom: "7%",
+    fontSize: RFPercentage(4),
+    marginTop: "4%",
+    marginLeft: "2%",
     textAlign: "justify",
     fontFamily: Fonts.primary,
     color: Colors.black
   },
-  container: {
-    backgroundColor: Colors.green,
-    alignItems: "center",
+  row: {
+    flexDirection: "row",
+    flexWrap: "wrap",
     justifyContent: "center"
-  },
-  containerScroll: {
-    flexDirection: "column",
-    backgroundColor: Colors.green
-  },
-  h1: {
-    fontSize: RFPercentage(8),
-    fontFamily: Fonts.primary,
-    color: Colors.black
   }
 });
 
