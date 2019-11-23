@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import Giant from "../../components/Giant/Giant";
-import Styles from "./AllGiantsStyles";
 import GiantsData from "../../data/GiantsData";
+import Styles from "./AllGiantsStyles";
 
 class AllGiantsScreen extends React.Component {
   static navigationOptions = {
@@ -36,10 +36,8 @@ class AllGiantsScreen extends React.Component {
               <Giant
                 style={Styles.giant}
                 name={giant.name}
-                firstname={giant.firstname}
                 location={giant.location}
                 image={giant.image}
-                key={giant.id}
               />
             </TouchableOpacity>
           ))}
