@@ -22,12 +22,11 @@ export default class RewardScreen extends Component {
         <View>
           <ImageBackground
             style={Styles.img}
-            source={this.props.navigation.getParam("image")}
-          >
+            source={this.props.navigation.getParam("image")}>
             <BigReward />
           </ImageBackground>
 
-          <View style={Styles.bottomContainer}>
+          <View>
             <Text style={Styles.text}>
               Congrats. You found {navigation.getParam("name")}
             </Text>
@@ -38,9 +37,8 @@ export default class RewardScreen extends Component {
                 this.props.navigation.navigate("AboutGiantScreen", {
                   desc: navigation.getParam("desc"),
                   image: navigation.getParam("image")
-                })
-              }
-            ></DefaultButton>
+                })}>
+            </DefaultButton>
             <DefaultButton
               backgroundColor={Colors.yellow}
               btnText="Your rewards"
@@ -49,14 +47,13 @@ export default class RewardScreen extends Component {
                   giantId: this.props.navigation.getParam("giantId"),
                   date: this.props.navigation.getParam("date"),
                   found: this.props.navigation.getParam("found")
-                })
-              }
-            ></DefaultButton>
+                })}>
+            </DefaultButton>
             <DefaultButton
               backgroundColor={Colors.orange}
               btnText="Go find a new giant >"
-              onPress={() => this.props.navigation.navigate("AllGiantsScreen")}
-            ></DefaultButton>
+              onPress={() => this.props.navigation.navigate("AllGiantsScreen")}>
+            </DefaultButton>
           </View>
         </View>
       </ScrollView>

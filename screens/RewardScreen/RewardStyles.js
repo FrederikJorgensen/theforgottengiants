@@ -13,9 +13,6 @@ const styles = StyleSheet.create({
     height: "100%",
     flex: 10
   },
-  bottomContainer: {
-    flex: 1
-  },
   text: {
     marginTop: 10,
     marginBottom: 10,
