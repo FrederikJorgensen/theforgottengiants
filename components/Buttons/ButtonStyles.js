@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         paddingHorizontal: 10,
         paddingVertical: 5,
-        borderRadius: 5
+        borderRadius: 5,
     },
     buttonText: {
         fontSize: 30,
