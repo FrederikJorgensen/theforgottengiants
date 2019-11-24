@@ -6,7 +6,7 @@ export default class AboutGiantScreen extends Component {
   render() {
     const { navigation } = this.props;
     return (
-      <ScrollView style={Styles.container}>
+      <ScrollView style={Styles.scrollContainer}>
         <Image
           style={Styles.img}
           source={this.props.navigation.getParam("image")}

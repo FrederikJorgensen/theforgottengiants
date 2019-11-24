@@ -1,17 +1,16 @@
 import { StyleSheet } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
+
 import Fonts from "../../constants/fonts";
 
 const styles = StyleSheet.create({
   containerScroll: {
     paddingBottom: 20,
-    flexDirection: "column",
-    flex: 1
-  },
+    flexDirection: "column"},
   img: {
-    width: "100%",
-    height: "100%",
-    flex: 10
+    height: hp("45%"),
+    width: wp("100%"),
   },
   text: {
     marginTop: 10,
@@ -20,7 +19,7 @@ const styles = StyleSheet.create({
     fontFamily: Fonts.primary,
     fontSize: RFPercentage(5.5),
     textAlign: "center",
-  },
+  }
 });
 
 export default styles;

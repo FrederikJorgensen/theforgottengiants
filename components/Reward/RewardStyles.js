@@ -6,9 +6,9 @@ import Fonts from "../../constants/fonts";
 
 const styles = StyleSheet.create({
   reward_big: {
-    width: 130,
-    height: 130,
-    marginTop: "60%",
+    width: 120,
+    height: 120,
+    marginTop: "40%",
     marginLeft: "62%"
   },
   reward_small: {
