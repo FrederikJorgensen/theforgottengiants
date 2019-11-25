@@ -3,7 +3,7 @@ import React from 'react';
 import Styles from "./TransportStyles";
 
 export const Transport = ({ img, desc }) => (
-  <View style={Styles.row}>
+  <View style={Styles.column}>
     <Image
       style={Styles.img}
       source={img}

@@ -21,9 +21,10 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.green
   },
   h1: {
-    fontSize: RFPercentage(8),
+    fontSize: RFPercentage(5.5),
     fontFamily: Fonts.primary,
-    color: Colors.black
+    color: Colors.black,
+    marginBottom: '5%'
   }
 });
 

@@ -15,13 +15,14 @@ const styles = StyleSheet.create({
     marginLeft: "2%",
     textAlign: "justify",
     fontFamily: Fonts.primary,
-    color: Colors.black
+    color: Colors.black,
+    textAlign: "center"
   },
-  row: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "center"
-  }
+  column: {
+    flexDirection: "column",
+    alignItems: "center"
+  },
+
 });
 
 export default styles;

@@ -15,8 +15,9 @@ export default [
       },
       transport: {
         station: "Høje Taastrup Station",
-        stog: "b, f",
+        stog: "b or f",
         bus: "120",
+        busAddress: "Solvej",
         parking: "Hakkemosevej, 2630 Taastrup"
       }
     },
@@ -36,8 +37,9 @@ export default [
       },
       transport: {
         station: "Ishøj station",
-        stog: "E, A",
+        stog: "e or a",
         bus: "128",
+        busAddress: "Solvej",
         parking: "Skovvej 50, 2635 Ishøj or at Arken Museum"
       }
     },
@@ -57,8 +59,9 @@ export default [
       },
       transport: {
         station: "Brøndbyøster Station",
-        stog: "B",
+        stog: "b",
         bus: "9A",
+        busAddress: "Solvej",
         parking: "Korsdalsvej 112, 2610 Rødovre"
       }
     },
@@ -78,8 +81,9 @@ export default [
       },
       transport: {
         station: "Vallensbæk Station",
-        stog: "A",
+        stog: "a",
         bus: "143, 144",
+        busAddress: "Solvej",
         parking: "Rendsagervej, 2625 Vallensbæk"
       }
     },
@@ -99,8 +103,9 @@ export default [
       },
       transport: {
         station: "Albertslund Station",
-        stog: "B",
+        stog: "b",
         bus: "117",
+        busAddress: "Solvej",
         parking: "Vridsløsevej, 2620 Vallensbæk"
       }
     },
@@ -120,8 +125,9 @@ export default [
       },
       transport: {
         station: "Avedøre Station",
-        stog: "A",
+        stog: "a",
         bus: "1A, 4A",
+        busAddress: "Solvej",
         parking: "Filmbyen 34, 2650 Hvidovre"
       }
     }
