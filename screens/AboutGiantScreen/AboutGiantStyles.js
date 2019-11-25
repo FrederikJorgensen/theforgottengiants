@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   text: {
     textAlign: "justify",
     fontSize: RFPercentage(2.5),
+    fontFamily: Fonts.bodyTextRegular
   },
   textContainer: {
     marginTop: 25,
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
     lineHeight: 25
   },
   boldText: {
-    fontWeight: 'bold'
+    fontFamily: Fonts.bodyTextBold
   }
 });
 
