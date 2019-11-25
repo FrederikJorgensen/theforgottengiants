@@ -10,6 +10,16 @@ class AllGiantsScreen extends React.Component {
     header: null
   };
 
+  isGiantFound() {
+    if(GiantsData.found == true){
+        <ImageBackground
+          style={Styles.Giant}
+          source={this.props.navigation.getParam("image")}>
+          <SmallReward />
+        </ImageBackground>
+    }
+  }
+
   render() {
     return (
       <ScrollView style={Styles.containerScroll}>

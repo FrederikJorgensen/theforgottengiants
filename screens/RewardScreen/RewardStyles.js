@@ -13,15 +13,12 @@ const styles = StyleSheet.create({
     height: "100%",
     flex: 10
   },
-  bottomContainer: {
-    flex: 1
-  },
   text: {
     marginTop: 10,
     marginBottom: 10,
     margin: 10,
     fontFamily: Fonts.primary,
-    fontSize: RFPercentage(5.5),
+    fontSize: RFPercentage(5.0),
     textAlign: "center",
   },
 });

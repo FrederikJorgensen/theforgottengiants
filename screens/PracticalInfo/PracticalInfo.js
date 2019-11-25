@@ -20,20 +20,19 @@ export default class PracticalInfo extends Component {
     return (
       <ScrollView style={Styles.containerScroll}>
         <View style={Styles.container}>
-          <Text style={Styles.h1}> Public transport </Text>
-          <Text style={Styles.text}> {transport.station} </Text>
+          <Text style={Styles.h1}> Public transport and parking </Text>
+          <Text style={Styles.text}> Your options </Text>
           <Transport
-            img={ImageData.trainImage}
-            desc={transport.stog}>
+            img={require("../../assets/images/train.png")}
+            desc={"Take train " + transport.stog + " to " + transport.station}>
           </Transport>
           <Transport
-            img={ImageData.busImage}
-            desc={transport.bus}>
+            img={require("../../assets/images/bus.png")}
+            desc={"Take bus " + transport.bus + " to " + transport.busAddress}>
           </Transport>
-          <Text style={Styles.h1}> Parking </Text>
           <Transport
-            img={ImageData.carImage}
-            desc={transport.parking}>
+            img={require("../../assets/images/car.png")}
+            desc={"Park your car at " + transport.parking}>
           </Transport>
         </View>
       </ScrollView>
