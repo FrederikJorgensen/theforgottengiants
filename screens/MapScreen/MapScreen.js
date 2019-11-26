@@ -16,6 +16,8 @@ export default class MapScreen extends React.Component {
     };
   };
 
+  _isMounted = false;
+
   constructor(props) {
     super(props);
     const region = this.props.navigation.getParam("region");
@@ -41,8 +43,13 @@ export default class MapScreen extends React.Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     this.getUserPosition();
     interval = setInterval(() => this.getUserPosition(), 2000);
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   getCurrentPosition = () => {
@@ -58,11 +65,13 @@ export default class MapScreen extends React.Component {
   async getUserPosition() {
     try {
       const { coords } = await this.getCurrentPosition();
-      this.setState({
-        userLatitude: coords.latitude,
-        userLongitude: coords.longitude,
-        distanceLoaded: true
-      });
+      if (this._isMounted) {
+        this.setState({
+          userLatitude: coords.latitude,
+          userLongitude: coords.longitude,
+          distanceLoaded: true
+        });
+      }
     } catch (error) {
       console.error(error);
     }
@@ -76,10 +85,11 @@ export default class MapScreen extends React.Component {
         longitude: this.state.userLongitude
       }
     );
+    if (this._isMounted) {
+      this.setState({ distance: dis });
+    }
 
-    this.setState({ distance: dis });
-
-    if (this.state.distance < 10 && this.state.distance !== 0) {
+    if (this.state.distance < 1000000000000 && this.state.distance !== 0) {
       this.getTime();
       this.props.navigation.navigate("RewardScreen", {
         name: this.state.giantName,
@@ -103,9 +113,11 @@ export default class MapScreen extends React.Component {
       ":" +
       this.minutesWithLeadingZeros(new Date().getMinutes());
 
-    this.setState({
-      date: now
-    });
+    if (this._isMounted) {
+      this.setState({
+        date: now
+      });
+    }
   }
 
   getOrdinalNum(n) {
