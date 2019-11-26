@@ -11,12 +11,13 @@ class AllGiantsScreen extends React.Component {
   };
 
   isGiantFound() {
-    if(GiantsData.found == true){
-        <ImageBackground
-          style={Styles.Giant}
-          source={this.props.navigation.getParam("image")}>
-          <SmallReward />
-        </ImageBackground>
+    if (GiantsData.found == true) {
+      <ImageBackground
+        style={Styles.Giant}
+        source={this.props.navigation.getParam("image")}
+      >
+        <SmallReward />
+      </ImageBackground>;
     }
   }
 
