@@ -150,18 +150,20 @@ export default class MapScreen extends React.Component {
         <View style={Styles.bottom}>
           <ScrollView style={Styles.containerScroll}>
             {distanceLoaded ? (
-              <Text style={Styles.distanceText}>
-                {firstname} is{" "}
-                {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
-              </Text>
-            ) : (
-              <View>
+              <View style={Styles.container}>
                 <Text style={Styles.distanceText}>
-                  Loading the distance to {firstname}...
-                </Text>
-                <ActivityIndicator size="small" color="#00ff00" />
+                  {firstname} is{" "}
+                  {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
+              </Text>
               </View>
-            )}
+            ) : (
+                <View style={Styles.container}>
+                  <Text style={Styles.distanceText}>
+                    Loading the distance to {firstname}...
+                </Text>
+                  <ActivityIndicator size="small" color="#00ff00" />
+                </View>
+              )}
             <DefaultButton
               backgroundColor={Colors.yellow}
               btnText="How to get there?"
