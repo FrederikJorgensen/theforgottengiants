@@ -11,8 +11,6 @@ export default class RewardScreen extends Component {
     RewardData.map(reward => {
       if (this.props.navigation.getParam("giantId") === reward.id)
       (reward.found = true) && (reward.date = this.props.navigation.getParam("date"));
-      
-
     });
   }
 
