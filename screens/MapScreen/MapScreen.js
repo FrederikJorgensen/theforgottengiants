@@ -6,7 +6,6 @@ import { getDistance } from "geolib";
 import Styles from "./MapStyles";
 import Colors from "../../constants/colors";
 import monthNames from "../../constants/monthNames";
-import styles from "../../components/Buttons/ButtonStyles";
 
 export default class MapScreen extends React.Component {
   static navigationOptions = () => {
