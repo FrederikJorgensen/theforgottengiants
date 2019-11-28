@@ -3,7 +3,7 @@ import { RFPercentage } from "react-native-responsive-fontsize";
 import Colors from "../../constants/colors";
 import Fonts from "../../constants/fonts";
 
-export default styles = StyleSheet.create({
+export default Styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.green,
@@ -14,7 +14,7 @@ export default styles = StyleSheet.create({
     flexDirection: "column"
   },
   bottom: {
-    flex: 1,
+    flex: 1
   },
   mapStyle: {
     width: Dimensions.get("window").width,

@@ -22,7 +22,8 @@ export default class HomeScreen extends React.Component {
     await Font.loadAsync({
       "amatic-sc": require("../../assets/fonts/amatic-sc.ttf"),
       "Satisfy-Regular": require("../../assets/fonts/Satisfy-Regular.ttf"),
-      "RobotoSlab-Regular": require("../../assets/fonts/RobotoSlab-Regular.ttf")
+      "RobotoSlab-Regular": require("../../assets/fonts/RobotoSlab-Regular.ttf"),
+      "RobotoSlab-Bold": require("../../assets/fonts/RobotoSlab-Bold.ttf")
     });
     this.setState({ assetsLoaded: true });
   }

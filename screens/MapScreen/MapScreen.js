@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, ScrollView } from "react-native";
+import { View, Text, ScrollView, ActivityIndicator } from "react-native";
 import MapView from "react-native-maps";
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { getDistance } from "geolib";
@@ -16,6 +16,8 @@ export default class MapScreen extends React.Component {
     };
   };
 
+  _isMounted = false;
+
   constructor(props) {
     super(props);
     const region = this.props.navigation.getParam("region");
@@ -25,6 +27,7 @@ export default class MapScreen extends React.Component {
     this.minutesWithLeadingZeros = this.minutesWithLeadingZeros.bind(this);
     this.state = {
       distance: 0,
+      distanceLoaded: false,
       userLatitude: 0,
       userLongitude: 0,
       giantLatitude: region.latitude,
@@ -40,21 +43,38 @@ export default class MapScreen extends React.Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     this.getUserPosition();
-    interval = setInterval(() => this.getUserPosition(), 3000);
+    interval = setInterval(() => this.getUserPosition(), 2000);
   }
 
-  getUserPosition() {
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const userLatitude = position.coords.latitude;
-        const userLongitude = position.coords.longitude;
-        this.setState({ userLatitude, userLongitude });
-      },
-      error => alert(error.message),
-      { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
-    );
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
 
+  getCurrentPosition = () => {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject, {
+        enableHighAccuracy: true,
+        timeout: 20000,
+        maximumAge: 60 * 60 * 24
+      });
+    });
+  };
+
+  async getUserPosition() {
+    try {
+      const { coords } = await this.getCurrentPosition();
+      if (this._isMounted) {
+        this.setState({
+          userLatitude: coords.latitude,
+          userLongitude: coords.longitude,
+          distanceLoaded: true
+        });
+      }
+    } catch (error) {
+      console.error(error);
+    }
     let dis = getDistance(
       {
         latitude: this.state.giantLatitude,
@@ -65,10 +85,11 @@ export default class MapScreen extends React.Component {
         longitude: this.state.userLongitude
       }
     );
-    this.setState({ distance: dis });
-    this.autoZoom();
+    if (this._isMounted) {
+      this.setState({ distance: dis });
+    }
 
-    if (this.state.distance < 2000000000 && this.state.distance !== 0) {
+    if (this.state.distance < 1000000000000 && this.state.distance !== 0) {
       this.getTime();
       this.props.navigation.navigate("RewardScreen", {
         name: this.state.giantName,
@@ -92,9 +113,11 @@ export default class MapScreen extends React.Component {
       ":" +
       this.minutesWithLeadingZeros(new Date().getMinutes());
 
-    this.setState({
-      date: now
-    });
+    if (this._isMounted) {
+      this.setState({
+        date: now
+      });
+    }
   }
 
   getOrdinalNum(n) {
@@ -106,19 +129,6 @@ export default class MapScreen extends React.Component {
     );
   }
 
-  autoZoom() {
-    if (this.state.distance < 700 && this.state.distance !== 0) {
-      this.setState({
-        region: {
-          latitude: this.state.giantLatitude,
-          longitude: this.state.giantLongitude,
-          latitudeDelta: 0.01121,
-          longitudeDelta: 0.01121
-        }
-      });
-    }
-  }
-
   minutesWithLeadingZeros(m) {
     m = new Date();
     return (m.getMinutes() < 10 ? "0" : "") + m.getMinutes();
@@ -126,7 +136,7 @@ export default class MapScreen extends React.Component {
 
   render() {
     const { navigation } = this.props;
-    const { distance } = this.state;
+    const { distance, distanceLoaded } = this.state;
     const firstname = navigation.getParam("firstname");
     const km = distance / 1000;
     return (
@@ -150,10 +160,21 @@ export default class MapScreen extends React.Component {
         </MapView>
         <View style={Styles.bottom}>
           <ScrollView style={Styles.containerScroll}>
-            <Text style={Styles.distanceText}>
-              {firstname} is{" "}
-              {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
-            </Text>
+            {distanceLoaded ? (
+              <View style={Styles.container}>
+                <Text style={Styles.distanceText}>
+                  {firstname} is{" "}
+                  {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
+              </Text>
+              </View>
+            ) : (
+                <View style={Styles.container}>
+                  <Text style={Styles.distanceText}>
+                    Loading the distance to {firstname}...
+                </Text>
+                  <ActivityIndicator size="small" color="#00ff00" />
+                </View>
+              )}
             <DefaultButton
               backgroundColor={Colors.yellow}
               btnText="How to get there?"

@@ -1,5 +1,6 @@
 export default {
     primary: "amatic-sc",
-    bodyText: "RobotoSlab-Regular",
-    homeScreenButton: "Satisfy-Regular"
+    homeScreenButton: "Satisfy-Regular",
+    bodyTextRegular: "RobotoSlab-Regular",
+    bodyTextBold: "RobotoSlab-Bold"
 };

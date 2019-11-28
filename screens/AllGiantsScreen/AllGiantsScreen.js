@@ -1,14 +1,25 @@
 import React from "react";
 import { View, Text, ScrollView, TouchableOpacity } from "react-native";
 import Giant from "../../components/Giant/Giant";
-import Styles from "./AllGiantsStyles";
 import GiantsData from "../../data/GiantsData";
+import Styles from "./AllGiantsStyles";
 
 class AllGiantsScreen extends React.Component {
   static navigationOptions = {
     headerMode: "none",
     header: null
   };
+
+  isGiantFound() {
+    if (GiantsData.found == true) {
+      <ImageBackground
+        style={Styles.Giant}
+        source={this.props.navigation.getParam("image")}
+      >
+        <SmallReward />
+      </ImageBackground>;
+    }
+  }
 
   render() {
     return (
@@ -36,10 +47,8 @@ class AllGiantsScreen extends React.Component {
               <Giant
                 style={Styles.giant}
                 name={giant.name}
-                firstname={giant.firstname}
                 location={giant.location}
                 image={giant.image}
-                key={giant.id}
               />
             </TouchableOpacity>
           ))}
