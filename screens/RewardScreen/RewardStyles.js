@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     flexDirection: "column"},
   img: {
-    height: hp("45%"),
+    height: hp("40%"),
     width: wp("100%"),
   },
   text: {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     margin: 10,
     fontFamily: Fonts.primary,
-    fontSize: RFPercentage(5.5),
+    fontSize: RFPercentage(5.2),
     textAlign: "center",
   }
 });
