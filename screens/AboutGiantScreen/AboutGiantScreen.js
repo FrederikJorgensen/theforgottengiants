@@ -17,7 +17,7 @@ export default class AboutGiantScreen extends Component {
 
   render() {
     return (
-      <ScrollView style={Styles.container}>
+      <ScrollView style={Styles.scrollContainer}>
         <Image
           key={this.state.id}
           style={Styles.img}

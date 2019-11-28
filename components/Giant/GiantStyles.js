@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   giantImage: {
     marginTop: 10,
     marginBottom: 40,
-    height: hp("35%"),
+    height: hp("45%"),
     width: wp("90%"),
     resizeMode: "cover"
   },

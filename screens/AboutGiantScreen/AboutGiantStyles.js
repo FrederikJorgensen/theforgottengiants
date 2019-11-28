@@ -1,14 +1,15 @@
 import { StyleSheet } from "react-native";
 import { RFPercentage } from "react-native-responsive-fontsize";
 import Fonts from "../../constants/fonts";
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
 
 const styles = StyleSheet.create({
-  container: {
+  scrollContainer: {
     flexDirection: "column"
   },
   img: {
-    width: "100%",
-    height: 363
+    height: hp("45%"),
+    width: wp("100%"),
   },
   text: {
     textAlign: "justify",

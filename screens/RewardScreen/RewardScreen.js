@@ -27,7 +27,7 @@ export default class RewardScreen extends Component {
 
           <View>
             <Text style={Styles.text}>
-              Congrats. You found {navigation.getParam("name")}
+              Congrats! You found {navigation.getParam("firstname")}
             </Text>
             <DefaultButton
               backgroundColor={Colors.orange}

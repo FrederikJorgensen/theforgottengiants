@@ -21,10 +21,9 @@ export default Styles = StyleSheet.create({
     flex: 2.8
   },
   distanceText: {
-    fontSize: RFPercentage(4),
+    fontSize: RFPercentage(5),
     fontFamily: Fonts.primary,
     marginTop: 12,
-    marginBottom: 12,
-    alignItems: "center"
+    marginBottom: 5,
   }
 });
