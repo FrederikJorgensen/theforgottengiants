@@ -1,12 +1,11 @@
 import React from "react";
-import { View, Text, ScrollView, ActivityIndicator } from "react-native";
+import { View, Text, ScrollView, ActivityIndicator, AsyncStorage } from "react-native";
 import MapView from "react-native-maps";
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { getDistance } from "geolib";
 import Styles from "./MapStyles";
 import Colors from "../../constants/colors";
 import monthNames from "../../constants/monthNames";
-import { AsyncStorage } from "react-native";
 
 export default class MapScreen extends React.Component {
   static navigationOptions = () => {
@@ -41,8 +40,7 @@ export default class MapScreen extends React.Component {
       giantId: this.props.navigation.getParam("id"),
       transport: this.props.navigation.getParam("transport"),
       image: this.props.navigation.getParam("image"),
-      date: "",
-      savedDate: ""
+      date: ""
     };
   }
 
@@ -94,14 +92,14 @@ export default class MapScreen extends React.Component {
     }
 
     if (this.state.distance < 1000000000000 && this.state.distance !== 0) {
-      this.getTime();
+      this.saveDate();
       this.retrieveDate();
       this.props.navigation.navigate("RewardScreen", {
         name: this.state.giantName,
         firstname: this.state.giantFirstname,
         desc: this.state.giantDesc,
         giantId: this.state.giantId,
-        saveddate: this.state.savedDate,
+        date: this.state.date,
         image: this.state.image
       });
       clearInterval(interval);
@@ -120,14 +118,15 @@ export default class MapScreen extends React.Component {
 
     if (this._isMounted) {
       this.setState({
-        savedDate: now
+        date: now
       });
     }
   }
 
   saveDate = async () => {
+    this.getTime();
     try {
-      await AsyncStorage.setItem("savedDateData", this.state.savedDate);
+      await AsyncStorage.setItem("date", this.state.date);
     } catch (error) {
       // Error saving data
     }
@@ -135,7 +134,7 @@ export default class MapScreen extends React.Component {
 
   retrieveDate = async () => {
     try {
-      const value = await AsyncStorage.getItem("savedDateData");
+      const value = await AsyncStorage.getItem("date");
       if (value !== null) {
         this.setState({
           date: value
@@ -169,7 +168,6 @@ export default class MapScreen extends React.Component {
       <View style={Styles.container}>
         <MapView
           style={Styles.mapStyle}
-          initialRegion={this.state.region}
           showsUserLocation={true}
           followUserLocation={true}
           initialRegion={this.props.navigation.getParam("region")}
