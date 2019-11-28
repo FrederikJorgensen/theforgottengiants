@@ -6,6 +6,7 @@ import { getDistance } from "geolib";
 import Styles from "./MapStyles";
 import Colors from "../../constants/colors";
 import monthNames from "../../constants/monthNames";
+import { AsyncStorage } from "react-native";
 
 export default class MapScreen extends React.Component {
   static navigationOptions = () => {
@@ -25,6 +26,8 @@ export default class MapScreen extends React.Component {
     this.getTime = this.getTime.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
     this.minutesWithLeadingZeros = this.minutesWithLeadingZeros.bind(this);
+    this.saveDate = this.saveDate.bind(this);
+    this.retrieveDate = this.retrieveDate.bind(this);
     this.state = {
       distance: 0,
       distanceLoaded: false,
@@ -38,7 +41,8 @@ export default class MapScreen extends React.Component {
       giantId: this.props.navigation.getParam("id"),
       transport: this.props.navigation.getParam("transport"),
       image: this.props.navigation.getParam("image"),
-      date: ""
+      date: "",
+      savedDate: ""
     };
   }
 
@@ -91,12 +95,13 @@ export default class MapScreen extends React.Component {
 
     if (this.state.distance < 1000000000000 && this.state.distance !== 0) {
       this.getTime();
+      this.retrieveDate();
       this.props.navigation.navigate("RewardScreen", {
         name: this.state.giantName,
         firstname: this.state.giantFirstname,
         desc: this.state.giantDesc,
         giantId: this.state.giantId,
-        date: this.state.date,
+        saveddate: this.state.savedDate,
         image: this.state.image
       });
       clearInterval(interval);
@@ -115,8 +120,29 @@ export default class MapScreen extends React.Component {
 
     if (this._isMounted) {
       this.setState({
-        date: now
+        savedDate: now
       });
+    }
+  }
+
+  saveDate = async () => {
+    try {
+      await AsyncStorage.setItem("savedDateData", this.state.savedDate);
+    } catch (error) {
+      // Error saving data
+    }
+  }
+
+  retrieveDate = async () => {
+    try {
+      const value = await AsyncStorage.getItem("savedDateData");
+      if (value !== null) {
+        this.setState({
+          date: value
+        })
+      }
+    } catch (error) {
+      // Error retrieving data
     }
   }
 
