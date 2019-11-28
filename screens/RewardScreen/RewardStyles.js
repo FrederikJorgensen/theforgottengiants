@@ -9,12 +9,12 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     flexDirection: "column"},
   img: {
-    height: hp("40%"),
+    height: hp("45%"),
     width: wp("100%"),
   },
   text: {
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: 20,
+    marginBottom: 20,
     margin: 10,
     fontFamily: Fonts.primary,
     fontSize: RFPercentage(5.2),
