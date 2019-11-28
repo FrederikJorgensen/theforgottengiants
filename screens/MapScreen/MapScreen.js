@@ -25,6 +25,7 @@ export default class MapScreen extends React.Component {
     this.getTime = this.getTime.bind(this);
     this.getOrdinalNum = this.getOrdinalNum.bind(this);
     this.minutesWithLeadingZeros = this.minutesWithLeadingZeros.bind(this);
+    this.hoursWithLeadingZeros = this.hoursWithLeadingZeros.bind(this);
     this.saveDate = this.saveDate.bind(this);
     this.retrieveDate = this.retrieveDate.bind(this);
     this.state = {
@@ -106,23 +107,6 @@ export default class MapScreen extends React.Component {
     }
   }
 
-  getTime() {
-    const now =
-      this.getOrdinalNum(new Date().getDate()) +
-      " OF " +
-      monthNames[new Date().getMonth()] +
-      " at " +
-      new Date().getHours() +
-      ":" +
-      this.minutesWithLeadingZeros(new Date().getMinutes());
-
-    if (this._isMounted) {
-      this.setState({
-        date: now
-      });
-    }
-  }
-
   saveDate = async () => {
     this.getTime();
     try {
@@ -136,12 +120,31 @@ export default class MapScreen extends React.Component {
     try {
       const value = await AsyncStorage.getItem("date");
       if (value !== null) {
-        this.setState({
-          date: value
-        })
+        if (this._isMounted) {
+          this.setState({
+            date: value
+          })
+        }
       }
     } catch (error) {
       // Error retrieving data
+    }
+  }
+
+  getTime() {
+    const now =
+      this.getOrdinalNum(new Date().getDate()) +
+      " OF " +
+      monthNames[new Date().getMonth()] +
+      " at " +
+      this.hoursWithLeadingZeros(new Date().getHours()) +
+      ":" +
+      this.minutesWithLeadingZeros(new Date().getMinutes());
+
+    if (this._isMounted) {
+      this.setState({
+        date: now
+      });
     }
   }
 
@@ -157,6 +160,11 @@ export default class MapScreen extends React.Component {
   minutesWithLeadingZeros(m) {
     m = new Date();
     return (m.getMinutes() < 10 ? "0" : "") + m.getMinutes();
+  }
+
+  hoursWithLeadingZeros(h) {
+    h = new Date();
+    return (h.getHours() < 10 ? "0" : "") + h.getHours();
   }
 
   render() {
