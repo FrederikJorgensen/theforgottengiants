@@ -27,15 +27,17 @@ export default class RewardScreen extends Component {
 
           <View>
             <Text style={Styles.text}>
-              Congrats! You found {navigation.getParam("firstname")}
+              Congrats! You found {this.props.navigation.getParam("firstname")}
             </Text>
             <DefaultButton
               backgroundColor={Colors.orange}
-              btnText={"Read about " + navigation.getParam("firstname")}
+              btnText={"Read about " + this.props.navigation.getParam("firstname")}
               onPress={() =>
                 this.props.navigation.navigate("AboutGiantScreen", {
-                  desc: navigation.getParam("desc"),
-                  image: navigation.getParam("image")
+                  desc: this.props.navigation.getParam("desc"),
+                  image: this.props.navigation.getParam("image"),
+                  firstname: this.props.navigation.getParam("firstname"),
+                  audio: this.props.navigation.getParam("audio")
                 })}>
             </DefaultButton>
             <DefaultButton

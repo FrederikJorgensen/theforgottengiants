@@ -38,6 +38,7 @@ class AllGiantsScreen extends React.Component {
                   location: giant.location,
                   image: giant.image,
                   desc: giant.desc,
+                  audio: giant.audio,
                   address: giant.address,
                   transport: giant.transport,
                   region: giant.region
