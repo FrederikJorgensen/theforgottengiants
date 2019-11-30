@@ -24,7 +24,9 @@ export default class Giant extends React.Component {
           source={this.props.image}
           style={Styles.giantImage}
           imageStyle={{ borderRadius: 20 }}>
-          <View>{this.props.isFound && <SmallReward />}</View>
+          <View>
+              {this.props.isFound && <SmallReward />}
+          </View>
           <View style={Styles.imageTextPlacement}>
             <Text style={Styles.imageText}>{this.props.name}</Text>
           </View>
