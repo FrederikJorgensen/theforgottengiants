@@ -4,30 +4,50 @@ import { Audio } from 'expo-av';
 import BoldText from "../../data/GiantTextWithBold";
 import Styles from "./AboutGiantStyles.js";
 import Highlighter from 'react-native-highlight-words';
-import Colors from "../../constants/colors";
 
 export default class AboutGiantScreen extends Component {
 
+  _isMounted = false;
+
   constructor(props) {
     super(props);
-    this.handlePress = this.handlePress.bind(this);
+    this.soundObject = new Audio.Sound();
+    this.handlePressPlay = this.handlePressPlay.bind(this);
+    this.handlePressStop = this.handlePressStop.bind(this);
     this.state = {
       id: this.props.navigation.getParam("id"),
       firstname: this.props.navigation.getParam("firstname"),
       giantDesc: this.props.navigation.getParam("desc"),
       image: this.props.navigation.getParam("image"),
-      audio: this.props.navigation.getParam("audio")
+      audio: this.props.navigation.getParam("audio"),
+      play: "Play audio",
+      stop: "Stop audio"
     }
   }
 
-  async handlePress() {
-    const soundObject = new Audio.Sound();
+  componentDidMount() {
+    this._isMounted = true;
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
+  async handlePressPlay() {
     try {
-      await soundObject.loadAsync(this.state.audio);
-      await soundObject.playAsync();
-      // Your sound is playing!
+      await this.soundObject.unloadAsync();
+      await this.soundObject.loadAsync(this.state.audio);
+      await this.soundObject.playAsync();
     } catch (error) {
-      // An error occurred!
+      console.log(error)
+    }
+  }
+
+  async handlePressStop() {
+    try {
+      await this.soundObject.stopAsync();
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -42,8 +62,13 @@ export default class AboutGiantScreen extends Component {
         <View style={Styles.container}>
           <TouchableOpacity
             style={Styles.buttonStyle}
-            onPress={this.handlePress}>
-            <Text style={Styles.buttonText}>Listen to {this.state.firstname}</Text>
+            onPress={this.handlePressPlay}>
+            <Text style={Styles.buttonText}>{this.state.play}</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={Styles.buttonStyle}
+            onPress={this.handlePressStop}>
+            <Text style={Styles.buttonText}>{this.state.stop}</Text>
           </TouchableOpacity>
         </View>
         <View style={Styles.textContainer}>

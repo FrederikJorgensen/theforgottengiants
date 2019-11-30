@@ -6,6 +6,7 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-nat
 
 const styles = StyleSheet.create({
   container: {
+    flexDirection: "row",
     flex: 1,
     marginTop: 25,
     alignItems: "center",
