@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   img: {
-    width: 40,
-    height: 40
+    width: 25,
+    height: 25
   }
 });
 

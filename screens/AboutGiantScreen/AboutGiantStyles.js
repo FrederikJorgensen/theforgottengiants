@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 10,
     borderRadius: 5,
-    backgroundColor: Colors.orange
+    borderWidth: 1
   }
 });
 
