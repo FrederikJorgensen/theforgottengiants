@@ -65,7 +65,7 @@ export default class AboutGiantScreen extends Component {
           <TouchableOpacity
             style={Styles.buttonStyle}
             onPress={this.handlePressPlay}>
-            <Text style={Styles.buttonText}>{this.state.play}</Text>
+            <Sound img={require("../../assets/images/startAudio.png")}></Sound>
           </TouchableOpacity>
           <TouchableOpacity
             style={Styles.buttonStyle}

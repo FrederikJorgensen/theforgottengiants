@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
     marginBottom: 10,
     paddingHorizontal: 10,
-    paddingVertical: 5,
+    paddingVertical: 10,
     borderRadius: 5,
     backgroundColor: Colors.orange
   }
