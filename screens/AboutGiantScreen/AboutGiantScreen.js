@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Image, ScrollView, TouchableOpacity, Text } from "react-native";
+import { View, Image, ScrollView, TouchableOpacity } from "react-native";
 import { Audio } from 'expo-av';
 import { FontAwesome } from '@expo/vector-icons';
 import BoldText from "../../data/GiantTextWithBold";
@@ -26,9 +26,7 @@ export default class AboutGiantScreen extends Component {
       firstname: this.props.navigation.getParam("firstname"),
       giantDesc: this.props.navigation.getParam("desc"),
       image: this.props.navigation.getParam("image"),
-      audio: this.props.navigation.getParam("audio"),
-      play: "Play audio",
-      stop: "Stop audio"
+      audio: this.props.navigation.getParam("audio")
     }
   }
 

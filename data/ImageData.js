@@ -5,7 +5,5 @@ export default {
     busImage: require("../assets/images/bus.png"),
     carImage: require("../assets/images/car.png"),
     trainImage: require("../assets/images/train.png"),
-    rewardImage: require("../assets/images/reward.png"),
-    startAudio: require("../assets/images/startAudio.png"),
-    stopAudio: require("../assets/images/stopAudio.png")
+    rewardImage: require("../assets/images/reward.png")
 };
