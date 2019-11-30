@@ -3,6 +3,7 @@ import { Text, View, ImageBackground, ScrollView } from "react-native";
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { BigReward } from "../../components/Reward/BigReward";
 import RewardData from "../../data/RewardData";
+import GiantsData from "../../data/GiantsData";
 import Styles from "./RewardStyles";
 import Colors from "../../constants/colors";
 
@@ -11,6 +12,10 @@ export default class RewardScreen extends Component {
     RewardData.map(reward => {
       if (this.props.navigation.getParam("giantId") === reward.id)
       (reward.found = true) && (reward.date = this.props.navigation.getParam("date"));
+    });
+    GiantsData.map(giant => {
+      if (this.props.navigation.getParam("giantId") === giant.id)
+        giant.isFound = true;
     });
   }
 
@@ -51,7 +56,9 @@ export default class RewardScreen extends Component {
             <DefaultButton
               backgroundColor={Colors.orange}
               btnText="Go find a new giant >"
-              onPress={() => this.props.navigation.navigate("AllGiantsScreen")}>
+              onPress={() => this.props.navigation.navigate("AllGiantsScreen", {
+                isFound: this.props.navigation.getParam("isFound")
+              })}>
             </DefaultButton>
           </View>
         </View>

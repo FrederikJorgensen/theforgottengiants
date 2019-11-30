@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.green
   },
   h1: {
-    fontSize: RFPercentage(5.5),
+    fontSize: RFPercentage(5.8),
     fontFamily: Fonts.primary,
     color: Colors.black,
     marginBottom: '5%'

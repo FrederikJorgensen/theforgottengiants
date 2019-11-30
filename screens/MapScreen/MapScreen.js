@@ -6,6 +6,7 @@ import { getDistance } from "geolib";
 import Styles from "./MapStyles";
 import Colors from "../../constants/colors";
 import monthNames from "../../constants/monthNames";
+import GiantData from "../../data/GiantsData"
 
 export default class MapScreen extends React.Component {
   static navigationOptions = () => {
@@ -89,7 +90,7 @@ export default class MapScreen extends React.Component {
       this.setState({ distance: dis });
     }
 
-    if (this.state.distance < 1000000000000 && this.state.distance !== 0) {
+    if (this.state.distance < 2000000000 && this.state.distance !== 0) {
       this.getTime();
       this.props.navigation.navigate("RewardScreen", {
         name: this.state.giantName,
@@ -97,7 +98,8 @@ export default class MapScreen extends React.Component {
         desc: this.state.giantDesc,
         giantId: this.state.giantId,
         date: this.state.date,
-        image: this.state.image
+        image: this.state.image,
+        isFound: this.state.isFound
       });
       clearInterval(interval);
     }

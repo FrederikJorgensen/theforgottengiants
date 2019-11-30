@@ -5,21 +5,11 @@ import GiantsData from "../../data/GiantsData";
 import Styles from "./AllGiantsStyles";
 
 class AllGiantsScreen extends React.Component {
+
   static navigationOptions = {
     headerMode: "none",
     header: null
   };
-
-  isGiantFound() {
-    if (GiantsData.found == true) {
-      <ImageBackground
-        style={Styles.Giant}
-        source={this.props.navigation.getParam("image")}
-      >
-        <SmallReward />
-      </ImageBackground>;
-    }
-  }
 
   render() {
     return (
@@ -40,7 +30,8 @@ class AllGiantsScreen extends React.Component {
                   desc: giant.desc,
                   address: giant.address,
                   transport: giant.transport,
-                  region: giant.region
+                  region: giant.region,
+                  isFound: giant.isFound
                 })
               }
             >
@@ -49,6 +40,7 @@ class AllGiantsScreen extends React.Component {
                 name={giant.name}
                 location={giant.location}
                 image={giant.image}
+                isFound={giant.isFound}
               />
             </TouchableOpacity>
           ))}

@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
   reward_small: {
     width: 70,
     height: 70,
-    marginTop: "77%",
-    marginLeft: "77%"
+    marginTop: "3%",
+    marginLeft: "70%"
   },
   container: {
     alignItems: "center",
