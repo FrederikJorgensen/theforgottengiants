@@ -4,6 +4,8 @@ import { Audio } from 'expo-av';
 import BoldText from "../../data/GiantTextWithBold";
 import Styles from "./AboutGiantStyles.js";
 import Highlighter from 'react-native-highlight-words';
+import { Sound } from "../../components/Sound/Sound";
+import ImageData from "../../data/ImageData";
 
 export default class AboutGiantScreen extends Component {
 
@@ -57,12 +59,12 @@ export default class AboutGiantScreen extends Component {
           <TouchableOpacity
             style={Styles.buttonStyle}
             onPress={this.handlePressPlay}>
-            <Text style={Styles.buttonText}>{this.state.play}</Text>
+            <Sound img={require("../../assets/images/startAudio.png")}></Sound>
           </TouchableOpacity>
           <TouchableOpacity
             style={Styles.buttonStyle}
             onPress={this.handlePressStop}>
-            <Text style={Styles.buttonText}>{this.state.stop}</Text>
+            <Sound img={require("../../assets/images/stopAudio.png")}></Sound>
           </TouchableOpacity>
         </View>
         <View style={Styles.textContainer}>
