@@ -7,8 +7,6 @@ import Highlighter from 'react-native-highlight-words';
 
 export default class AboutGiantScreen extends Component {
 
-  _isMounted = false;
-
   constructor(props) {
     super(props);
     this.soundObject = new Audio.Sound();
@@ -25,12 +23,8 @@ export default class AboutGiantScreen extends Component {
     }
   }
 
-  componentDidMount() {
-    this._isMounted = true;
-  }
-
   componentWillUnmount() {
-    this._isMounted = false;
+    this.soundObject.unloadAsync();
   }
 
   async handlePressPlay() {

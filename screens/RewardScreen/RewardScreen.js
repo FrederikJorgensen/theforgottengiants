@@ -15,7 +15,6 @@ export default class RewardScreen extends Component {
   }
 
   render() {
-    const { navigation } = this.props;
     return (
       <ScrollView style={Styles.containerScroll}>
         <View>
@@ -31,7 +30,7 @@ export default class RewardScreen extends Component {
             </Text>
             <DefaultButton
               backgroundColor={Colors.orange}
-              btnText={"Read about " + this.props.navigation.getParam("firstname")}
+              btnText={"About " + this.props.navigation.getParam("firstname")}
               onPress={() =>
                 this.props.navigation.navigate("AboutGiantScreen", {
                   desc: this.props.navigation.getParam("desc"),
