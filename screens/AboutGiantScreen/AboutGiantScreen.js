@@ -1,57 +1,35 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  Image,
-  ScrollView,
-  TouchableOpacity
-} from "react-native";
-import * as Font from "expo-font";
-import styles from "./AboutGiantStyles.js";
+import { View, Image, ScrollView } from "react-native";
+import BoldText from "../../data/GiantTextWithBold";
+import Styles from "./AboutGiantStyles.js";
+import Highlighter from 'react-native-highlight-words';
 
 export default class AboutGiantScreen extends Component {
-  async componentDidMount() {
-    await Font.loadAsync({
-      "amatic-sc": require("../../assets/fonts/amatic-sc.ttf")
-    });
-    this.setState({ assetsLoaded: true });
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      id: this.props.navigation.getParam("id"),
+      giantDesc: this.props.navigation.getParam("desc"),
+      image: this.props.navigation.getParam("image")
+    }
   }
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <ScrollView style={Styles.scrollContainer}>
         <Image
-          style={styles.img}
-          source={require("../../assets/images/teddy-no-overlay.png")}
+          key={this.state.id}
+          style={Styles.img}
+          source={this.state.image}
         />
-        <View style={styles.textContainer}>
-          <Text style={styles.text}>
-            Teddy Friendly is a recycle sculpture Thomas Dambo made as a part of
-            the larger project “Forgotten Giants”. The project consists of 6
-            large sculptures made in the outskirts of Copenhagen. Common for all
-            sculptures is that they are made solely from local scrapwood and
-            recycled materials, and made in a hidden beautiful location. This
-            way it invites the viewers to go on a treasure hunt, not only to see
-            the sculptures, but also to discover hidden gems in nature.
-            {"\n"} {"\n"}
-            Teddy friendly is made from local scrapwood, including cut offs from
-            cut down local trees, which has been used for his fur. He is
-            standing at a water stream, at a lake holding out his hand helping
-            people to cross. {"\n"} {"\n"}
-            The Thomas Dambo team had help from a local activation center, which
-            provided four unemployed people and a teacher to assist in building
-            the sculpture. The teachers name was Teddy, he was a super friendly
-            and hardworking guy, and together with his team he made a huge
-            effort, therefore Thomas Dambo decided to name the sculpture after
-            him.{" "}
-          </Text>
-          <TouchableOpacity
-            style={styles.customBtnBG}
-            onPress={() => this.props.navigation.navigate("MapScreen")}
-          >
-            <Text style={styles.customBtnText}>BACK</Text>
-          </TouchableOpacity>
+        <View style={Styles.textContainer}>
+          <Highlighter
+            highlightStyle={Styles.boldText}
+            style={Styles.text}
+            searchWords={BoldText}
+            textToHighlight={this.state.giantDesc}
+          />
         </View>
       </ScrollView>
     );

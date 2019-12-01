@@ -1,66 +1,68 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
-  Button,
-  ImageBackground,
-} from "react-native";
-import { Asset } from "expo-asset";
-import * as Font from "expo-font";
-import styles from "./RewardScreenStyles";
-import { ListenToAudioButton } from "../../components/Buttons/ListenToAudioButton";
-import { YellowButton } from "../../components/Buttons/YellowButton";
-import { OrangeButton } from "../../components/Buttons/OrangeButton";
+import { Text, View, ImageBackground, ScrollView } from "react-native";
+import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { BigReward } from "../../components/Reward/BigReward";
-import { Location } from "../../components/location/Location";
+import RewardData from "../../data/RewardData";
+import GiantsData from "../../data/GiantsData";
+import Styles from "./RewardStyles";
+import Colors from "../../constants/colors";
 
 export default class RewardScreen extends Component {
-
-
-  async componentWillMount() {
-    await Asset.loadAsync([require("../../assets/images/teddynew.png")]);
-
-    await Font.loadAsync({
-      "amatic-sc": require("../../assets/fonts/amatic-sc.ttf"),
-      "Satisfy-Regular": require("../../assets/fonts/Satisfy-Regular.ttf")
+  componentWillMount() {
+    RewardData.map(reward => {
+      if (this.props.navigation.getParam("giantId") === reward.id)
+      (reward.found = true) && (reward.date = this.props.navigation.getParam("date"));
+    });
+    GiantsData.map(giant => {
+      if (this.props.navigation.getParam("giantId") === giant.id)
+        giant.isFound = true;
     });
   }
 
   render() {
+    const { navigation } = this.props;
     return (
-      <View>
-        <ImageBackground
-          style={styles.img}
-          source={require("../../assets/images/teddy-no-overlay.png")}>
-          <BigReward/>
-        </ImageBackground>
-      <View style={{ flexDirection: "row", marginTop: 15, marginLeft: 15 }}>
-        <Location/>
-      </View>
-      <View>
-        <Text style={styles.locationText}>
-            CONGRATS. YOU FOUND TEDDY FRIENDLY!
-        </Text>
-          <ListenToAudioButton
-            onPress={() => this.props.navigation.navigate("HomeScreen")}>
-          </ListenToAudioButton>
-          <YellowButton
-            btnText='Read about Teddy'
-            onPress={() => this.props.navigation.navigate("AboutGiantScreen")}>
-          </YellowButton>
-          <OrangeButton
-            btnText='Go find a new giant >'
-            onPress={() => this.props.navigation.navigate("AllGiantsScreen")}>
-          </OrangeButton>
-          <YellowButton
-            btnText='Your rewards'
-            onPress={() => this.props.navigation.navigate("RewardCollection")}>
-          </YellowButton>
-      </View>
-</View>
+      <ScrollView style={Styles.containerScroll}>
+        <View>
+          <ImageBackground
+            style={Styles.img}
+            source={this.props.navigation.getParam("image")}>
+            <BigReward />
+          </ImageBackground>
+
+          <View>
+            <Text style={Styles.text}>
+              Congrats! You found {navigation.getParam("firstname")}
+            </Text>
+            <DefaultButton
+              backgroundColor={Colors.orange}
+              btnText={"Read about " + navigation.getParam("firstname")}
+              onPress={() =>
+                this.props.navigation.navigate("AboutGiantScreen", {
+                  desc: navigation.getParam("desc"),
+                  image: navigation.getParam("image")
+                })}>
+            </DefaultButton>
+            <DefaultButton
+              backgroundColor={Colors.yellow}
+              btnText="Your rewards"
+              onPress={() =>
+                this.props.navigation.navigate("RewardCollection", {
+                  giantId: this.props.navigation.getParam("giantId"),
+                  date: this.props.navigation.getParam("date"),
+                  found: this.props.navigation.getParam("found")
+                })}>
+            </DefaultButton>
+            <DefaultButton
+              backgroundColor={Colors.orange}
+              btnText="Go find a new giant >"
+              onPress={() => this.props.navigation.navigate("AllGiantsScreen", {
+                isFound: this.props.navigation.getParam("isFound")
+              })}>
+            </DefaultButton>
+          </View>
+        </View>
+      </ScrollView>
     );
   }
-};
+}

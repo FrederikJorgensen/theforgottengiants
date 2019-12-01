@@ -7,5 +7,7 @@ npm-debug.*
 *.key
 *.mobileprovision
 *.orig.*
+*.icloud
+*.DS_Store
 web-build/
 web-report/

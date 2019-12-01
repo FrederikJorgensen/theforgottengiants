@@ -1,26 +1,29 @@
 import React from "react";
-import {
-  Text,
-  View,
-  ImageBackground,
-  ActivityIndicator,
-  TouchableOpacity
-} from "react-native";
+import { Text, View, ImageBackground, ActivityIndicator, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
 import { Asset } from "expo-asset";
-import styles from "./HomeScreenStyles";
+import ImageData from "../../data/ImageData";
+import Styles from "./HomeStyles";
+import Colors from "../../constants/colors";
 
 export default class HomeScreen extends React.Component {
+  static navigationOptions = {
+    headerMode: 'none',
+    header: null
+  };
+
   state = {
     assetsLoaded: false
   };
 
   async componentDidMount() {
-    await Asset.loadAsync([require("../../assets/images/bg.png")]);
+    await Asset.loadAsync([ImageData.homeScreenImage]);
 
     await Font.loadAsync({
       "amatic-sc": require("../../assets/fonts/amatic-sc.ttf"),
-      "Satisfy-Regular": require("../../assets/fonts/Satisfy-Regular.ttf")
+      "Satisfy-Regular": require("../../assets/fonts/Satisfy-Regular.ttf"),
+      "RobotoSlab-Regular": require("../../assets/fonts/RobotoSlab-Regular.ttf"),
+      "RobotoSlab-Bold": require("../../assets/fonts/RobotoSlab-Bold.ttf")
     });
     this.setState({ assetsLoaded: true });
   }
@@ -31,24 +34,24 @@ export default class HomeScreen extends React.Component {
     if (assetsLoaded) {
       return (
         <ImageBackground
-          source={require("../../assets/images/bg.png")}
-          style={styles.imageBackground}
+          source={ImageData.homeScreenImage}
+          style={Styles.imageBackground}
         >
-          <View style={styles.container}>
-            <Text style={styles.title}>The Forgotten Giants</Text>
+          <View style={Styles.container}>
+            <Text style={Styles.title}>The Forgotten Giants</Text>
             <TouchableOpacity
-              style={styles.customBtnBG}
+              style={Styles.customBtnBG}
               onPress={() => this.props.navigation.navigate("AllGiantsScreen")}
             >
-              <Text style={styles.customBtnText}>Begin!</Text>
+              <Text style={Styles.customBtnText}>Begin!</Text>
             </TouchableOpacity>
           </View>
         </ImageBackground>
       );
     } else {
       return (
-        <View style={styles.container}>
-          <ActivityIndicator size="large" color="#D48104" />
+        <View style={Styles.container}>
+          <ActivityIndicator size="large" color={Colors.orange} />
         </View>
       );
     }

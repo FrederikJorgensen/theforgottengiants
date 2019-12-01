@@ -1,16 +1,11 @@
-import {
-    View,
-    Text,
-    TouchableOpacity,
-    Image
-} from 'react-native';
+import { Image } from 'react-native';
 import React from 'react';
-import styles from "./styles";
+import Styles from "./RewardStyles";
+import ImageData from "../../data/ImageData";
 
-
- export const SmallReward = () => (
-    <Image
-      style = {styles.reward_small}
-      source={require("../../assets/images/reward.png")}
-    />
+export default SmallReward = () => (
+  <Image
+    style={Styles.reward_small}
+    source={ImageData.rewardImage}
+  />
 );
