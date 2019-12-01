@@ -9,29 +9,26 @@ import Colors from "../../constants/colors";
 
 export default class AboutGiantScreen extends Component {
 
-  _isMounted = false;
-
-  state = {
-    isPlaying: false,
-    playbackInstance: null,
-    volume: 1.0,
-    isBuffering: true
-  }
-
   constructor(props) {
-    super(props);
-    this.playbackInstance = new Audio.Sound();
+    super(props)
+    this.playbackInstance = new Audio.Sound()
+    _isMounted = false
     this.state = {
       id: this.props.navigation.getParam("id"),
       firstname: this.props.navigation.getParam("firstname"),
       giantDesc: this.props.navigation.getParam("desc"),
       image: this.props.navigation.getParam("image"),
-      audio: this.props.navigation.getParam("audio")
+      audio: this.props.navigation.getParam("audio"),
+      isPlaying: false,
+      playbackInstance: null,
+      volume: 1.0,
+      isBuffering: true
     }
   }
 
   async componentDidMount() {
-    this._isMounted = true;
+    this._isMounted = true
+
     try {
       await Audio.setAudioModeAsync({
         allowsRecordingIOS: false,
@@ -50,19 +47,17 @@ export default class AboutGiantScreen extends Component {
   }
 
   componentWillUnmount() {
-    this._isMounted = false;
-    this.playbackInstance.unloadAsync();
+    this._isMounted = false
+    this.playbackInstance.unloadAsync()
   }
 
   async loadAudio() {
-    const { isPlaying, volume } = this.state
-
     try {
       const source = this.state.audio
 
       const status = {
-        shouldPlay: isPlaying,
-        volume: volume
+        shouldPlay: this.state.isPlaying,
+        volume: this.state.volume
       }
 
       this.playbackInstance.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate)
@@ -72,8 +67,8 @@ export default class AboutGiantScreen extends Component {
           playbackInstance: this.playbackInstance
         })
       }
-    } catch (e) {
-      console.log(e)
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -86,14 +81,13 @@ export default class AboutGiantScreen extends Component {
   }
 
   handlePlayPause = async () => {
-    const { isPlaying } = this.state
-    isPlaying ?
+    this.state.isPlaying ?
       await this.playbackInstance.pauseAsync() :
       await this.playbackInstance.playAsync()
 
     if (this._isMounted) {
       this.setState({
-        isPlaying: !isPlaying
+        isPlaying: !(this.state.isPlaying)
       })
     }
   }
@@ -101,11 +95,7 @@ export default class AboutGiantScreen extends Component {
   render() {
     return (
       <ScrollView style={Styles.scrollContainer}>
-        <Image
-          key={this.state.id}
-          style={Styles.img}
-          source={this.state.image}
-        />
+        <Image key={this.state.id} style={Styles.imageSize} source={this.state.image} />
         <View style={Styles.container}>
           <TouchableOpacity onPress={this.handlePlayPause}>
             {this.state.isPlaying ? (
@@ -124,6 +114,6 @@ export default class AboutGiantScreen extends Component {
           />
         </View>
       </ScrollView>
-    );
+    )
   }
 }

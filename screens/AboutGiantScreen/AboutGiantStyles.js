@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     flexDirection: "column"
   },
-  img: {
+  imageSize: {
     height: hp("45%"),
     width: wp("100%"),
   },
