@@ -11,8 +11,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: RFPercentage(4),
-    marginTop: "4%",
-    marginLeft: "2%",
+    marginBottom: "7%",
     textAlign: "justify",
     fontFamily: Fonts.primary,
     color: Colors.black,

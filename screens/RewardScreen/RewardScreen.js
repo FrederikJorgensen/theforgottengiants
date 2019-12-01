@@ -1,21 +1,47 @@
 import React, { Component } from "react";
 import { Text, View, ImageBackground, ScrollView } from "react-native";
+import { Audio } from 'expo-av';
 import { DefaultButton } from "../../components/Buttons/DefaultButton";
 import { BigReward } from "../../components/Reward/BigReward";
 import RewardData from "../../data/RewardData";
+import GiantsData from "../../data/GiantsData";
 import Styles from "./RewardStyles";
 import Colors from "../../constants/colors";
 
 export default class RewardScreen extends Component {
+
+  state = {
+    assetsLoaded: false
+  };
+
   componentWillMount() {
     RewardData.map(reward => {
       if (this.props.navigation.getParam("giantId") === reward.id)
       (reward.found = true) && (reward.date = this.props.navigation.getParam("date"));
     });
+    GiantsData.map(giant => {
+      if (this.props.navigation.getParam("giantId") === giant.id)
+        giant.isFound = true;
+    });
+  }
+
+  async componentDidMount() {
+    try {
+      await this.soundObject.loadAsync(require("../../assets/sounds/rewardSound.mp3"));
+      await this.soundObject.playAsync();
+    } catch (error) {
+      console.log(error)
+    }
+    
+    this.setState({ assetsLoaded: true });
+  }
+
+  constructor(props) {
+    super(props);
+    this.soundObject = new Audio.Sound();
   }
 
   render() {
-    const { navigation } = this.props;
     return (
       <ScrollView style={Styles.containerScroll}>
         <View>
@@ -27,15 +53,17 @@ export default class RewardScreen extends Component {
 
           <View>
             <Text style={Styles.text}>
-              Congrats! You found {navigation.getParam("firstname")}
+              Congrats! You found {this.props.navigation.getParam("firstname")}
             </Text>
             <DefaultButton
               backgroundColor={Colors.orange}
-              btnText={"Read about " + navigation.getParam("firstname")}
+              btnText={"About " + this.props.navigation.getParam("firstname")}
               onPress={() =>
                 this.props.navigation.navigate("AboutGiantScreen", {
-                  desc: navigation.getParam("desc"),
-                  image: navigation.getParam("image")
+                  desc: this.props.navigation.getParam("desc"),
+                  image: this.props.navigation.getParam("image"),
+                  firstname: this.props.navigation.getParam("firstname"),
+                  audio: this.props.navigation.getParam("audio")
                 })}>
             </DefaultButton>
             <DefaultButton
@@ -51,7 +79,9 @@ export default class RewardScreen extends Component {
             <DefaultButton
               backgroundColor={Colors.orange}
               btnText="Go find a new giant >"
-              onPress={() => this.props.navigation.navigate("AllGiantsScreen")}>
+              onPress={() => this.props.navigation.navigate("AllGiantsScreen", {
+                isFound: this.props.navigation.getParam("isFound")
+              })}>
             </DefaultButton>
           </View>
         </View>
