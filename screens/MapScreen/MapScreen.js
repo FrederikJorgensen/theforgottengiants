@@ -39,6 +39,7 @@ export default class MapScreen extends React.Component {
       giantId: this.props.navigation.getParam("id"),
       transport: this.props.navigation.getParam("transport"),
       image: this.props.navigation.getParam("image"),
+      audio: this.props.navigation.getParam("audio"),
       date: ""
     };
   }
@@ -96,6 +97,7 @@ export default class MapScreen extends React.Component {
         name: this.state.giantName,
         firstname: this.state.giantFirstname,
         desc: this.state.giantDesc,
+        audio: this.state.audio,
         giantId: this.state.giantId,
         date: this.state.date,
         image: this.state.image,
