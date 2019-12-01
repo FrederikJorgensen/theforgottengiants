@@ -1,49 +1,100 @@
 import React, { Component } from "react";
-import { View, Image, ScrollView, TouchableOpacity, Text } from "react-native";
+import { View, Image, ScrollView, TouchableOpacity } from "react-native";
 import { Audio } from 'expo-av';
+import { FontAwesome } from '@expo/vector-icons';
 import BoldText from "../../data/GiantTextWithBold";
 import Styles from "./AboutGiantStyles.js";
 import Highlighter from 'react-native-highlight-words';
-import { Sound } from "../../components/Sound/Sound";
-import ImageData from "../../data/ImageData";
+import Colors from "../../constants/colors";
 
 export default class AboutGiantScreen extends Component {
 
+  _isMounted = false;
+
+  state = {
+    isPlaying: false,
+    playbackInstance: null,
+    volume: 1.0,
+    isBuffering: true
+  }
+
   constructor(props) {
     super(props);
-    this.soundObject = new Audio.Sound();
-    this.handlePressPlay = this.handlePressPlay.bind(this);
-    this.handlePressStop = this.handlePressStop.bind(this);
+    this.playbackInstance = new Audio.Sound();
     this.state = {
       id: this.props.navigation.getParam("id"),
       firstname: this.props.navigation.getParam("firstname"),
       giantDesc: this.props.navigation.getParam("desc"),
       image: this.props.navigation.getParam("image"),
-      audio: this.props.navigation.getParam("audio"),
-      play: "Play audio",
-      stop: "Stop audio"
+      audio: this.props.navigation.getParam("audio")
+    }
+  }
+
+  async componentDidMount() {
+    this._isMounted = true;
+    try {
+      await Audio.setAudioModeAsync({
+        allowsRecordingIOS: false,
+        interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+        playsInSilentModeIOS: true,
+        interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DO_NOT_MIX,
+        shouldDuckAndroid: true,
+        staysActiveInBackground: true,
+        playThroughEarpieceAndroid: true
+      })
+
+      this.loadAudio()
+    } catch (e) {
+      console.log(e)
     }
   }
 
   componentWillUnmount() {
-    this.soundObject.unloadAsync();
+    this._isMounted = false;
+    this.playbackInstance.unloadAsync();
   }
 
-  async handlePressPlay() {
+  async loadAudio() {
+    const { isPlaying, volume } = this.state
+
     try {
-      await this.soundObject.unloadAsync();
-      await this.soundObject.loadAsync(this.state.audio);
-      await this.soundObject.playAsync();
-    } catch (error) {
-      console.log(error)
+      const source = this.state.audio
+
+      const status = {
+        shouldPlay: isPlaying,
+        volume: volume
+      }
+
+      this.playbackInstance.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate)
+      await this.playbackInstance.loadAsync(source, status, false)
+      if (this._isMounted) {
+        this.setState({
+          playbackInstance: this.playbackInstance
+        })
+      }
+    } catch (e) {
+      console.log(e)
     }
   }
 
-  async handlePressStop() {
-    try {
-      await this.soundObject.stopAsync();
-    } catch (error) {
-      console.log(error)
+  onPlaybackStatusUpdate = status => {
+    if (this._isMounted) {
+      this.setState({
+        isBuffering: status.isBuffering
+      })
+    }
+  }
+
+  handlePlayPause = async () => {
+    const { isPlaying } = this.state
+    isPlaying ?
+      await this.playbackInstance.pauseAsync() :
+      await this.playbackInstance.playAsync()
+
+    if (this._isMounted) {
+      this.setState({
+        isPlaying: !isPlaying
+      })
     }
   }
 
@@ -56,15 +107,12 @@ export default class AboutGiantScreen extends Component {
           source={this.state.image}
         />
         <View style={Styles.container}>
-          <TouchableOpacity
-            style={Styles.buttonStyle}
-            onPress={this.handlePressPlay}>
-            <Sound img={ImageData.startAudio}></Sound>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={Styles.buttonStyle}
-            onPress={this.handlePressStop}>
-            <Sound img={ImageData.stopAudio}></Sound>
+          <TouchableOpacity onPress={this.handlePlayPause}>
+            {this.state.isPlaying ? (
+              <FontAwesome name='pause' size={35} color={Colors.black} />
+            ) : (
+                <FontAwesome name='play' size={35} color={Colors.black} />
+              )}
           </TouchableOpacity>
         </View>
         <View style={Styles.textContainer}>

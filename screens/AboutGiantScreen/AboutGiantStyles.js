@@ -33,22 +33,6 @@ const styles = StyleSheet.create({
   },
   boldText: {
     fontFamily: Fonts.bodyTextBold
-  },
-  buttonText: {
-    fontSize: 30,
-    color: Colors.black,
-    fontFamily: Fonts.primary,
-    textAlign: "center"
-  },
-  buttonStyle: {
-    marginTop: 10,
-    marginLeft: 20,
-    marginRight: 20,
-    marginBottom: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-    borderRadius: 5,
-    borderWidth: 1
   }
 });
 
