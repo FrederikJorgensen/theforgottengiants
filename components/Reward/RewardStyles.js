@@ -6,16 +6,21 @@ import Fonts from "../../constants/fonts";
 
 const styles = StyleSheet.create({
   reward_big: {
-    width: 110,
-    height: 110,
+    width: wp("45%"),
+    height: hp("20%"),
     marginTop: "50%",
-    marginLeft: "65%"
+    marginLeft: "50%",
+    resizeMode: "cover",
+    borderRadius: 20
+
   },
   reward_small: {
-    width: 70,
-    height: 70,
+    width: wp("20%"),
+    height: hp("10%"),
     marginTop: "3%",
-    marginLeft: "70%"
+    marginLeft: "73%",
+    resizeMode: "cover",
+    borderRadius: 20
   },
   container: {
     alignItems: "center",
