@@ -18,6 +18,10 @@ const styles = StyleSheet.create({
     height: hp("45%"),
     width: wp("100%"),
   },
+  buttonStyle: {
+    marginLeft: 20,
+    marginRight: 20
+  },
   text: {
     textAlign: "justify",
     fontSize: RFPercentage(2.5),
