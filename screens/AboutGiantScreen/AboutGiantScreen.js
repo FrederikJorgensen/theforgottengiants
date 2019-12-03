@@ -11,7 +11,6 @@ export default class AboutGiantScreen extends Component {
 
   constructor(props) {
     super(props)
-    this.playbackInstance = new Audio.Sound()
     _isMounted = false
     this.state = {
       id: this.props.navigation.getParam("id"),
@@ -20,7 +19,7 @@ export default class AboutGiantScreen extends Component {
       image: this.props.navigation.getParam("image"),
       audio: this.props.navigation.getParam("audio"),
       isPlaying: false,
-      playbackInstance: null,
+      playbackObject: null,
       volume: 1.0,
       isBuffering: true
     }
@@ -48,23 +47,24 @@ export default class AboutGiantScreen extends Component {
 
   componentWillUnmount() {
     this._isMounted = false
-    this.playbackInstance.unloadAsync()
+    this.playbackObject.unloadAsync()
   }
 
   async loadAudio() {
     try {
+      this.playbackObject = new Audio.Sound()
       const source = this.state.audio
 
-      const status = {
+      const playbackStatus = {
         shouldPlay: this.state.isPlaying,
         volume: this.state.volume
       }
 
-      this.playbackInstance.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate)
-      await this.playbackInstance.loadAsync(source, status, false)
+      this.playbackObject.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate)
+      await this.playbackObject.loadAsync(source, playbackStatus, false)
       if (this._isMounted) {
         this.setState({
-          playbackInstance: this.playbackInstance
+          playbackObject: this.playbackObject
         })
       }
     } catch (error) {
@@ -72,18 +72,28 @@ export default class AboutGiantScreen extends Component {
     }
   }
 
-  onPlaybackStatusUpdate = status => {
+  onPlaybackStatusUpdate = playbackStatus => {
     if (this._isMounted) {
       this.setState({
-        isBuffering: status.isBuffering
+        isBuffering: playbackStatus.isBuffering
       })
+    }
+
+    if (playbackStatus.didJustFinish && !(playbackStatus.isLooping)) {
+      if (this._isMounted) {
+        this.setState({
+          isPlaying: !(this.state.isPlaying)
+        })
+      }
+      
+      this.playbackObject.unloadAsync() && this.loadAudio()
     }
   }
 
   handlePlayPause = async () => {
     this.state.isPlaying ?
-      await this.playbackInstance.pauseAsync() :
-      await this.playbackInstance.playAsync()
+      await this.playbackObject.pauseAsync() :
+      await this.playbackObject.playAsync()
 
     if (this._isMounted) {
       this.setState({
