@@ -33,7 +33,7 @@ export default [
     firstname: "Oscar",
     location: "Ishøj",
     image: require("../assets/images/Oscar.png"),
-    audio: require("../assets/sounds/Teddy.mp3"),
+    audio: require("../assets/sounds/Oscar.mp3"),
     desc:
       'Oscar Under The Bridge is a recycle sculpture Thomas Dambo made as a part of the larger project "Forgotten Giants". The project consists of 6 large sculptures made in the outskirts of Copenhagen. Common for all sculptures is that they are made solely from local scrapwood and recycled materials, and made in a hidden beautiful location. This way it invites the viewers to go on a treasure hunt, not only to see the sculptures, but also to discover hidden gems in nature.\n\nOscar under the bridge is made from scrapwood from a torn down watermill and broken pallets from local industries. He is named after an artist from Chile who came to visit Thomas and help him in his work during the time that Thomas and his team was building the sculpture.',
     region: {
@@ -57,7 +57,7 @@ export default [
     firstname: "Louis",
     location: "Rødovre",
     image: require("../assets/images/Louis.png"),
-    audio: require("../assets/sounds/Teddy.mp3"),
+    audio: require("../assets/sounds/Louis.mp3"),
     desc:
       'Sleeping Louis is a recycle sculpture Thomas Dambo made as a part of the larger project "Forgotten Giants". The project consists of 6 large sculptures made in the outskirts of Copenhagen. Common for all sculptures is that they are made solely from local scrapwood and recycled materials, and made in a hidden beautiful location. This way it invites the viewers to go on a treasure hunt, not only to see the sculptures, but also to discover hidden gems in nature.\n\nSleeping Louis is taking a nap on a hill, covered in trees and nature, in a secret place in Rødovre outside of Copenhagen. People can crawl into his gaping mouth, and play or even sleep inside of him.\n\nSleeping Louis is made solely from local scrapwood scavenged by the Thomas Dambo team. To build the sculpture the team had help from a group of young volunteers from an organisation helping young unemployed people get work experience before reentering the work market. Thomas\' old assistant Louis from Bristol, England came back to Copenhagen for a visit, and worked hard to help finish the sculpture, why Thomas and the team decided to name the sculpture after him.',
     region: {
@@ -81,7 +81,7 @@ export default [
     firstname: "Tilde",
     location: "Vallensbæk",
     image: require("../assets/images/Tilde.png"),
-    audio: require("../assets/sounds/Teddy.mp3"),
+    audio: require("../assets/sounds/Tilde.mp3"),
     desc:
       'Little Tilde is a recycle sculpture Thomas Dambo made as a part of the larger project "Forgotten Giants". The project consists of 6 large sculptures made in the outskirts of Copenhagen. Common for all sculptures is that they are made solely from local scrapwood and recycled materials, and made in a hidden beautiful location. This way it invites the viewers to go on a treasure hunt, not only to see the sculptures, but also to discover hidden gems in nature.\n\nLittle Tilde is located in the area of Vallensbæk Mose, af beautiful area filled with wild nature and animal life. She watches through the trees at the other side of a small lake, from where you will be able to catch a glimpse of her at a distance.\n\nTilde is made solely from local scrapwood scavenged by the Thomas Dambo team. To build the sculpture the team had help from a group of volunteers including two senior craftsmen (one of which was aged 86), and a couple of locals including Tilde, from whom the sculpture got her name.\n\nAs a little bonus Thomas Dambo made 28 birdhouses inside the sculpture, for the birds and maybe a squirrel to seek shelter when winter hits Vallensbæk Mose.',
     region: {
@@ -105,7 +105,7 @@ export default [
     firstname: "Thomas",
     location: "Albertslund",
     image: require("../assets/images/Thomas.png"),
-    audio: require("../assets/sounds/Teddy.mp3"),
+    audio: require("../assets/sounds/Thomas.mp3"),
     desc:
       'Thomas On The Mountain is a recycle sculpture Thomas Dambo made as a part of the larger project "Forgotten Giants". The project consists of 6 large sculptures made in the outskirts of Copenhagen. Common for all sculptures is that they are made solely from local scrapwood and recycled materials, and made in a hidden beautiful location. This way it invites the viewers to go on a treasure hunt, not only to see the sculptures, but also to discover hidden gems in nature.\n\nThomas On The Mountain has found a good place to chill on top of a hill. From here he has a great view of the municipality of Albertslund, and so can you if you join him. His legs are long, and a good place to sit with your friends.\n\nThe giant sculpture is made solely from local scrapwood scavenged by the Thomas Dambo team. To build the sculpture the team had help from a group of young volunteers from a local school as well as a couple of seniors. The giant is named after Thomas Dambos intern also named Thomas, who has been a huge part of the Forgotten Giants project, and helped create all six sculptures.',
     region: {
