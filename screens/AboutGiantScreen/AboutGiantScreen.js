@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { View, Image, ScrollView, TouchableOpacity } from "react-native";
+import Highlighter from 'react-native-highlight-words';
 import { Audio } from 'expo-av';
 import { FontAwesome } from '@expo/vector-icons';
 import BoldText from "../../data/GiantTextWithBold";
 import Styles from "./AboutGiantStyles.js";
-import Highlighter from 'react-native-highlight-words';
 import Colors from "../../constants/colors";
 
 export default class AboutGiantScreen extends Component {
@@ -85,7 +85,7 @@ export default class AboutGiantScreen extends Component {
           isPlaying: !(this.state.isPlaying)
         })
       }
-      
+
       this.playbackObject.unloadAsync() && this.loadAudio()
     }
   }
@@ -102,17 +102,32 @@ export default class AboutGiantScreen extends Component {
     }
   }
 
+  handleStop = async () => {
+    await this.playbackObject.stopAsync()
+
+    if (this._isMounted) {
+      this.setState({
+        isPlaying: !(this.state.isPlaying)
+      })
+    }
+
+    this.playbackObject.unloadAsync() && this.loadAudio()
+  }
+
   render() {
     return (
       <ScrollView style={Styles.scrollContainer}>
         <Image key={this.state.id} style={Styles.imageSize} source={this.state.image} />
         <View style={Styles.container}>
-          <TouchableOpacity onPress={this.handlePlayPause}>
+          <TouchableOpacity style={Styles.buttonStyle} onPress={this.handlePlayPause}>
             {this.state.isPlaying ? (
               <FontAwesome name='pause' size={35} color={Colors.black} />
             ) : (
                 <FontAwesome name='play' size={35} color={Colors.black} />
               )}
+          </TouchableOpacity>
+          <TouchableOpacity style={Styles.buttonStyle} onPress={this.handleStop}>
+            <FontAwesome name='stop' size={35} color={Colors.black} />
           </TouchableOpacity>
         </View>
         <View style={Styles.textContainer}>
