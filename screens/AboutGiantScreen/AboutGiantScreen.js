@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { View, Image, ScrollView, TouchableOpacity } from "react-native";
-import Highlighter from 'react-native-highlight-words';
-import { Audio } from 'expo-av';
-import { FontAwesome } from '@expo/vector-icons';
-import BoldText from "../../data/GiantTextWithBold";
-import Styles from "./AboutGiantStyles.js";
-import Colors from "../../constants/colors";
+import React, { Component } from "react"
+import { View, Image, ScrollView, TouchableOpacity } from "react-native"
+import Highlighter from "react-native-highlight-words"
+import { Audio } from "expo-av"
+import { FontAwesome } from "@expo/vector-icons"
+import BoldWords from "../../data/GiantTextWithBold"
+import Styles from "./AboutGiantStyles.js"
+import Colors from "../../constants/colors"
 
 export default class AboutGiantScreen extends Component {
 
@@ -15,7 +15,7 @@ export default class AboutGiantScreen extends Component {
     this.state = {
       id: this.props.navigation.getParam("id"),
       firstname: this.props.navigation.getParam("firstname"),
-      giantDesc: this.props.navigation.getParam("desc"),
+      description: this.props.navigation.getParam("description"),
       image: this.props.navigation.getParam("image"),
       audio: this.props.navigation.getParam("audio"),
       isPlaying: false,
@@ -40,8 +40,8 @@ export default class AboutGiantScreen extends Component {
       })
 
       this.loadAudio()
-    } catch (e) {
-      console.log(e)
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -103,15 +103,24 @@ export default class AboutGiantScreen extends Component {
   }
 
   handleStop = async () => {
-    await this.playbackObject.stopAsync()
+    this.state.playbackObject = null ?
+      await this.playbackObject.stopAsync()
+      &&
+      (this.setState({
+        isPlaying: !(this.state.isPlaying)
+      }))
+      &&
+      this.playbackObject.unloadAsync()
+      &&
+      this.loadAudio()
+      :
+      await this.playbackObject.stopAsync()
 
     if (this._isMounted) {
       this.setState({
-        isPlaying: !(this.state.isPlaying)
+        isPlaying: null
       })
     }
-
-    this.playbackObject.unloadAsync() && this.loadAudio()
   }
 
   render() {
@@ -121,22 +130,21 @@ export default class AboutGiantScreen extends Component {
         <View style={Styles.container}>
           <TouchableOpacity style={Styles.buttonStyle} onPress={this.handlePlayPause}>
             {this.state.isPlaying ? (
-              <FontAwesome name='pause' size={35} color={Colors.black} />
+              <FontAwesome name="pause" size={35} color={Colors.black} />
             ) : (
-                <FontAwesome name='play' size={35} color={Colors.black} />
+                <FontAwesome name="play" size={35} color={Colors.black} />
               )}
           </TouchableOpacity>
           <TouchableOpacity style={Styles.buttonStyle} onPress={this.handleStop}>
-            <FontAwesome name='stop' size={35} color={Colors.black} />
+            <FontAwesome name="stop" size={35} color={Colors.black} />
           </TouchableOpacity>
         </View>
         <View style={Styles.textContainer}>
           <Highlighter
-            highlightStyle={Styles.boldText}
-            style={Styles.text}
-            searchWords={BoldText}
-            textToHighlight={this.state.giantDesc}
-          />
+            highlightStyle={Styles.boldTextStyle}
+            style={Styles.textStyle}
+            searchWords={BoldWords}
+            textToHighlight={this.state.description} />
         </View>
       </ScrollView>
     )

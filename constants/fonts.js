@@ -3,4 +3,4 @@ export default {
     homeScreenButton: "Satisfy-Regular",
     bodyTextRegular: "RobotoSlab-Regular",
     bodyTextBold: "RobotoSlab-Bold"
-};
+}

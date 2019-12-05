@@ -1,11 +1,10 @@
-import { Image } from 'react-native';
-import React from 'react';
-import Styles from "./RewardStyles";
-import ImageData from "../../data/ImageData";
+import React from "react"
+import { Image } from "react-native"
+import ImageData from "../../data/ImageData"
+import Styles from "./RewardStyles"
 
 export const BigReward = () => (
   <Image
-    style={Styles.reward_big}
-    source={ImageData.rewardImage}
-  />
-);
+    style={Styles.rewardBig}
+    source={ImageData.rewardImage} />
+)

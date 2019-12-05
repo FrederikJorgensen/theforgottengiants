@@ -15,4 +15,4 @@ export default [
     "Tilde",
     "Thomas On The Mountain",
     "Hill Top Trine"
-];
+]

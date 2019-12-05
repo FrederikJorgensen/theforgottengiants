@@ -1,6 +1,6 @@
-import { StyleSheet } from "react-native";
-import Colors from "../../constants/colors";
-import Fonts from "../../constants/fonts";
+import { StyleSheet } from "react-native"
+import Colors from "../../constants/colors"
+import Fonts from "../../constants/fonts"
 
 const styles = StyleSheet.create({
     buttonStyle: {
@@ -12,12 +12,12 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         borderRadius: 5,
     },
-    buttonText: {
+    buttonTextStyle: {
         fontSize: 30,
         color: Colors.black,
         fontFamily: Fonts.primary,
         textAlign: "center"
     }
-});
+})
 
-export default styles;
+export default styles

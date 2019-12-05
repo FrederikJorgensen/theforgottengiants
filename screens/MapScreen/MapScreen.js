@@ -1,13 +1,13 @@
-import React from "react"
+import React, { Component } from "react"
 import { View, Text, ScrollView, ActivityIndicator, AsyncStorage } from "react-native"
 import MapView from "react-native-maps"
-import { DefaultButton } from "../../components/Buttons/DefaultButton"
 import { getDistance } from "geolib"
+import { DefaultButton } from "../../components/Buttons/DefaultButton"
 import Styles from "./MapStyles"
 import Colors from "../../constants/colors"
 import monthNames from "../../constants/monthNames"
 
-export default class MapScreen extends React.Component {
+export default class MapScreen extends Component {
   static navigationOptions = () => {
     return {
       headerStyle: {
@@ -36,7 +36,7 @@ export default class MapScreen extends React.Component {
       giantLongitude: region.longitude,
       giantName: this.props.navigation.getParam("name"),
       giantFirstname: this.props.navigation.getParam("firstname"),
-      giantDesc: this.props.navigation.getParam("desc"),
+      description: this.props.navigation.getParam("description"),
       giantId: this.props.navigation.getParam("id"),
       transport: this.props.navigation.getParam("transport"),
       image: this.props.navigation.getParam("image"),
@@ -66,6 +66,8 @@ export default class MapScreen extends React.Component {
   }
 
   async getUserPosition() {
+    const { navigation } = this.props
+    
     try {
       const { coords } = await this.getCurrentPosition()
       if (this._isMounted) {
@@ -89,16 +91,18 @@ export default class MapScreen extends React.Component {
       }
     )
     if (this._isMounted) {
-      this.setState({ distance: dis })
+      this.setState({
+        distance: dis
+      })
     }
 
     if (this.state.distance < 2000000000 && this.state.distance !== 0) {
       this.saveDate()
       this.retrieveDate()
-      this.props.navigation.navigate("RewardScreen", {
+      navigation.navigate("RewardScreen", {
         name: this.state.giantName,
         firstname: this.state.giantFirstname,
-        desc: this.state.giantDesc,
+        description: this.state.description,
         audio: this.state.audio,
         giantId: this.state.giantId,
         date: this.state.date,
@@ -136,7 +140,7 @@ export default class MapScreen extends React.Component {
   getTime() {
     const now =
       this.getOrdinalNum(new Date().getDate()) +
-      " OF " +
+      " of " +
       monthNames[new Date().getMonth()] +
       " at " +
       this.hoursWithLeadingZeros(new Date().getHours()) +
@@ -180,40 +184,38 @@ export default class MapScreen extends React.Component {
           style={Styles.mapStyle}
           showsUserLocation={true}
           followUserLocation={true}
-          initialRegion={this.props.navigation.getParam("region")}
-          showsUserLocation={true}
-        >
+          initialRegion={navigation.getParam("region")}
+          showsUserLocation={true}>
           <MapView.Circle
             center={navigation.getParam("region")}
             showUserLocation={true}
             radius={275}
             strokeWidth={4}
             strokeColor={Colors.strokeColorCircle}
-            fillColor={Colors.fillColorCircle}
-          />
+            fillColor={Colors.fillColorCircle} />
         </MapView>
-        <View style={Styles.bottom}>
+        <View style={Styles.bottomPart}>
           <ScrollView style={Styles.containerScroll}>
             {distanceLoaded ? (
               <View style={Styles.container}>
-                <Text style={Styles.distanceText}>
+                <Text style={Styles.distanceTextStyle}>
                   {firstname} is{" "}
                   {distance > 1000 ? km.toFixed(1) + " km " : distance + "m "}away
               </Text>
               </View>
             ) : (
                 <View style={Styles.container}>
-                  <Text style={Styles.distanceText}>
+                  <Text style={Styles.distanceTextStyle}>
                     Loading the distance to {firstname}...
                 </Text>
-                  <ActivityIndicator size="small" color="#00ff00" />
+                  <ActivityIndicator size="small" color={Colors.lightGreen} />
                 </View>
               )}
             <DefaultButton
-              backgroundColor={Colors.yellow}
-              btnText="How to get there?"
+              buttonColor={Colors.yellow}
+              buttonText="How to get there?"
               onPress={() =>
-                this.props.navigation.navigate("PracticalInfo", {
+                navigation.navigate("TransportInfoScreen", {
                   transport: this.state.transport
                 })
               }

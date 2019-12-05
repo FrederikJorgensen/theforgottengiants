@@ -1,7 +1,7 @@
-import { StyleSheet } from "react-native";
-import { RFPercentage } from "react-native-responsive-fontsize";
-import Colors from "../../constants/colors";
-import Fonts from "../../constants/fonts";
+import { StyleSheet } from "react-native"
+import { RFPercentage } from "react-native-responsive-fontsize"
+import Colors from "../../constants/colors"
+import Fonts from "../../constants/fonts"
 
 const styles = StyleSheet.create({
   container: {
@@ -9,30 +9,29 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   },
-  imageBackground: {
+  imageBackgroundStyle: {
     width: "100%",
     height: "100%"
   },
-  title: {
+  titleStyle: {
     fontFamily: Fonts.primary,
     fontSize: RFPercentage(11),
     textAlign: "center",
-    margin: 10,
-
+    margin: 10
   },
-  customBtnText: {
+  buttonTextStyle: {
     fontSize: RFPercentage(5),
     fontWeight: "200",
     color: Colors.white,
     fontFamily: Fonts.homeScreenButton
   },
-  customBtnBG: {
+  buttonBackgroundStyle: {
     marginTop: 30,
     backgroundColor: Colors.orange,
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: 5
   }
-});
+})
 
-export default styles;
+export default styles

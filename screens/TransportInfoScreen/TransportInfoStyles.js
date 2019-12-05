@@ -9,16 +9,22 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.green
   },
   container: {
-    flex: 1,
+    backgroundColor: Colors.green,
     alignItems: "center",
-    backgroundColor: Colors.green
+    justifyContent: "center"
   },
-  giantTextStyle: {
+  headline: {
+    fontSize: RFPercentage(5.8),
     fontFamily: Fonts.primary,
-    fontSize: RFPercentage(7),
-    color: Colors.white,
-    marginTop: "10%",
-    marginBottom: "10%"
+    color: Colors.black,
+    marginBottom: '5%'
+  },
+  textStyle: {
+    fontSize: RFPercentage(5),
+    marginBottom: "7%",
+    textAlign: "justify",
+    fontFamily: Fonts.primary,
+    color: Colors.black
   }
 })
 

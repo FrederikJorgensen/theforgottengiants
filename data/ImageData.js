@@ -5,4 +5,4 @@ export default {
     carImage: require("../assets/images/car.png"),
     trainImage: require("../assets/images/train.png"),
     rewardImage: require("../assets/images/reward.png")
-};
+}
