@@ -1,11 +1,11 @@
-import { StyleSheet } from "react-native";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
-import { RFPercentage } from "react-native-responsive-fontsize";
-import Colors from "../../constants/colors";
-import Fonts from "../../constants/fonts";
+import { StyleSheet } from "react-native"
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen"
+import { RFPercentage } from "react-native-responsive-fontsize"
+import Colors from "../../constants/colors"
+import Fonts from "../../constants/fonts"
 
 const styles = StyleSheet.create({
-  reward_big: {
+  rewardBig: {
     width: wp("45%"),
     height: hp("20%"),
     marginTop: "50%",
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     borderRadius: 20
 
   },
-  reward_small: {
+  rewardSmall: {
     width: wp("20%"),
     height: hp("10%"),
     marginTop: "3%",
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.green
   },
-  text: {
+  rewardTextStyle: {
     color: Colors.black,
     fontFamily: Fonts.primary,
     fontSize: RFPercentage(5),
@@ -40,11 +40,11 @@ const styles = StyleSheet.create({
     height: hp("25%"),
     width: wp("60%"),
     resizeMode: "cover",
-    borderRadius: 20,
+    borderRadius: 20
   },
   directionColumn: {
-    flexDirection: "column",
+    flexDirection: "column"
   }
-});
+})
 
-export default styles;
+export default styles

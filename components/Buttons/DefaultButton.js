@@ -1,11 +1,11 @@
-import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
-import Styles from "./ButtonStyles";
+import React from "react"
+import { Text, TouchableOpacity } from "react-native"
+import Styles from "./ButtonStyles"
 
-export const DefaultButton = ({ backgroundColor, btnText, onPress }) => (
+export const DefaultButton = ({ buttonColor, buttonText, onPress }) => (
   <TouchableOpacity
-    style={{...Styles.buttonStyle, ...{backgroundColor: backgroundColor}}}
+    style={{ ...Styles.buttonStyle, ...{ backgroundColor: buttonColor } }}
     onPress={onPress}>
-    <Text style={Styles.buttonText}> {btnText} </Text>
+    <Text style={Styles.buttonTextStyle}> {buttonText} </Text>
   </TouchableOpacity>
-);
+)

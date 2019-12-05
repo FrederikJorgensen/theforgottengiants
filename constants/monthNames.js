@@ -11,4 +11,4 @@ export default monthNames = [
   "October",
   "November",
   "December"
-];
+]
