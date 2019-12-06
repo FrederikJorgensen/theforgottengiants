@@ -8,6 +8,7 @@ import Colors from "../../constants/colors"
 import monthNames from "../../constants/monthNames"
 
 export default class MapScreen extends Component {
+
   static navigationOptions = () => {
     return {
       headerStyle: {
@@ -178,6 +179,7 @@ export default class MapScreen extends Component {
     const { distance, distanceLoaded } = this.state
     const firstname = navigation.getParam("firstname")
     const km = distance / 1000
+    
     return (
       <View style={Styles.container}>
         <MapView

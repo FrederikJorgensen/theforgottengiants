@@ -4,7 +4,7 @@ import Highlighter from "react-native-highlight-words"
 import { Audio } from "expo-av"
 import { FontAwesome } from "@expo/vector-icons"
 import BoldWords from "../../data/GiantTextWithBold"
-import Styles from "./AboutGiantStyles.js"
+import Styles from "./AboutGiantStyles"
 import Colors from "../../constants/colors"
 
 export default class AboutGiantScreen extends Component {

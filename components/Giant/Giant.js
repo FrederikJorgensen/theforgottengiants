@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { Text, View, Image, ImageBackground } from "react-native"
 import SmallReward from "../Reward/SmallReward"
 import ImageData from "../../data/ImageData"
-import Styles from "./GiantStyles.js"
+import Styles from "./GiantStyles"
 
 export default class Giant extends Component {
   render() {
@@ -12,12 +12,10 @@ export default class Giant extends Component {
           <View>
             <Image
               style={Styles.locationEmoji}
-              source={ImageData.locationIcon}
-            />
+              source={ImageData.locationIcon} />
           </View>
           <View>
             <Text style={Styles.locationText}>{this.props.location}</Text>
-
           </View>
         </View>
         <ImageBackground

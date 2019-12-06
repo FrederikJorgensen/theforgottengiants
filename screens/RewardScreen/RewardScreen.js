@@ -52,6 +52,7 @@ export default class RewardScreen extends Component {
 
   render() {
     const { navigation } = this.props
+    
     return (
       <ScrollView style={Styles.containerScroll}>
         <View>

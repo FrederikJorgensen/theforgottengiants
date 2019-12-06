@@ -6,6 +6,7 @@ import Styles from "./TransportInfoStyles"
 import Colors from "../../constants/colors"
 
 export default class TransportInfoScreen extends Component {
+
   static navigationOptions = () => {
     return {
       headerStyle: {
@@ -17,6 +18,7 @@ export default class TransportInfoScreen extends Component {
   render() {
     const { navigation } = this.props
     const transport = navigation.getParam("transport")
+    
     return (
       <ScrollView style={Styles.containerScroll}>
         <View style={Styles.container}>

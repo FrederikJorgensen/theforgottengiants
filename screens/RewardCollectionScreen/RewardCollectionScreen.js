@@ -6,6 +6,7 @@ import Styles from "./RewardCollectionStyles"
 import Colors from "../../constants/colors"
 
 export default class RewardCollectionScreen extends Component {
+  
   static navigationOptions = () => {
     return {
       headerStyle: {

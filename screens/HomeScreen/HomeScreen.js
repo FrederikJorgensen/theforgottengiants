@@ -7,6 +7,7 @@ import Styles from "./HomeStyles"
 import Colors from "../../constants/colors"
 
 export default class HomeScreen extends Component {
+  
   static navigationOptions = {
     headerMode: "none",
     header: null
