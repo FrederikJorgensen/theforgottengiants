@@ -13,12 +13,43 @@ export default class AllGiantsScreen extends Component {
 
   render() {
     const { navigation } = this.props
+
+    const rewardFound = GiantsData.filter(reward => reward.isFound === true)
+    const rewardNotFound = GiantsData.filter(reward => reward.isFound === false)
+
     return (
       <ScrollView style={Styles.containerScroll}>
         <View style={Styles.container}>
           <Text style={Styles.giantTextStyle}>GO FIND A GIANT</Text>
 
-          {GiantsData.map(giant => (
+          {rewardFound.map(giantFound => (
+            <TouchableOpacity
+              key={giantFound.id}
+              onPress={() =>
+                navigation.navigate("RewardScreen", {
+                  id: giantFound.id,
+                  name: giantFound.name,
+                  firstname: giantFound.firstname,
+                  location: giantFound.location,
+                  image: giantFound.image,
+                  description: giantFound.description,
+                  audio: giantFound.audio,
+                  address: giantFound.address,
+                  transport: giantFound.transport,
+                  region: giantFound.region,
+                  isFound: giantFound.isFound
+                })
+              }>
+              <Giant
+                style={Styles.giant}
+                name={giantFound.name}
+                location={giantFound.location}
+                image={giantFound.image}
+                isFound={giantFound.isFound} />
+            </TouchableOpacity>
+          ))}
+
+          {rewardNotFound.map(giant => (
             <TouchableOpacity
               key={giant.id}
               onPress={() =>

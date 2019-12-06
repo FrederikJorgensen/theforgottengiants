@@ -43,4 +43,4 @@ export default rewards = [
     image: ImageData.rewardImage,
     found: false
   }
-];
+]
