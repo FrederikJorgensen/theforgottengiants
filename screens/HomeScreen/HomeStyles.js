@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
   },
   customBtnText: {
     fontSize: RFPercentage(5),
-    fontWeight: "200",
     color: Colors.white,
     fontFamily: Fonts.homeScreenButton
   },

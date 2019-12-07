@@ -4,27 +4,22 @@ import Colors from "../../constants/colors";
 import Fonts from "../../constants/fonts";
 
 const styles = StyleSheet.create({
-  text: {
-    fontSize: RFPercentage(5),
-    marginBottom: "7%",
-    textAlign: "justify",
-    fontFamily: Fonts.primary,
-    color: Colors.black
-  },
-  container: {
-    backgroundColor: Colors.green,
-    alignItems: "center",
-    justifyContent: "center"
-  },
   containerScroll: {
     flexDirection: "column",
     backgroundColor: Colors.green
   },
+  container: {
+    backgroundColor: Colors.green,
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 10,
+  },
   h1: {
-    fontSize: RFPercentage(5.8),
+    fontSize: RFPercentage(6.5),
     fontFamily: Fonts.primary,
     color: Colors.black,
-    marginBottom: '5%'
+    margin: '5%',
+    textAlign: "center",
   }
 });
 

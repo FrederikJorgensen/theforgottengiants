@@ -34,11 +34,11 @@ const styles = StyleSheet.create({
     fontSize: RFPercentage(5),
     textAlign: "center"
   },
-  rewardImage: {
-    marginTop: 35,
-    marginBottom: 5,
+  rewardImageCollection: {
     height: hp("25%"),
     width: wp("60%"),
+    marginTop: 35,
+    marginBottom: 5,
     resizeMode: "cover",
     borderRadius: 20,
   },
