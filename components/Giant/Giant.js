@@ -17,7 +17,6 @@ export default class Giant extends React.Component {
           </View>
           <View>
             <Text style={Styles.locationText}>{this.props.location}</Text>
-
           </View>
         </View>
         <ImageBackground
@@ -25,7 +24,7 @@ export default class Giant extends React.Component {
           style={Styles.giantImage}
           imageStyle={{ borderRadius: 20 }}>
           <View>
-              {this.props.isFound && <SmallReward />}
+            {this.props.isFound && <SmallReward />}
           </View>
           <View style={Styles.imageTextPlacement}>
             <Text style={Styles.imageText}>{this.props.name}</Text>
