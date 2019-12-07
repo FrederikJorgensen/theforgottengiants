@@ -98,7 +98,7 @@ export default class MapScreen extends Component {
       })
     }
 
-    if (this.state.distance < 10 && this.state.distance !== 0) {
+    if (this.state.distance < 20000000000 && this.state.distance !== 0) {
       this.saveDate()
       this.retrieveDate()
       navigation.navigate("RewardScreen", {
