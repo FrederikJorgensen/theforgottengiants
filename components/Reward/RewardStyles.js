@@ -12,7 +12,6 @@ const styles = StyleSheet.create({
     marginLeft: "50%",
     resizeMode: "cover",
     borderRadius: 20
-
   },
   rewardSmall: {
     width: wp("20%"),
