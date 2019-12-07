@@ -6,6 +6,7 @@ import { DefaultButton } from "../../components/Buttons/DefaultButton"
 import Styles from "./MapStyles"
 import Colors from "../../constants/colors"
 import monthNames from "../../constants/monthNames"
+import MapFeatures from "./MapFeatures"
 
 export default class MapScreen extends Component {
 
@@ -97,7 +98,7 @@ export default class MapScreen extends Component {
       })
     }
 
-    if (this.state.distance < 2000000000 && this.state.distance !== 0) {
+    if (this.state.distance < 10 && this.state.distance !== 0) {
       this.saveDate()
       this.retrieveDate()
       navigation.navigate("RewardScreen", {
@@ -186,11 +187,10 @@ export default class MapScreen extends Component {
           style={Styles.mapStyle}
           showsUserLocation={true}
           followUserLocation={true}
-          initialRegion={navigation.getParam("region")}
-          showsUserLocation={true}>
+          customMapStyle={MapFeatures.mapStyle}
+          initialRegion={navigation.getParam("region")}>
           <MapView.Circle
             center={navigation.getParam("region")}
-            showUserLocation={true}
             radius={275}
             strokeWidth={4}
             strokeColor={Colors.strokeColorCircle}
@@ -228,3 +228,23 @@ export default class MapScreen extends Component {
     )
   }
 }
+
+mapStyle = [
+  {
+    "featureType": "poi.business",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  }
+]
