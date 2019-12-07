@@ -23,21 +23,8 @@ export default class AllGiantsScreen extends Component {
             <TouchableOpacity
               key={giant.id}
               onPress={() => {
-                giant.isFound === true ? 
-                navigation.navigate("RewardScreen", {
-                  id: giant.id,
-                  name: giant.name,
-                  firstname: giant.firstname,
-                  location: giant.location,
-                  image: giant.image,
-                  description: giant.description,
-                  audio: giant.audio,
-                  address: giant.address,
-                  transport: giant.transport,
-                  region: giant.region,
-                  isFound: giant.isFound
-                }) : (
-                  navigation.navigate("MapScreen", {
+                giant.isFound === true ?
+                  navigation.navigate("RewardScreen", {
                     id: giant.id,
                     name: giant.name,
                     firstname: giant.firstname,
@@ -49,8 +36,21 @@ export default class AllGiantsScreen extends Component {
                     transport: giant.transport,
                     region: giant.region,
                     isFound: giant.isFound
-                  })
-                )
+                  }) : (
+                    navigation.navigate("MapScreen", {
+                      id: giant.id,
+                      name: giant.name,
+                      firstname: giant.firstname,
+                      location: giant.location,
+                      image: giant.image,
+                      description: giant.description,
+                      audio: giant.audio,
+                      address: giant.address,
+                      transport: giant.transport,
+                      region: giant.region,
+                      isFound: giant.isFound
+                    })
+                  )
               }}>
               <Giant
                 style={Styles.giant}
