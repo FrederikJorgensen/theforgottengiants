@@ -14,8 +14,9 @@ const styles = StyleSheet.create({
   },
   text: {
     marginTop: 20,
+    marginRight: 10,
     marginBottom: 20,
-    margin: 10,
+    marginLeft: 10,
     fontFamily: Fonts.primary,
     fontSize: RFPercentage(5.2),
     textAlign: "center",

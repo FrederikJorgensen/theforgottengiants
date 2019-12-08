@@ -14,9 +14,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: Colors.green,
   },
-  containerReward: {
-    marginBottom: 15
-  },
   rewardTitle: {
     fontFamily: Fonts.primary,
     fontSize: RFPercentage(8.5),
@@ -24,6 +21,9 @@ const styles = StyleSheet.create({
     marginTop: "5%",
     marginBottom: 10,
     textAlign: "center"
+  },
+  containerReward: {
+    marginBottom: 15
   }
 });
 
