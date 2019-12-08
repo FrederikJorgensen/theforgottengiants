@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { View, Image, ScrollView, TouchableOpacity } from "react-native"
+import { View, Image, ScrollView, TouchableOpacity, BackHandler } from "react-native"
 import Highlighter from "react-native-highlight-words"
 import { Audio } from "expo-av"
 import { FontAwesome } from "@expo/vector-icons"
@@ -9,8 +9,13 @@ import Colors from "../../constants/colors"
 
 export default class AboutGiantScreen extends Component {
 
+  static navigationOptions = {
+    gesturesEnabled: false
+  }
+
   constructor(props) {
     super(props)
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
     _isMounted = false
     this.state = {
       id: this.props.navigation.getParam("id"),
@@ -26,6 +31,7 @@ export default class AboutGiantScreen extends Component {
   }
 
   async componentDidMount() {
+    BackHandler.addEventListener("hardwareBackPress", this.handleBackButtonClick)
     this._isMounted = true
 
     try {
@@ -46,8 +52,14 @@ export default class AboutGiantScreen extends Component {
   }
 
   componentWillUnmount() {
+    BackHandler.removeEventListener("hardwareBackPress", this.handleBackButtonClick)
     this._isMounted = false
     this.playbackObject.unloadAsync()
+  }
+
+  handleBackButtonClick() {
+    this.props.navigation.goBack(null)
+    return true
   }
 
   async loadAudio() {
