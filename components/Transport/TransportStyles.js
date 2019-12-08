@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   column: {
     flexDirection: "column",
     alignItems: "center"
-  },
+  }
 })
 
 export default styles
