@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { View, Text, ScrollView, ActivityIndicator, AsyncStorage } from "react-native"
+import { View, Text, ScrollView, ActivityIndicator, AsyncStorage, BackHandler } from "react-native"
 import MapView from "react-native-maps"
 import { getDistance } from "geolib"
 import { DefaultButton } from "../../components/Buttons/DefaultButton"
@@ -12,6 +12,7 @@ export default class MapScreen extends Component {
 
   static navigationOptions = () => {
     return {
+      gesturesEnabled: false,
       headerStyle: {
         backgroundColor: Colors.green
       }
@@ -21,6 +22,7 @@ export default class MapScreen extends Component {
   constructor(props) {
     super(props)
     const region = this.props.navigation.getParam("region")
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
     this.getUserPosition = this.getUserPosition.bind(this)
     this.getTime = this.getTime.bind(this)
     this.getOrdinalNum = this.getOrdinalNum.bind(this)
@@ -48,13 +50,20 @@ export default class MapScreen extends Component {
   }
 
   componentDidMount() {
+    BackHandler.addEventListener("hardwareBackPress", this.handleBackButtonClick)
     this._isMounted = true
     this.getUserPosition()
     interval = setInterval(() => this.getUserPosition(), 2000)
   }
 
   componentWillUnmount() {
+    BackHandler.removeEventListener("hardwareBackPress", this.handleBackButtonClick)
     this._isMounted = false
+  }
+
+  handleBackButtonClick() {
+    this.props.navigation.goBack(null)
+    return true
   }
 
   getCurrentPosition = () => {

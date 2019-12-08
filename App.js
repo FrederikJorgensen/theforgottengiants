@@ -20,7 +20,7 @@ const AppNavigator = createStackNavigator(
     TransportInfoScreen: TransportInfoScreen
   },
   {
-    initialRouteName: 'HomeScreen',
+    initialRouteName: "HomeScreen",
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: Colors.white,

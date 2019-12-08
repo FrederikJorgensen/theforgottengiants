@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { Text, View, ImageBackground, ScrollView } from "react-native"
+import { Text, View, ImageBackground, ScrollView, BackHandler } from "react-native"
 import { Audio } from "expo-av"
 import { DefaultButton } from "../../components/Buttons/DefaultButton"
 import { BigReward } from "../../components/Reward/BigReward"
@@ -10,8 +10,13 @@ import Colors from "../../constants/colors"
 
 export default class RewardScreen extends Component {
 
+  static navigationOptions = {
+    gesturesEnabled: false
+  }
+
   constructor(props) {
     super(props)
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
     this.soundObject = new Audio.Sound()
     _isMounted = false
     this.state = {
@@ -31,7 +36,9 @@ export default class RewardScreen extends Component {
   }
 
   async componentDidMount() {
+    BackHandler.addEventListener("hardwareBackPress", this.handleBackButtonClick)
     this._isMounted = true
+    
     try {
       await this.soundObject.loadAsync(require("../../assets/sounds/rewardSound.mp3"))
       await this.soundObject.playAsync()
@@ -47,7 +54,13 @@ export default class RewardScreen extends Component {
   }
 
   componentWillUnmount() {
+    BackHandler.removeEventListener("hardwareBackPress", this.handleBackButtonClick)
     this._isMounted = false
+  }
+
+  handleBackButtonClick() {
+    this.props.navigation.goBack(null)
+    return true
   }
 
   render() {

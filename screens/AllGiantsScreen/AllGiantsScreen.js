@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { View, Text, ScrollView, TouchableOpacity } from "react-native"
+import { View, Text, ScrollView, TouchableOpacity, BackHandler } from "react-native"
 import Giant from "../../components/Giant/Giant"
 import GiantsData from "../../data/GiantsData"
 import Styles from "./AllGiantsStyles"
@@ -8,7 +8,26 @@ export default class AllGiantsScreen extends Component {
 
   static navigationOptions = {
     headerMode: "none",
-    header: null
+    header: null,
+    gesturesEnabled: false
+  }
+
+  constructor(props) {
+    super(props)
+    this.handleBackButtonClick = this.handleBackButtonClick.bind(this)
+  }
+  
+  componentDidMount() {
+    BackHandler.addEventListener("hardwareBackPress", this.handleBackButtonClick)
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener("hardwareBackPress", this.handleBackButtonClick)
+  }
+
+  handleBackButtonClick() {
+    BackHandler.exitApp()
+    return true
   }
 
   render() {

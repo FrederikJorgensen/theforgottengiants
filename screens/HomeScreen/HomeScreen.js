@@ -10,7 +10,8 @@ export default class HomeScreen extends Component {
   
   static navigationOptions = {
     headerMode: "none",
-    header: null
+    header: null,
+    gesturesEnabled: false
   }
 
   state = {
