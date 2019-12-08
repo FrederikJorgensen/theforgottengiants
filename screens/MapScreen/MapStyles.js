@@ -21,9 +21,11 @@ export default Styles = StyleSheet.create({
     flex: 2.8
   },
   distanceTextStyle: {
-    fontSize: RFPercentage(5),
+    fontSize: RFPercentage(4.4),
     fontFamily: Fonts.primary,
     marginTop: 12,
-    marginBottom: 5
+    marginRight: 5,
+    marginBottom: 5,
+    marginLeft: 5
   }
 })

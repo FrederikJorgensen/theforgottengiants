@@ -6,10 +6,10 @@ import Fonts from "../../constants/fonts"
 
 const styles = StyleSheet.create({
   rewardBig: {
-    width: wp("45%"),
-    height: hp("20%"),
-    marginTop: "50%",
-    marginLeft: "50%",
+    width: wp("40%"),
+    height: hp("18%"),
+    marginTop: "3%",
+    marginLeft: "57%",
     resizeMode: "cover",
     borderRadius: 20
   },
@@ -33,11 +33,11 @@ const styles = StyleSheet.create({
     fontSize: RFPercentage(5),
     textAlign: "center"
   },
-  rewardImage: {
-    marginTop: 35,
-    marginBottom: 5,
-    height: hp("25%"),
+  rewardImageCollection: {
     width: wp("60%"),
+    height: hp("25%"),
+    marginTop: 30,
+    marginBottom: 5,
     resizeMode: "cover",
     borderRadius: 20
   },

@@ -4,13 +4,6 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-nat
 import Fonts from "../../constants/fonts"
 
 const styles = StyleSheet.create({
-  container: {
-    flexDirection: "row",
-    flex: 1,
-    marginTop: 25,
-    alignItems: "center",
-    justifyContent: "center"
-  },
   scrollContainer: {
     flexDirection: "column"
   },
@@ -18,14 +11,16 @@ const styles = StyleSheet.create({
     height: hp("45%"),
     width: wp("100%")
   },
+  container: {
+    flexDirection: "row",
+    flex: 1,
+    marginTop: 25,
+    alignItems: "center",
+    justifyContent: "center"
+  },
   buttonStyle: {
     marginLeft: 20,
     marginRight: 20
-  },
-  textStyle: {
-    textAlign: "justify",
-    fontSize: RFPercentage(2.5),
-    fontFamily: Fonts.bodyTextRegular
   },
   textContainer: {
     marginTop: 25,
@@ -36,6 +31,11 @@ const styles = StyleSheet.create({
   },
   boldTextStyle: {
     fontFamily: Fonts.bodyTextBold
+  },
+  textStyle: {
+    textAlign: "justify",
+    fontSize: RFPercentage(2.5),
+    fontFamily: Fonts.bodyTextRegular
   }
 })
 

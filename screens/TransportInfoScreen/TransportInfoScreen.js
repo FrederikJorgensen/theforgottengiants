@@ -22,8 +22,7 @@ export default class TransportInfoScreen extends Component {
     return (
       <ScrollView style={Styles.containerScroll}>
         <View style={Styles.container}>
-          <Text style={Styles.headline}> Public transport and parking </Text>
-          <Text style={Styles.textStyle}> Your options </Text>
+          <Text style={Styles.headline}> Your options </Text>
           <Transport
             image={ImageData.trainImage}
             description={"Take train " + transport.stog + " to " + transport.station}>

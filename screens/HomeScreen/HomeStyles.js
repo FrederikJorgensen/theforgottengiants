@@ -21,7 +21,6 @@ const styles = StyleSheet.create({
   },
   buttonTextStyle: {
     fontSize: RFPercentage(5),
-    fontWeight: "200",
     color: Colors.white,
     fontFamily: Fonts.homeScreenButton
   },
