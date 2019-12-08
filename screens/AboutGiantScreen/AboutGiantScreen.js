@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import { View, Image, ScrollView, TouchableOpacity, BackHandler } from "react-native"
 import Highlighter from "react-native-highlight-words"
 import { Audio } from "expo-av"
-import { FontAwesome } from "@expo/vector-icons"
+import { FontAwesome, Entypo } from "@expo/vector-icons"
 import BoldWords from "../../data/GiantTextWithBold"
 import Styles from "./AboutGiantStyles"
 import Colors from "../../constants/colors"
@@ -142,13 +142,13 @@ export default class AboutGiantScreen extends Component {
         <View style={Styles.container}>
           <TouchableOpacity style={Styles.buttonStyle} onPress={this.handlePlayPause}>
             {this.state.isPlaying ? (
-              <FontAwesome name="pause" size={35} color={Colors.black} />
+              <Entypo name="controller-paus" size={45} color={Colors.black} />
             ) : (
-                <FontAwesome name="play" size={35} color={Colors.black} />
+                <Entypo name="controller-play" size={45} color={Colors.black} />
               )}
           </TouchableOpacity>
           <TouchableOpacity style={Styles.buttonStyle} onPress={this.handleStop}>
-            <FontAwesome name="stop" size={35} color={Colors.black} />
+            <Entypo name="controller-stop" size={45} color={Colors.black} />
           </TouchableOpacity>
         </View>
         <View style={Styles.textContainer}>
