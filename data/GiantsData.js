@@ -125,7 +125,7 @@ export default [
     firstname: "Trine",
     location: "Avedøre",
     image: require("../assets/images/Trine.png"),
-    audio: require("../assets/sounds/Teddy.mp3"),
+    audio: require("../assets/sounds/Trine.mp3"),
     description:
       'Hill Top Trine is a recycle sculpture Thomas Dambo made as a part of the larger project "Forgotten Giants". The project consists of 6 large sculptures made in the outskirts of Copenhagen. Common for all sculptures is that they are made solely from local scrapwood and recycled materials, and made in a hidden beautiful location. This way it invites the viewers to go on a treasure hunt, not only to see the sculptures, but also to discover hidden gems in nature.\n\nHill Top Trine is resting on top of a little hill in Hvidovre, Copenhagen, where you can crawl into the palms of her hands and get a beautiful viewpoint overlooking Avedøresletten. She is named after one of the volunteers who worked on one of the other hidden giants.\n\nJust like her siblings, Hill Top Trine is made from scrapwood, branches and old pallets from Stark. The Thomas Dambo team have had help building the wooden sculpture from a handful of local volunteers.',
     region: {
