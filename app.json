@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "tfg",
+    "name": "The Forgotten Giants",
     "slug": "the-forgotten-giants",
     "privacy": "public",
     "sdkVersion": "35.0.0",
@@ -24,7 +24,10 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses the location so the user can follow along how far they are from a giant"
+      }
     }
   }
 }

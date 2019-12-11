@@ -1,21 +1,25 @@
-import { StyleSheet } from "react-native";
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen";
-import { RFPercentage } from "react-native-responsive-fontsize";
-import Colors from "../../constants/colors";
-import Fonts from "../../constants/fonts";
+import { StyleSheet } from "react-native"
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from "react-native-responsive-screen"
+import { RFPercentage } from "react-native-responsive-fontsize"
+import Colors from "../../constants/colors"
+import Fonts from "../../constants/fonts"
 
 const styles = StyleSheet.create({
-  reward_big: {
-    width: 110,
-    height: 110,
-    marginTop: "50%",
-    marginLeft: "65%"
-  },
-  reward_small: {
-    width: 70,
-    height: 70,
+  rewardBig: {
+    width: wp("40%"),
+    height: hp("18%"),
     marginTop: "3%",
-    marginLeft: "70%"
+    marginLeft: "57%",
+    resizeMode: "cover",
+    borderRadius: 20
+  },
+  rewardSmall: {
+    width: wp("20%"),
+    height: hp("10%"),
+    marginTop: "3%",
+    marginLeft: "73%",
+    resizeMode: "cover",
+    borderRadius: 20
   },
   container: {
     alignItems: "center",
@@ -23,23 +27,23 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.green
   },
-  text: {
+  rewardTextStyle: {
     color: Colors.black,
     fontFamily: Fonts.primary,
     fontSize: RFPercentage(5),
     textAlign: "center"
   },
-  rewardImage: {
-    marginTop: 35,
-    marginBottom: 5,
-    height: hp("25%"),
+  rewardImageCollection: {
     width: wp("60%"),
+    height: hp("25%"),
+    marginTop: 30,
+    marginBottom: 5,
     resizeMode: "cover",
-    borderRadius: 20,
+    borderRadius: 20
   },
   directionColumn: {
-    flexDirection: "column",
+    flexDirection: "column"
   }
-});
+})
 
-export default styles;
+export default styles

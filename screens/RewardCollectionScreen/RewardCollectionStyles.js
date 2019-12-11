@@ -1,7 +1,7 @@
-import { StyleSheet } from "react-native";
-import { RFPercentage } from "react-native-responsive-fontsize";
-import Colors from "../../constants/colors";
-import Fonts from "../../constants/fonts";
+import { StyleSheet } from "react-native"
+import { RFPercentage } from "react-native-responsive-fontsize"
+import Colors from "../../constants/colors"
+import Fonts from "../../constants/fonts"
 
 const styles = StyleSheet.create({
   containerScroll: {
@@ -12,10 +12,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: Colors.green,
-  },
-  containerReward: {
-    marginBottom: 15
+    backgroundColor: Colors.green
   },
   rewardTitle: {
     fontFamily: Fonts.primary,
@@ -24,7 +21,10 @@ const styles = StyleSheet.create({
     marginTop: "5%",
     marginBottom: 10,
     textAlign: "center"
+  },
+  containerReward: {
+    marginBottom: 15
   }
-});
+})
 
-export default styles;
+export default styles

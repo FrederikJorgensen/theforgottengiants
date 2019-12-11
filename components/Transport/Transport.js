@@ -1,13 +1,12 @@
-import { Image, Text, View } from 'react-native';
-import React from 'react';
-import Styles from "./TransportStyles";
+import React from "react"
+import { Image, Text, View } from "react-native"
+import Styles from "./TransportStyles"
 
-export const Transport = ({ img, desc }) => (
+export const Transport = ({ image, description }) => (
   <View style={Styles.column}>
     <Image
-      style={Styles.img}
-      source={img}
-    />
-    <Text style={Styles.text}> {desc} </Text>
+      style={Styles.imageStyle}
+      source={image} />
+    <Text style={Styles.textStyle}> {description} </Text>
   </View>
-);
+)

@@ -11,15 +11,14 @@ Expo
 npm install expo-cli --global
 ```
 
+Navigate to the folder in which the project is saved (change directory) 
+```bash
+cd [Path to THE PROJECT]
+```
 
 npm
 ```bash
 npm install
-```
-
-Navigate to the folder in which the project is saved (change directory) 
-```bash
-cd [Path to THE PROJECT]
 ```
 
 Start the project
@@ -30,12 +29,10 @@ npm start
 # Simulators
 
 ## iOS
-If you want to run the code on iPhone simulator, we recommend that you install Xcode from App Store.
+If you want to run the code on iPhone simulator, we recommend that you install Xcode from App Store. Once installed, click on "Run on iOS simulator" in the browser.
 
 ## Android
-
-If you want to run the code on Android simulator, we recommend that you install Android Studio. When opening the program; click on “Configure”, “AVD Manager” and “Create Virtual Device”.
+If you want to run the code on Android simulator, we recommend that you install Android Studio. When opening the program, click on “Configure”, “AVD Manager” and “Create Virtual Device”. Once this is done, click on "Run on Android device/emulator" in the browser.
 
 ## Own mobile device
-
-If you want to the code run on your own mobile device, go to app store and download “Expo-client”. Then open your camera and scan the QR code that is displayed at the tap-window in your browser.
+If you want to run the code on your own mobile device, go to App Store or Google Play Store and download “Expo” from Expo Project. When installed, open your camera and scan the QR code that is displayed at the tap-window in your browser or terminal.

@@ -1,35 +1,35 @@
-import React from "react";
-import { Text, View, Image, ImageBackground } from "react-native";
-import Styles from "./GiantStyles.js";
-import ImageData from "../../data/ImageData";
-import SmallReward from "../Reward/SmallReward";
+import React, { Component } from "react"
+import { Text, View, Image, ImageBackground } from "react-native"
+import SmallReward from "../Reward/SmallReward"
+import ImageData from "../../data/ImageData"
+import Styles from "./GiantStyles"
 
-export default class Giant extends React.Component {
+export default class Giant extends Component {
   render() {
     return (
       <View>
-        <View style={{ flexDirection: "row" }}>
+        <View style={Styles.direction}>
           <View>
             <Image
               style={Styles.locationEmoji}
-              source={ImageData.locationIcon}
-            />
+              source={ImageData.locationIcon} />
           </View>
           <View>
             <Text style={Styles.locationText}>{this.props.location}</Text>
-
           </View>
         </View>
         <ImageBackground
           source={this.props.image}
-          style={Styles.giantImage}
-          imageStyle={{ borderRadius: 20 }}>
-          <View>{this.props.isFound && <SmallReward />}</View>
+          style={Styles.giantImageStyle}
+          imageStyle={Styles.borderRadiusStyle}>
+          <View>
+            {this.props.isFound && <SmallReward />}
+          </View>
           <View style={Styles.imageTextPlacement}>
-            <Text style={Styles.imageText}>{this.props.name}</Text>
+            <Text style={Styles.imageTextStyle}>{this.props.name}</Text>
           </View>
         </ImageBackground>
       </View>
-    );
+    )
   }
 }

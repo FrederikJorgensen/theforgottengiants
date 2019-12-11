@@ -6,19 +6,19 @@ import Fonts from "../../constants/fonts"
 const styles = StyleSheet.create({
   containerScroll: {
     flexDirection: "column",
-    backgroundColor: Colors.green
+    backgroundColor: Colors.green,
   },
   container: {
-    flex: 1,
+    backgroundColor: Colors.green,
     alignItems: "center",
-    backgroundColor: Colors.green
+    margin: 10
   },
-  giantTextStyle: {
+  headline: {
+    fontSize: RFPercentage(6.5),
     fontFamily: Fonts.primary,
-    fontSize: RFPercentage(7),
-    color: Colors.white,
-    marginTop: "10%",
-    marginBottom: "10%"
+    color: Colors.black,
+    margin: "5%",
+    textAlign: "center"
   }
 })
 

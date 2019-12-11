@@ -1,13 +1,13 @@
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
-import AllGiantsScreen from "./screens/AllGiantsScreen/AllGiantsScreen";
-import HomeScreen from "./screens/HomeScreen/HomeScreen";
-import MapScreen from "./screens/MapScreen/MapScreen";
-import RewardScreen from "./screens/RewardScreen/RewardScreen";
-import AboutGiantScreen from "./screens/AboutGiantScreen/AboutGiantScreen";
-import RewardCollection from "./screens/RewardCollection/RewardCollectionScreen";
-import PracticalInfo from "./screens/PracticalInfo/PracticalInfo";
-import Colors from "./constants/colors";
+import { createAppContainer } from "react-navigation"
+import { createStackNavigator } from "react-navigation-stack"
+import HomeScreen from "./screens/HomeScreen/HomeScreen"
+import AllGiantsScreen from "./screens/AllGiantsScreen/AllGiantsScreen"
+import MapScreen from "./screens/MapScreen/MapScreen"
+import TransportInfoScreen from "./screens/TransportInfoScreen/TransportInfoScreen"
+import RewardScreen from "./screens/RewardScreen/RewardScreen"
+import AboutGiantScreen from "./screens/AboutGiantScreen/AboutGiantScreen"
+import RewardCollectionScreen from "./screens/RewardCollectionScreen/RewardCollectionScreen"
+import Colors from "./constants/colors"
 
 const AppNavigator = createStackNavigator(
   {
@@ -16,11 +16,11 @@ const AppNavigator = createStackNavigator(
     MapScreen: MapScreen,
     RewardScreen: RewardScreen,
     AboutGiantScreen: AboutGiantScreen,
-    RewardCollection: RewardCollection,
-    PracticalInfo: PracticalInfo
+    RewardCollectionScreen: RewardCollectionScreen,
+    TransportInfoScreen: TransportInfoScreen
   },
   {
-    initialRouteName: 'HomeScreen',
+    initialRouteName: "HomeScreen",
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: Colors.white,
@@ -31,6 +31,6 @@ const AppNavigator = createStackNavigator(
       }
     }
   }
-);
+)
 
-export default createAppContainer(AppNavigator);
+export default createAppContainer(AppNavigator)
